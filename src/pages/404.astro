@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+---
+<BaseLayout title="Page not found">
+  <section class="split-page">
+    <h1>Not found</h1>
+    <p>That page doesn't exist. Try the <a href={url('work')}>work</a> instead.</p>
+  </section>
+</BaseLayout>

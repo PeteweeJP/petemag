@@ -1,0 +1,8 @@
+---
+import Tile from './Tile.astro';
+
+const { entries } = Astro.props;
+---
+<div class="tile-grid">
+  {entries.map((entry) => <Tile entry={entry} />)}
+</div>

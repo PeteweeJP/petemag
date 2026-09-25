@@ -1,0 +1,28 @@
+/* Design tokens: the one place to change fonts, colors and spacing.
+   Current values approximate the Squarespace site; the new design direction
+   (docs/design/README.md) will replace them. */
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: 'PT Sans', system-ui, sans-serif;
+
+  --color-bg: #f8f8f8;
+  --color-surface: #ffffff;
+  --color-text: #333333;
+  --color-muted: #777777;
+  --color-rule: #dddddd;
+  --color-overlay: rgb(0 0 0 / 0.45);
+  --color-overlay-hover: rgb(0 0 0 / 0.7);
+  --color-on-image: #ffffff;
+
+  --tracking-wide: 0.2em;
+  --tracking-xwide: 0.4em;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+
+  --header-height: 120px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+}

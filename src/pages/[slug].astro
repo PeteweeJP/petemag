@@ -1,0 +1,51 @@
+---
+// Every case study and gallery lives at the site root (e.g. /comcast-business),
+// matching the current Squarespace URLs so links and search rankings carry over.
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MediaStack from '../components/MediaStack.astro';
+import TileGrid from '../components/TileGrid.astro';
+import { getSection } from '../lib/content';
+import { url } from '../lib/url';
+import type { Section } from '../data/site';
+
+export async function getStaticPaths() {
+  const sections: Section[] = ['work', 'apps', 'illustration'];
+  const paths = [];
+  for (const section of sections) {
+    const entries = await getSection(section);
+    entries.forEach((entry, i) => {
+      const prev = entries[(i - 1 + entries.length) % entries.length];
+      const next = entries[(i + 1) % entries.length];
+      paths.push({ params: { slug: entry.id }, props: { entry, section, entries, prev, next } });
+    });
+  }
+  return paths;
+}
+
+const { entry, section, entries, prev, next } = Astro.props;
+const { title, role, media, seoDescription, tile } = entry.data;
+const links = entry.data.links.filter((l) => l.url); // skip links whose URL is still a TODO
+const { Content } = await render(entry);
+---
+<BaseLayout title={title} description={seoDescription} section={section} image={media[0]?.src ?? tile.image}>
+  <article class="detail">
+    <nav class="detail__pager" aria-label="Project">
+      <a href={url(prev.id)} rel="prev" aria-label={`Previous: ${prev.data.title}`}>‹</a>
+      <a href={url(next.id)} rel="next" aria-label={`Next: ${next.data.title}`}>›</a>
+    </nav>
+    <div class="detail__text">
+      <h1>{title}</h1>
+      {role && <p class="detail__role">{role}</p>}
+      <div class="detail__body"><Content /></div>
+      {links.length > 0 && (
+        <div class="detail__links">
+          <h2>Links</h2>
+          <ul>{links.map((l) => <li><a href={l.url} rel="noopener">{l.label}</a></li>)}</ul>
+        </div>
+      )}
+    </div>
+    <MediaStack items={media} />
+  </article>
+  <TileGrid entries={entries} />
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+import { url } from '../lib/url';
+
+const { section } = Astro.props;
+---
+<header class="site-header">
+  <nav aria-label="Main">
+    <ul>
+      <li><a href={url()}>Home</a></li>
+      {site.nav.map((item) => (
+        <li>
+          <a href={url(item.href)} aria-current={section === item.section ? 'true' : undefined}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <a class="wordmark" href={url()}>{site.name}</a>
+</header>

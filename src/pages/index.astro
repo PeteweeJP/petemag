@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeSplit from '../components/home/HomeSplit.astro';
+import { site } from '../data/site';
+
+// Home designs, switchable from site.ts. See src/components/home/README.md.
+const variants = { split: HomeSplit };
+const Home = variants[site.home];
+---
+<BaseLayout header={false}>
+  <Home />
+</BaseLayout>

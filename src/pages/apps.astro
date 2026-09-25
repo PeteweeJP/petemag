@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TileGrid from '../components/TileGrid.astro';
+import { getSection } from '../lib/content';
+
+const entries = await getSection('apps');
+---
+<BaseLayout title="Digital Product" section="apps">
+  <h1 class="visually-hidden">Digital Product</h1>
+  <TileGrid entries={entries} />
+</BaseLayout>

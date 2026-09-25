@@ -1,0 +1,21 @@
+---
+// One image tile in a section grid. Hover/focus reveals the detail page title.
+import { url } from '../lib/url';
+import { hasAsset } from '../lib/content';
+
+const { entry } = Astro.props;
+const { title, tile } = entry.data;
+const bg = hasAsset(tile.image) ? `background-image: url('${url(tile.image)}')` : undefined;
+---
+<a class="tile" href={url(entry.id)} style={bg}>
+  <span class="tile__face">
+    {hasAsset(tile.logo)
+      ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} loading="lazy" />
+      : <span class="tile__label">{tile.label}</span>}
+    {tile.subtitle && <span class="tile__subtitle">{tile.subtitle}</span>}
+  </span>
+  <span class="tile__hover" aria-hidden="true">
+    <span class="tile__title">{title}</span>
+    <span class="tile__view">— view —</span>
+  </span>
+</a>
