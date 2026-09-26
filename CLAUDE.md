@@ -28,6 +28,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 ## Conventions
 
+- **Planning docs are local-only** (in `.gitignore`): `docs/reference/`, `docs/design/`, `docs/decisions.md`, `docs/brand-voice.md`, `docs/seo.md`. Read and update them as usual, but they won't appear in commits or on GitHub. Never `git add -f` them.
 - **Content lives in markdown, not components.** Never hard-code project copy in `.astro` files.
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
 - **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break. Use `pagePath(Astro.url)` for the current page's clean path.

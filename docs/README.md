@@ -2,6 +2,8 @@
 
 Planning and reference material. None of this is published to the site.
 
+**Local-only:** everything below except `how-to-edit.md` and this README is in `.gitignore`. Those files live only on Pete's Mac and are **not backed up to GitHub**, so keep a Time Machine or iCloud backup.
+
 | File | What it's for |
 |---|---|
 | `how-to-edit.md` | Step-by-step guide: adding images, editing copy, fonts/colors, previewing, publishing. |
