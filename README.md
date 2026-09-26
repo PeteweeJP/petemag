@@ -5,6 +5,7 @@ Source for [petemag.com](https://petemag.com), the portfolio of Peter Magulak. B
 - **Edit a project:** `src/content/work/<slug>.md` (or `apps/`, `illustration/`)
 - **Add images:** `public/images/<section>/<slug>/`
 - **Change site-wide info:** `src/data/site.ts`
+- **Step-by-step guide:** [`docs/how-to-edit.md`](docs/how-to-edit.md)
 - **Map of everything:** [`CLAUDE.md`](CLAUDE.md)
 
 ## Run locally

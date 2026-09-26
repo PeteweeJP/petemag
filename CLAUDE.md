@@ -8,6 +8,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 | If the task is about… | Go to |
 |---|---|
+| How Pete edits images, copy, fonts and publishes (his reference guide) | `docs/how-to-edit.md`. Keep it current when workflows change |
 | What the old site looked like / what's on each page | `docs/reference/petemag-site-overview.md` (source of truth for migrated content) |
 | Why something was decided | `docs/decisions.md` |
 | Tone of copy | `docs/brand-voice.md` |
