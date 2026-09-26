@@ -149,6 +149,7 @@ Check progress in the repo's **Actions** tab (green check = live).
 | `Permission denied` or `403` | The token is missing a permission. It needs **Contents** and **Workflows** set to *Read and write*, with access to the `petemag` repo. |
 | `name has already been taken` (making a token) | Use a new token name, or regenerate the existing token. |
 | Red ✗ on the deploy step | Settings → Pages → Source must be "GitHub Actions". Then click "Re-run all jobs". |
+| Deploy shows **Startup failure**: "actions … are not allowed … must be from a repository owned by PeteweeJP" | Repo → Settings → Actions → General → choose "Allow PeteweeJP, and select non-PeteweeJP, actions", tick **Allow actions created by GitHub** → Save. Then Actions → Deploy to GitHub Pages → **Run workflow**. |
 | Build fails with `These photos contain GPS location data` | A photo still says where it was taken. Open it in Preview → Tools → Show Inspector → ⓘ → GPS → **Remove Location Info**, save, and push again. Or ask Claude. |
 
 ### Renewing the token (when it expires or is replaced)
