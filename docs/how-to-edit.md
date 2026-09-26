@@ -82,6 +82,19 @@ The description goes here, as plain paragraphs.   ← edit freely
 
 ---
 
+## 2b. Writing case-study copy (drafts)
+
+Every project has a copy file in **`drafts/work/`** or **`drafts/apps/`**, named after its page. It works like the image folders:
+
+1. Open the file (⌘P, type the project name, e.g. `paradise`).
+2. Write below the `---` line in the case-study format (`drafts/_template.md`).
+3. Change `Status: draft` to `Status: ready`, then save.
+4. Tell Claude **"publish my ready drafts"**.
+
+Full details are in `drafts/README.md`. The drafts folder lives only on your Mac and is included in the backup zip.
+
+---
+
 ## 3. Changing fonts and colors
 
 Colors, spacing and font names are all in `src/styles/tokens.css`:
@@ -177,14 +190,14 @@ The token is a fine-grained token that can only touch the `petemag` repo. Your M
 | What | Backed up by |
 |---|---|
 | Site content, code, `CLAUDE.md`, this guide | GitHub (every push) |
-| Planning docs: `docs/reference/`, `docs/design/`, `decisions.md`, `brand-voice.md`, `seo.md` | **Only your Mac.** Keep a zip copy somewhere else. |
+| Copy drafts (`drafts/`) and planning docs: `docs/reference/`, `docs/design/`, `decisions.md`, `brand-voice.md`, `seo.md` | **Only your Mac.** Keep a zip copy somewhere else. |
 | Images in `public/images/` | GitHub, once committed |
 
 ### Refresh the planning-docs backup
 Ask Claude: "zip my planning docs." Or run this in Terminal:
 ```
 cd ~/Desktop/MySite
-zip -r ~/Downloads/petemag-planning-docs-$(date +%F).zip docs/reference docs/design docs/decisions.md docs/brand-voice.md docs/seo.md -x '*.DS_Store'
+zip -r ~/Downloads/petemag-planning-docs-$(date +%F).zip drafts docs/reference docs/design docs/decisions.md docs/brand-voice.md docs/seo.md -x '*.DS_Store'
 ```
 Copy the zip to iCloud Drive, Google Drive or a USB drive. A backup that only lives on the same Mac doesn't help if the Mac dies.
 
@@ -195,7 +208,7 @@ Copy the zip to iCloud Drive, Google Drive or a USB drive. A backup that only li
 4. Choose where to put it (e.g. Desktop). VS Code creates a `petemag` folder there.
 5. Click **Open** when VS Code asks.
 6. **Terminal → New Terminal**, then run `npm install`.
-7. Unzip your planning-docs backup and drag its `docs/` contents into the project's `docs/` folder.
+7. Unzip your planning-docs backup. Drag its `docs/` contents into the project's `docs/` folder, and its `drafts/` folder into the project.
 8. The first `git push` asks for your GitHub username and a token (see section 5).
 
 You don't need to clone on this Mac: `~/Desktop/MySite` is already your connected copy.

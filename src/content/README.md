@@ -41,6 +41,7 @@ Description paragraphs in plain markdown.
 The content is checked on every build. A mistake stops the build with a message naming the file and field, such as `links.0.url: must be a full http:// or https:// URL`. Links must start with `https://`, image paths with `images/`, and Vimeo IDs are just the number.
 
 ## Case-study format (the standard for every project)
+Pete writes copy in `drafts/` (see `drafts/README.md`), and Claude applies it here.
 New case-study copy follows the Comcast Business page, using the template **`work/_case-study-template.md`**. It never publishes, because files starting with `_` are ignored. The sections are: headline → Executive Summary → Skill Matrix table → Key Initiatives (A/B/C) → Workflow steps. The role shows above the title automatically, so the copy never repeats it. Put search text in `seoDescription` and skills in `keywords`.
 
 ## Tables

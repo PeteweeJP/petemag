@@ -14,6 +14,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Tone of copy | `docs/brand-voice.md` |
 | Titles, meta descriptions, URLs, domain cutover | `docs/seo.md` |
 | Visual direction, fonts, colors | `docs/design/README.md`, then `src/styles/tokens.css` |
+| Pete's copy drafts ("publish my ready drafts") | `drafts/<work\|apps>/<slug>.md` (local-only, see `drafts/README.md`) |
 | Editing a case study's text, role, links or image list | `src/content/<work\|apps\|illustration>/<slug>.md` |
 | Content fields (frontmatter schema) | `src/content.config.ts`, explained in `src/content/README.md` |
 | Adding image files | `public/images/<section>/<slug>/` (see `public/images/README.md`) |
@@ -28,7 +29,12 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 ## Conventions
 
-- **Planning docs are local-only** (in `.gitignore`): `docs/reference/`, `docs/design/`, `docs/decisions.md`, `docs/brand-voice.md`, `docs/seo.md`. Read and update them as usual, but they won't appear in commits or on GitHub. Never `git add -f` them.
+- **Planning docs and drafts are local-only** (in `.gitignore`): `drafts/`, `docs/reference/`, `docs/design/`, `docs/decisions.md`, `docs/brand-voice.md`, `docs/seo.md`. Read and update them as usual, but they won't appear in commits or on GitHub. Never `git add -f` them.
+- **Drafts workflow:** Pete writes copy in `drafts/<section>/<slug>.md` (header: Status / Role / Title / Search description / Skills, then `---`, then body). When he says "publish my ready drafts", apply every file with `Status: ready`:
+  - Header → frontmatter: Role → `role`, Title → `title`, Search description → `seoDescription`, Skills → `keywords`. Leave tile, media, order, links and slugVerified as they are. Blank header fields mean no change.
+  - Body → markdown body, structured per the case-study format below.
+  - Build, then show the preview. After publishing, set the draft's status to `published YYYY-MM-DD`.
+  - `drafts/` is git-ignored. Never add it to commits.
 - **Case-study format:** Pete wants every case study in the Comcast Business format. When he sends new copy, structure it from `src/content/work/_case-study-template.md` (headline, Executive Summary, Skill Matrix table, Key Initiatives, Workflow steps). Role goes in frontmatter (it shows above the title, never repeated in the body). Any JSON-LD he pastes goes into `seoDescription` + `keywords`, not onto the page. Keep his wording and only fix grammar. Say what you changed.
 - **Content lives in markdown, not components.** Never hard-code project copy in `.astro` files.
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
