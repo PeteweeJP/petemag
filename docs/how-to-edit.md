@@ -112,7 +112,19 @@ npm install        # first time only
 npm run dev
 ```
 
-Open http://localhost:4321/petemag. The preview updates each time you save a file. Press Ctrl+C in Terminal to stop it.
+Open http://localhost:4321/petemag. The preview updates each time you save a file.
+
+Astro may run the preview **in the background**, handing the terminal straight back. It keeps running until you stop it or restart the Mac. These work either way (run them in `~/Desktop/MySite`):
+
+| To… | Run |
+|---|---|
+| Check whether it's running | `npx astro dev status` |
+| Stop it | `npx astro dev stop` (or Ctrl+C if the terminal is still busy with it) |
+| See errors if the page won't load | `npx astro dev logs` |
+
+**`ERR_CONNECTION_REFUSED` in the browser** means the preview isn't running. Run `npm run dev` again.
+
+To see exactly what the live site will do, including its security policy, run `npm run build && npm run preview` instead.
 
 If a project file has a mistake, the terminal shows an error naming the file and the field. For example, `links.0.url: must be a full http:// or https:// URL` means the first link in that file is missing `https://`.
 

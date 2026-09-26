@@ -40,11 +40,12 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 ## Commands
 
-Requires Node 22.12+ (not yet installed on Pete's Mac: `brew install node` or nodejs.org).
+Requires Node 22.12+ (Pete's Mac has Node 24 at /usr/local/bin).
 
 ```
 npm install      # first time only
-npm run dev      # local preview at http://localhost:4321/petemag/
+npm run dev      # local preview at http://localhost:4321/petemag (Astro 7 may detach it to the background;
+                 # manage with `npx astro dev status | stop | logs`)
 npm run build    # production build into dist/
 npm run check    # type and content check (CI runs this before every deploy)
 ```
