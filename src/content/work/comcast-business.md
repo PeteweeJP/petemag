@@ -27,7 +27,7 @@ keywords: ["UX Design", "UI Design", "Design Systems", "A/B Testing", "User Test
 slugVerified: true
 ---
 
-## Enterprise Design Leadership & Web Ecosystem Optimization
+## Small Business Design Leadership & Web Ecosystem Optimization
 
 **Role:** Creative Director<br>
 **Core Domain:** UX/UI Design, Creative Direction, Digital Strategy, Design Systems<br>

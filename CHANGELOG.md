@@ -3,6 +3,8 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Comcast Business Enterprise: new case-study copy from drafts (role Creative Director, User Journey Scope, search description, skills).
+- Comcast Business headline: "Small Business Design Leadership & Web Ecosystem Optimization".
 - Added Claude routines: skills `/publish-drafts`, `/add-images`, `/release`, and a read-only `petemag-reviewer` agent.
 - Added `npm run audit` (scripts/audit.mjs): titles, descriptions, h1s, alt text, links, JSON-LD, canonicals, AA contrast, accent use, local-only files. Runs in CI after the build.
 - Fixed: auto meta descriptions had become "Role: …" on 27 pages (caught by the new audit); they now use the first real sentence.

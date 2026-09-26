@@ -69,6 +69,8 @@ npm run check    # type and content check (CI runs this before every deploy)
 npm run audit    # after build: titles, descriptions, h1s, alt text, links, JSON-LD, contrast, local-only files
 ```
 
+Running `npm run build` while the dev server is up can leave the preview serving stale content. Before giving Pete a preview link, `curl` the page and confirm the change is there; if it isn't, restart the server (`npx astro dev stop`, then `npm run dev`).
+
 Don't delete `.astro/` while the dev server is running: it holds the content cache and the server's status file, so pages 404 and `astro dev status` loses track. If you must, restart the server afterwards (`kill` its pid, then `npm run dev`).
 
 Pushing to `main` builds and deploys automatically via GitHub Actions.
