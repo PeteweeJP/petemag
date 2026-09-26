@@ -145,7 +145,53 @@ Check progress in the repo's **Actions** tab (green check = live).
 **Push problems**
 | Symptom | Fix |
 |---|---|
-| `Password authentication is not supported` | Paste a token (starts with `ghp_`) at the Password prompt, not your GitHub password. Make one at github.com/settings/tokens/new with `repo` + `workflow` ticked. |
-| `note has already been taken` (making a token) | Use a new note name, or regenerate the existing token. |
-| `without workflow scope` | The token needs the `workflow` box ticked. |
+| `Password authentication is not supported` or `Invalid username or token` | Paste your token (starts with `github_pat_`) at the Password prompt, not your GitHub password. Expired? See **Renewing the token** below. |
+| `Permission denied` or `403` | The token is missing a permission. It needs **Contents** and **Workflows** set to *Read and write*, with access to the `petemag` repo. |
+| `name has already been taken` (making a token) | Use a new token name, or regenerate the existing token. |
 | Red ✗ on the deploy step | Settings → Pages → Source must be "GitHub Actions". Then click "Re-run all jobs". |
+| Build fails with `These photos contain GPS location data` | A photo still says where it was taken. Open it in Preview → Tools → Show Inspector → ⓘ → GPS → **Remove Location Info**, save, and push again. Or ask Claude. |
+
+### Renewing the token (when it expires or is replaced)
+The token is a fine-grained token that can only touch the `petemag` repo. Your Mac stores it in Keychain, and Claude's pushes use the same stored token.
+
+1. Go to **github.com/settings/personal-access-tokens** → your token → **Regenerate token**, or create a new one:
+   - **Repository access:** Only select repositories → `petemag`
+   - **Permissions → Repository:** Contents = *Read and write*, Workflows = *Read and write* (Metadata = Read-only is added automatically)
+2. Copy the new token (starts with `github_pat_`).
+3. Clear the old one from your Mac:
+   ```
+   printf "protocol=https\nhost=github.com\n\n" | git credential-osxkeychain erase
+   ```
+4. Run `git push` in `~/Desktop/MySite`. Username: `PeteweeJP`; Password: paste the token (⌘V, nothing shows) → Enter.
+5. `Everything up-to-date` (or a normal push) means it worked, and Claude can push again.
+
+---
+
+## 6. Backups and setting up on another Mac
+
+### What's backed up where
+| What | Backed up by |
+|---|---|
+| Site content, code, `CLAUDE.md`, this guide | GitHub (every push) |
+| Planning docs: `docs/reference/`, `docs/design/`, `decisions.md`, `brand-voice.md`, `seo.md` | **Only your Mac.** Keep a zip copy somewhere else. |
+| Images in `public/images/` | GitHub, once committed |
+
+### Refresh the planning-docs backup
+Ask Claude: "zip my planning docs." Or run this in Terminal:
+```
+cd ~/Desktop/MySite
+zip -r ~/Downloads/petemag-planning-docs-$(date +%F).zip docs/reference docs/design docs/decisions.md docs/brand-voice.md docs/seo.md -x '*.DS_Store'
+```
+Copy the zip to iCloud Drive, Google Drive or a USB drive. A backup that only lives on the same Mac doesn't help if the Mac dies.
+
+### Set up the project on a new Mac (clone)
+1. Install **VS Code**, **Node** (nodejs.org, LTS) and **Git** (run `git --version` in Terminal; macOS offers to install it).
+2. In VS Code: **⌘⇧P** → type **Git: Clone** → Enter.
+3. Paste `https://github.com/PeteweeJP/petemag.git` → Enter.
+4. Choose where to put it (e.g. Desktop). VS Code creates a `petemag` folder there.
+5. Click **Open** when VS Code asks.
+6. **Terminal → New Terminal**, then run `npm install`.
+7. Unzip your planning-docs backup and drag its `docs/` contents into the project's `docs/` folder.
+8. The first `git push` asks for your GitHub username and a token (see section 5).
+
+You don't need to clone on this Mac: `~/Desktop/MySite` is already your connected copy.

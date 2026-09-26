@@ -33,6 +33,11 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
 - **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break. Use `pagePath(Astro.url)` for the current page's clean path.
 - **Security policy (CSP):** every page only loads scripts, styles, fonts, frames and images from sources listed in `astro.config.mjs` → `security.csp`. Adding a third-party embed or font service means adding its domain there, or it will silently fail on the live site (the CSP isn't enforced in `npm run dev`; test with `npm run build && npm run preview`). Don't use inline `style="…"` attributes or `is:inline` scripts; the CSP blocks them. (The JSON-LD `<script type="application/ld+json">` in `BaseLayout` is data, not code, and is the one allowed exception.)
+- **Security setup:**
+  - Commits in this repo are signed as `Peter Magulak <268468626+PeteweeJP@users.noreply.github.com>` (repo-local git config) so no personal email or Mac name leaks. Don't change it.
+  - GitHub Actions are pinned to commit SHAs (version in a comment); Dependabot proposes updates. Keep them pinned.
+  - `src/integrations/image-privacy.mjs` fails the build if a JPEG has GPS data.
+  - Pushing uses Pete's fine-grained token (petemag repo only) from macOS Keychain. If a push fails on authentication, don't retry in a loop: have Pete follow "Renewing the token" in `docs/how-to-edit.md`.
 - **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers. Keep those rules when editing the schema.
 - **Change styles through tokens** in `tokens.css` first. Add new CSS to `global.css` only for new layouts.
 - Unknown or unreadable copy is marked `<!-- TODO … -->` in content files. Don't invent facts; ask Pete.
