@@ -1,10 +1,17 @@
 ---
-// Wrapper for markdown pages in src/pages (e.g. resume.md). Frontmatter: title, description, section.
+// Wrapper for markdown pages in src/pages (e.g. resume.md).
+// Frontmatter: title, description, section, and `profile: true` for pages about Pete himself.
 import BaseLayout from './BaseLayout.astro';
+import { url, pagePath } from '../lib/url';
+import { personId } from '../lib/schema';
 
-const { title, description, section } = Astro.props.frontmatter;
+const { title, description, section, profile } = Astro.props.frontmatter;
+const siteUrl = new URL(url(), Astro.site);
+const schema = profile
+  ? [{ '@type': 'ProfilePage', name: title, url: new URL(pagePath(Astro.url), Astro.site).href, mainEntity: { '@id': personId(siteUrl) } }]
+  : [];
 ---
-<BaseLayout title={title} description={description} section={section}>
+<BaseLayout title={title} description={description} section={section} type={profile ? 'profile' : 'website'} schema={schema}>
   <article class="prose-page">
     <slot />
   </article>

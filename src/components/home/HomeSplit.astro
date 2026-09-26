@@ -3,13 +3,15 @@
 // Kept as a fallback while the new home is designed. Select it in src/data/site.ts (home: 'split').
 import { site } from '../../data/site';
 import { url } from '../../lib/url';
-import { hasAsset } from '../../lib/content';
+import { hasAsset, imageDims } from '../../lib/content';
 
 const portrait = 'images/home/portrait.jpg';
 ---
 <section class="home">
   <div class="home__photo">
-    {hasAsset(portrait) && <img src={url(portrait)} alt="Portrait of Peter Magulak" />}
+    {hasAsset(portrait) && (
+      <img src={url(portrait)} alt="Portrait of Peter Magulak" {...imageDims(portrait)} fetchpriority="high" />
+    )}
   </div>
   <div class="home__intro">
     <h1 class="home__name">{site.name}</h1>

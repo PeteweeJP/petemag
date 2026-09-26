@@ -5,32 +5,64 @@ import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MediaStack from '../components/MediaStack.astro';
 import TileGrid from '../components/TileGrid.astro';
-import { getSection } from '../lib/content';
+import { getSection, describe, hasAsset, type Entry } from '../lib/content';
 import { url } from '../lib/url';
-import type { Section } from '../data/site';
+import { breadcrumbs, personId } from '../lib/schema';
+import { sections, type Section } from '../data/site';
 
 export async function getStaticPaths() {
-  const sections: Section[] = ['work', 'apps', 'illustration'];
+  const all: Section[] = ['work', 'apps', 'illustration'];
   const paths = [];
-  for (const section of sections) {
+  for (const section of all) {
     const entries = await getSection(section);
-    entries.forEach((entry, i) => {
+    for (const [i, entry] of entries.entries()) {
       const prev = entries[(i - 1 + entries.length) % entries.length];
       const next = entries[(i + 1) % entries.length];
       paths.push({ params: { slug: entry.id }, props: { entry, section, entries, prev, next } });
-    });
+    }
   }
   return paths;
 }
 
+interface Props {
+  entry: Entry;
+  section: Section;
+  entries: Entry[];
+  prev: Entry;
+  next: Entry;
+}
+
 const { entry, section, entries, prev, next } = Astro.props;
-const { title, role, media, seoDescription, tile } = entry.data;
+const { title, client, role, media, tile } = entry.data;
 const links = entry.data.links.filter((l) => l.url); // skip links whose URL is still a TODO
+const description = describe(entry);
+const shareImage = media.find((m) => hasAsset(m.src))?.src ?? tile.image;
 const { Content } = await render(entry);
+
+const siteUrl = new URL(url(), Astro.site);
+const pageUrl = new URL(url(entry.id), Astro.site);
+const schema = [
+  {
+    '@type': 'CreativeWork',
+    '@id': `${pageUrl.href}#work`,
+    name: title,
+    description,
+    url: pageUrl.href,
+    creator: { '@id': personId(siteUrl) },
+    ...(section === 'illustration' ? { genre: 'Illustration' } : { sourceOrganization: { '@type': 'Organization', name: client } }),
+    ...(role && { creditText: role }),
+    ...(hasAsset(shareImage) && { image: new URL(url(shareImage), Astro.site).href }),
+  },
+  breadcrumbs([
+    { name: 'Home', url: siteUrl },
+    { name: sections[section].title, url: new URL(url(section), Astro.site) },
+    { name: title, url: pageUrl },
+  ]),
+];
 ---
-<BaseLayout title={title} description={seoDescription} section={section} image={media[0]?.src ?? tile.image}>
+<BaseLayout title={title} description={description} section={section} image={shareImage} type="article" schema={schema}>
   <article class="detail">
-    <nav class="detail__pager" aria-label="Project">
+    <nav class="detail__pager" aria-label="Previous and next project">
       <a href={url(prev.id)} rel="prev" aria-label={`Previous: ${prev.data.title}`}>‹</a>
       <a href={url(next.id)} rel="next" aria-label={`Next: ${next.data.title}`}>›</a>
     </nav>
@@ -41,11 +73,11 @@ const { Content } = await render(entry);
       {links.length > 0 && (
         <div class="detail__links">
           <h2>Links</h2>
-          <ul>{links.map((l) => <li><a href={l.url} rel="noopener">{l.label}</a></li>)}</ul>
+          <ul>{links.map((l) => <li><a href={l.url} rel="noopener noreferrer">{l.label}</a></li>)}</ul>
         </div>
       )}
     </div>
     <MediaStack items={media} />
   </article>
-  <TileGrid entries={entries} />
+  <TileGrid entries={entries} heading={`More in ${sections[section].title}`} />
 </BaseLayout>

@@ -112,9 +112,9 @@ npm install        # first time only
 npm run dev
 ```
 
-Open http://localhost:4321/petemag/. The preview updates each time you save a file. Press Ctrl+C in Terminal to stop it.
+Open http://localhost:4321/petemag. The preview updates each time you save a file. Press Ctrl+C in Terminal to stop it.
 
-If a project file has a mistake, the terminal shows an error naming the file and line.
+If a project file has a mistake, the terminal shows an error naming the file and the field. For example, `links.0.url: must be a full http:// or https:// URL` means the first link in that file is missing `https://`.
 
 ---
 

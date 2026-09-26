@@ -2,9 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { url } from '../lib/url';
 ---
-<BaseLayout title="Page not found">
+<BaseLayout title="Page not found" description="This page doesn't exist on Peter Magulak's portfolio." noindex>
   <section class="split-page">
     <h1>Not found</h1>
     <p>That page doesn't exist. Try the <a href={url('work')}>work</a> instead.</p>
   </section>
 </BaseLayout>
+
+<script>
+  // Old links like /paradise/ (trailing slash, as on Squarespace) land here because pages are
+  // served at /paradise. Forward them to the slash-free address.
+  const home = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  const path = location.pathname;
+  if (path !== home && path.endsWith('/')) {
+    location.replace(path.replace(/\/+$/, '') + location.search + location.hash);
+  }
+</script>

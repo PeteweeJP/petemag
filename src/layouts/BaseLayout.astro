@@ -3,20 +3,42 @@ import '../styles/tokens.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import { site } from '../data/site';
-import { url } from '../lib/url';
+import { url, pagePath } from '../lib/url';
+import { hasAsset } from '../lib/content';
+import { person, toJsonLd } from '../lib/schema';
 
 interface Props {
   title?: string; // page name; the "— The Portfolio of Peter Magulak" suffix is added here
   description?: string;
   section?: string; // active nav item
-  image?: string; // social share image, path under public/
+  image?: string; // social share image, path under public/ (ignored if the file doesn't exist yet)
+  type?: 'website' | 'article' | 'profile';
+  schema?: object[]; // extra schema.org items for this page
+  noindex?: boolean;
   header?: boolean;
 }
 
-const { title, description = site.description, section, image, header = true } = Astro.props;
+const {
+  title,
+  description = site.description,
+  section,
+  image,
+  type = 'website',
+  schema = [],
+  noindex = false,
+  header = true,
+} = Astro.props;
+
 const fullTitle = title ? `${title} — ${site.titleSuffix}` : site.homeTitle;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? new URL(url(image), Astro.site) : undefined;
+const siteUrl = new URL(url(), Astro.site); // home page, e.g. https://peteweejp.github.io/petemag/
+const canonical = new URL(pagePath(Astro.url), Astro.site);
+const ogImage = hasAsset(image) ? new URL(url(image), Astro.site) : undefined;
+
+const jsonLd = toJsonLd([
+  { '@type': 'WebSite', '@id': new URL('#website', siteUrl).href, url: siteUrl.href, name: site.titleSuffix, author: { '@id': new URL('#person', siteUrl).href } },
+  person(siteUrl),
+  ...schema,
+]);
 ---
 <!doctype html>
 <html lang="en">
@@ -25,14 +47,19 @@ const ogImage = image ? new URL(url(image), Astro.site) : undefined;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
-    {!site.indexable && <meta name="robots" content="noindex" />}
-    <meta property="og:type" content="website" />
+    {(noindex || !site.indexable) && <meta name="robots" content="noindex" />}
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <meta property="og:site_name" content={site.titleSuffix} />
+    <meta property="og:type" content={type} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     {ogImage && <meta property="og:image" content={ogImage} />}
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+
     <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={url('sitemap-index.xml')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,10 +68,12 @@ const ogImage = image ? new URL(url(image), Astro.site) : undefined;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap"
     />
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     {header && <Header section={section} />}
-    <main>
+    <main id="main">
       <slot />
     </main>
   </body>

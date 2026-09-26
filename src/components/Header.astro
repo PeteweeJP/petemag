@@ -1,8 +1,11 @@
 ---
 import { site } from '../data/site';
-import { url } from '../lib/url';
+import { url, pagePath } from '../lib/url';
 
 const { section } = Astro.props;
+// "page" on the section's own index page; "true" on a page inside that section (e.g. a case study).
+const current = (item: (typeof site.nav)[number]) =>
+  section !== item.section ? undefined : pagePath(Astro.url) === url(item.href) ? 'page' : 'true';
 ---
 <header class="site-header">
   <nav aria-label="Main">
@@ -10,7 +13,7 @@ const { section } = Astro.props;
       <li><a href={url()}>Home</a></li>
       {site.nav.map((item) => (
         <li>
-          <a href={url(item.href)} aria-current={section === item.section ? 'true' : undefined}>{item.label}</a>
+          <a href={url(item.href)} aria-current={current(item)}>{item.label}</a>
         </li>
       ))}
     </ul>

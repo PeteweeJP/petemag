@@ -2,6 +2,7 @@
 layout: ../layouts/PageLayout.astro
 title: Resume
 section: resume
+profile: true
 description: Résumé of Peter Magulak, Creative Director of Experience Design at Comcast.
 ---
 

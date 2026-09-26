@@ -2,61 +2,67 @@
 // Right column of a case study. Missing images/videos render as labeled placeholders.
 // Images with `zoom: true` open full size in a lightbox when clicked.
 import { url } from '../lib/url';
-import { hasAsset } from '../lib/content';
+import { hasAsset, imageDims } from '../lib/content';
+import type { Entry } from '../lib/content';
 
-const { items = [] } = Astro.props;
+interface Props {
+  items: Entry['data']['media'];
+}
+
+const { items } = Astro.props;
 const hasZoom = items.some((item) => item.zoom && hasAsset(item.src));
 ---
 <div class="media-stack">
-  {items.map((item) =>
-    item.type === 'video' ? (
-      item.vimeo ? (
+  {items.map((item) => {
+    if (item.type === 'video') {
+      return item.vimeo ? (
         <div class="media-video">
           <iframe
             src={`https://player.vimeo.com/video/${item.vimeo}?dnt=1`}
             title={item.alt}
             loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
             allow="fullscreen; picture-in-picture"
           />
         </div>
       ) : (
         <div class="media-placeholder">Video: {item.alt}<br /><small>add a Vimeo ID</small></div>
-      )
-    ) : hasAsset(item.src) ? (
-      item.zoom ? (
-        <button class="zoomable" type="button" aria-label={`Enlarge: ${item.alt}`}>
-          <img src={url(item.src)} alt={item.alt} loading="lazy" decoding="async" />
-        </button>
-      ) : (
-        <img src={url(item.src)} alt={item.alt} loading="lazy" decoding="async" />
-      )
-    ) : (
-      <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>
-    )
-  )}
+      );
+    }
+    if (!hasAsset(item.src)) {
+      return <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>;
+    }
+    const img = <img src={url(item.src)} alt={item.alt} {...imageDims(item.src)} loading="lazy" decoding="async" />;
+    return item.zoom ? (
+      <button class="zoomable" type="button" aria-label={`Enlarge image: ${item.alt}`}>{img}</button>
+    ) : img;
+  })}
 </div>
 
 {hasZoom && (
   <dialog class="lightbox" aria-label="Enlarged image">
     <form method="dialog"><button class="lightbox__close" aria-label="Close">×</button></form>
-    <img alt="" />
   </dialog>
 )}
 
 <script>
   const dialog = document.querySelector<HTMLDialogElement>('dialog.lightbox');
-  const full = dialog?.querySelector('img');
-  if (dialog && full) {
+  if (dialog) {
+    const full = document.createElement('img');
+    dialog.append(full);
     document.querySelectorAll<HTMLButtonElement>('.zoomable').forEach((button) => {
       button.addEventListener('click', () => {
-        const img = button.querySelector('img')!;
+        const img = button.querySelector('img');
+        if (!img) return;
         full.src = img.src;
         full.alt = img.alt;
         dialog.showModal();
         dialog.scrollTop = 0;
       });
     });
-    // Click on the backdrop closes it.
-    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    // Clicking the dark backdrop closes it (Escape and the × button already do).
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
   }
 </script>

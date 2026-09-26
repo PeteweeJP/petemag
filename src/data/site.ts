@@ -2,6 +2,8 @@
 export const site = {
   name: 'Peter Magulak',
   role: 'User Experience / Creative Direction',
+  jobTitle: 'Creative Director, Experience Design', // used in structured data
+  employer: 'Comcast',
   tagline: 'Idea guy. User Experience. Strategy. Design. Branding. Social.',
   titleSuffix: 'The Portfolio of Peter Magulak',
   homeTitle: 'Creative Director Peter Magulak',
@@ -24,3 +26,10 @@ export const site = {
 } as const;
 
 export type Section = 'work' | 'apps' | 'illustration';
+
+// Section index pages: page title and a one-line summary (used for meta descriptions and llms.txt).
+export const sections: Record<Section, { title: string; summary: string }> = {
+  work: { title: 'My Work', summary: 'Case studies in UX, product design, branding and advertising campaigns.' },
+  apps: { title: 'Digital Product', summary: 'App and interactive work, including augmented reality and Facebook Canvas.' },
+  illustration: { title: 'Illustration', summary: 'Personal illustration: fan movie posters and character art.' },
+};

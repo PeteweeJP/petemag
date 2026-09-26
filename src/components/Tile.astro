@@ -1,16 +1,23 @@
 ---
 // One image tile in a section grid. Hover/focus reveals the detail page title.
+// The background is a real lazy-loaded <img> (not CSS), so a grid of 25 tiles doesn't
+// download every photo up front.
 import { url } from '../lib/url';
 import { hasAsset } from '../lib/content';
+import type { Entry } from '../lib/content';
+
+interface Props {
+  entry: Entry;
+}
 
 const { entry } = Astro.props;
-const { title, tile } = entry.data;
-const bg = hasAsset(tile.image) ? `background-image: url('${url(tile.image)}')` : undefined;
+const { title, client, tile } = entry.data;
 ---
-<a class="tile" href={url(entry.id)} style={bg}>
+<a class="tile" href={url(entry.id)} aria-label={`${title} (${client})`}>
+  {hasAsset(tile.image) && <img class="tile__bg" src={url(tile.image)} alt="" loading="lazy" decoding="async" />}
   <span class="tile__face">
     {hasAsset(tile.logo)
-      ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} loading="lazy" />
+      ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} loading="lazy" decoding="async" />
       : <span class="tile__label">{tile.label}</span>}
     {tile.subtitle && <span class="tile__subtitle">{tile.subtitle}</span>}
   </span>

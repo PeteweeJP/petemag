@@ -2,11 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeSplit from '../components/home/HomeSplit.astro';
 import { site } from '../data/site';
+import { url } from '../lib/url';
+import { personId } from '../lib/schema';
 
 // Home designs, switchable from site.ts. See src/components/home/README.md.
 const variants = { split: HomeSplit };
 const Home = variants[site.home];
+
+const siteUrl = new URL(url(), Astro.site);
+const schema = [{ '@type': 'ProfilePage', url: siteUrl.href, mainEntity: { '@id': personId(siteUrl) } }];
 ---
-<BaseLayout header={false}>
+<BaseLayout header={false} type="profile" schema={schema}>
   <Home />
 </BaseLayout>

@@ -1,0 +1,44 @@
+---
+// Index page for a section (Work, Apps, Illustration): the full tile grid.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TileGrid from './TileGrid.astro';
+import { getSection, describe } from '../lib/content';
+import { url } from '../lib/url';
+import { breadcrumbs } from '../lib/schema';
+import { sections, type Section } from '../data/site';
+
+interface Props {
+  section: Section;
+}
+
+const { section } = Astro.props;
+const { title, summary } = sections[section];
+const entries = await getSection(section);
+const pageUrl = new URL(url(section), Astro.site);
+
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    name: title,
+    description: summary,
+    url: pageUrl.href,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: entries.map((e, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: e.data.title,
+        description: describe(e),
+        url: new URL(url(e.id), Astro.site).href,
+      })),
+    },
+  },
+  breadcrumbs([
+    { name: 'Home', url: new URL(url(), Astro.site) },
+    { name: title, url: pageUrl },
+  ]),
+];
+---
+<BaseLayout title={title} description={`${summary} Portfolio of Peter Magulak.`} section={section} schema={schema}>
+  <TileGrid entries={entries} heading={title} headingLevel="h1" />
+</BaseLayout>

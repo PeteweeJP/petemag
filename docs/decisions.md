@@ -2,6 +2,14 @@
 
 Settled decisions, newest first. Add new ones at the top. To reverse a decision, add a new entry rather than deleting the old one.
 
+### 2026-09-26: Code review hardening: Astro 7, CSP, agent-friendly output
+- **Astro 7 kept** (upgraded from 5.18 on 2026-09-26). It provides a built-in Content Security Policy.
+- **Content Security Policy** on every page: only the site itself, Google Fonts and the Vimeo player may load resources. Scripts are allowed by hash. No inline style attributes.
+- **URL format:** pages are served without a trailing slash (`/paradise`), matching Squarespace. Old `/paradise/` links are forwarded by the 404 page.
+- **Content validation:** links must be http(s), image paths are confined to `images/`, and Vimeo IDs must be numeric. The build fails with a readable message otherwise.
+- **For AI agents:** `llms.txt`, `llms-full.txt`, schema.org JSON-LD on every page, auto-generated unique meta descriptions.
+- **Deploys** install from the lockfile (`npm ci`) and must pass `npm run check` first.
+
 ### 2026-09-25: Style and design baseline (answers to open design questions)
 - **Wordmark:** the script "Peter Magulak" logo is retired. For now the header uses the name in the display serif, bold and uppercase.
 - **Fonts:** keep Playfair Display + PT Sans for now.

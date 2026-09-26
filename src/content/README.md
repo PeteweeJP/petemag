@@ -29,13 +29,16 @@ media:                                 # right column, top to bottom
   - src: images/work/paradise/01.jpg
     alt: "Laptop-on-the-beach mockup"
     zoom: true                         # optional: click to open full size (use for long screenshots)
-seoDescription: "…"                    # optional, 140–160 chars
+seoDescription: "…"                    # optional; otherwise the first paragraph is used
 slugVerified: true                     # file name matches the live Squarespace URL
 draft: false                           # true hides it everywhere
 ---
 
 Description paragraphs in plain markdown.
 ```
+
+## If the build fails
+The content is checked on every build. A mistake stops the build with a message naming the file and field, such as `links.0.url: must be a full http:// or https:// URL`. Links must start with `https://`, image paths with `images/`, and Vimeo IDs are just the number.
 
 ## Common edits
 - **Reorder the grid:** change `order:` numbers.

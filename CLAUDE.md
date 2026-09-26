@@ -23,13 +23,16 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Contact page | `src/pages/contact.astro` |
 | Page structure / markup | `src/pages/`, `src/layouts/`, `src/components/` (see `src/README.md`) |
 | Styles | `src/styles/tokens.css` (values), `src/styles/global.css` (layout) |
-| Build/deploy | `astro.config.mjs`, `.github/workflows/deploy.yml` |
+| Build/deploy, URL format, security policy (CSP) | `astro.config.mjs`, `.github/workflows/deploy.yml` |
+| What search engines and AI agents see (meta, JSON-LD, robots.txt, llms.txt) | `docs/seo.md`; code in `src/lib/schema.ts`, `src/lib/llms.ts`, `src/pages/*.txt.ts` |
 
 ## Conventions
 
 - **Content lives in markdown, not components.** Never hard-code project copy in `.astro` files.
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
-- **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break.
+- **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break. Use `pagePath(Astro.url)` for the current page's clean path.
+- **Security policy (CSP):** every page only loads scripts, styles, fonts, frames and images from sources listed in `astro.config.mjs` → `security.csp`. Adding a third-party embed or font service means adding its domain there, or it will silently fail on the live site (the CSP isn't enforced in `npm run dev`; test with `npm run build && npm run preview`). Don't use inline `style="…"` attributes or `is:inline` scripts; the CSP blocks them. (The JSON-LD `<script type="application/ld+json">` in `BaseLayout` is data, not code, and is the one allowed exception.)
+- **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers. Keep those rules when editing the schema.
 - **Change styles through tokens** in `tokens.css` first. Add new CSS to `global.css` only for new layouts.
 - Unknown or unreadable copy is marked `<!-- TODO … -->` in content files. Don't invent facts; ask Pete.
 - After meaningful changes, add a line to `CHANGELOG.md`. Record decisions in `docs/decisions.md`.
@@ -37,12 +40,13 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 ## Commands
 
-Requires Node 22+ (not yet installed on Pete's Mac: `brew install node` or nodejs.org).
+Requires Node 22.12+ (not yet installed on Pete's Mac: `brew install node` or nodejs.org).
 
 ```
 npm install      # first time only
 npm run dev      # local preview at http://localhost:4321/petemag/
 npm run build    # production build into dist/
+npm run check    # type and content check (CI runs this before every deploy)
 ```
 
 Pushing to `main` builds and deploys automatically via GitHub Actions.

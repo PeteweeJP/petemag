@@ -1,8 +1,18 @@
 ---
 import Tile from './Tile.astro';
+import type { Entry } from '../lib/content';
 
-const { entries } = Astro.props;
+interface Props {
+  entries: Entry[];
+  heading: string; // announced to screen readers and agents; visually hidden
+  headingLevel?: 'h1' | 'h2';
+}
+
+const { entries, heading, headingLevel: H = 'h2' } = Astro.props;
 ---
-<div class="tile-grid">
-  {entries.map((entry) => <Tile entry={entry} />)}
-</div>
+<section class="tile-section" aria-label={heading}>
+  <H class="visually-hidden">{heading}</H>
+  <div class="tile-grid">
+    {entries.map((entry) => <Tile entry={entry} />)}
+  </div>
+</section>

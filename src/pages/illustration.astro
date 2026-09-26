@@ -1,11 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TileGrid from '../components/TileGrid.astro';
-import { getSection } from '../lib/content';
-
-const entries = await getSection('illustration');
+import SectionIndex from '../components/SectionIndex.astro';
 ---
-<BaseLayout title="Illustration" section="illustration">
-  <h1 class="visually-hidden">Illustration</h1>
-  <TileGrid entries={entries} />
-</BaseLayout>
+<SectionIndex section="illustration" />

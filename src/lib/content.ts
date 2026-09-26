@@ -1,6 +1,12 @@
 import fs from 'node:fs';
-import { getCollection } from 'astro:content';
+import path from 'node:path';
+import { imageSize } from 'image-size';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Section } from '../data/site';
+
+export type Entry = CollectionEntry<Section>;
+
+const publicDir = path.join(process.cwd(), 'public');
 
 // Published entries of a section, in grid order.
 export async function getSection(section: Section) {
@@ -9,4 +15,42 @@ export async function getSection(section: Section) {
 }
 
 // True if a file exists under public/. Lets pages show placeholders until images are added.
-export const hasAsset = (path?: string) => !!path && fs.existsSync(`public/${path}`);
+export const hasAsset = (file?: string): file is string => !!file && fs.existsSync(path.join(publicDir, file));
+
+// Pixel size of an image under public/, so <img> can reserve space and the page doesn't jump while loading.
+export function imageDims(file: string): { width?: number; height?: number } {
+  try {
+    const { width, height } = imageSize(fs.readFileSync(path.join(publicDir, file)));
+    return { width, height };
+  } catch {
+    return {};
+  }
+}
+
+// Plain-text paragraphs of an entry's description: markdown and TODO comments removed.
+export function plainParagraphs(body = '') {
+  return body
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .split(/\n\s*\n/)
+    .map((p) =>
+      p
+        .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // links/images -> their text
+        .replace(/[*_`#>]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim(),
+    )
+    .filter(Boolean);
+}
+
+// Meta description: explicit seoDescription, else the first paragraph trimmed to ~155 characters.
+export function describe(entry: Entry) {
+  if (entry.data.seoDescription) return entry.data.seoDescription;
+  const first = plainParagraphs(entry.body)[0];
+  if (!first) {
+    const { title, role } = entry.data;
+    if (entry.collection === 'illustration') return `${title}: an illustration gallery by Peter Magulak.`;
+    return `Case study: ${title}.${role ? ` Role: ${role}.` : ''} From the portfolio of creative director Peter Magulak.`;
+  }
+  if (first.length <= 155) return first;
+  return first.slice(0, first.lastIndexOf(' ', 152)).replace(/[,;:]$/, '') + '…';
+}

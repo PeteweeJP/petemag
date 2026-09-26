@@ -11,6 +11,14 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; }
 
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute; left: var(--space-2); top: -4rem; z-index: 10;
+  padding: var(--space-1) var(--space-2); background: var(--color-text); color: var(--color-surface);
+}
+.skip-link:focus { top: var(--space-2); }
+
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
@@ -37,7 +45,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .wordmark { font: 700 1.25rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
 
 /* Home: 50/50 split */
-.home { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; background: var(--color-surface); }
+.home { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; min-height: 100svh; background: var(--color-surface); }
 .home__photo { background: var(--color-rule); }
 .home__photo img { width: 100%; height: 100%; object-fit: cover; }
 .home__intro { align-self: center; padding: var(--space-5) var(--gutter); }
@@ -51,16 +59,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .tile {
   position: relative; display: grid; place-items: center; aspect-ratio: 16 / 10; overflow: hidden;
-  background: #555 center / cover no-repeat; color: var(--color-on-image); text-decoration: none; text-align: center;
+  background: #555; color: var(--color-on-image); text-decoration: none; text-align: center;
 }
-.tile::before { content: ''; position: absolute; inset: 0; background: var(--color-overlay); transition: background 0.3s; }
-.tile__face, .tile__hover { position: relative; display: grid; gap: var(--space-1); padding: var(--space-2); transition: opacity 0.3s; }
+.tile__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tile::before { content: ''; position: absolute; inset: 0; z-index: 1; background: var(--color-overlay); transition: background 0.3s; }
+.tile__face, .tile__hover { position: relative; z-index: 2; display: grid; gap: var(--space-1); padding: var(--space-2); transition: opacity 0.3s; }
 .tile__hover { position: absolute; inset: 0; place-content: center; opacity: 0; }
 .tile__logo { width: auto; max-width: 60%; max-height: 5rem; margin: 0 auto; object-fit: contain; }
 .tile__label { font: 700 clamp(1.25rem, 2.2vw, 1.75rem)/1.1 var(--font-display); }
 .tile__subtitle { font: 0.7rem var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-xwide); }
 .tile__title { font: 400 1.25rem/1.2 var(--font-ui); }
 .tile__view { font-size: 0.8rem; }
+.tile:focus-visible { outline-offset: -3px; }
 .tile:hover::before, .tile:focus-visible::before { background: var(--color-overlay-hover); }
 .tile:hover .tile__face, .tile:focus-visible .tile__face { opacity: 0; }
 .tile:hover .tile__hover, .tile:focus-visible .tile__hover { opacity: 1; }
@@ -86,6 +96,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 
 /* Click-to-zoom lightbox */
 .zoomable { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.zoomable img { width: 100%; }
 .lightbox { width: 95vw; max-width: 1600px; height: 95vh; padding: 0; border: 0; overflow: auto; background: var(--color-surface); }
 .lightbox::backdrop { background: rgb(0 0 0 / 0.85); }
 .lightbox img { width: 100%; }
@@ -100,6 +111,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .split-page h1 { margin-top: 0; font-size: 3rem; }
 .contact-links { padding: 0; list-style: none; font-size: 1.1rem; }
 .prose-page { max-width: 46rem; margin: 0 auto; padding: var(--space-5) var(--gutter); }
+
+.media-stack img { width: 100%; height: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 
 @media (max-width: 900px) {
   .tile-grid { grid-template-columns: repeat(2, 1fr); }
