@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import imagePrivacy from './src/integrations/image-privacy.mjs';
+import cspGuard from './src/integrations/csp-guard.mjs';
 
 // Preview phase: served at https://peteweejp.github.io/petemag/
 // At domain cutover: site -> 'https://petemag.com', base -> '/'  (see docs/seo.md)
@@ -19,7 +20,8 @@ export default defineConfig({
   markdown: { syntaxHighlight: false },
 
   // imagePrivacy: blocks publishing photos that still contain GPS location data.
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') }), imagePrivacy()],
+  // cspGuard: fails the build if a page has inline style="" attributes (the CSP would block them).
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') }), imagePrivacy(), cspGuard()],
 
   // Content Security Policy, added as a <meta> tag on every page. Astro hashes its own
   // scripts and styles; everything else must come from the sources listed here.

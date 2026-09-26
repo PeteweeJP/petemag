@@ -28,24 +28,33 @@ export function imageDims(file: string): { width?: number; height?: number } {
 }
 
 // Plain-text paragraphs of an entry's description: markdown and TODO comments removed.
+// Lists and table rows keep one line each; table rows read as "Label: value".
 export function plainParagraphs(body = '') {
+  const line = (l: string) => {
+    const t = l.trim();
+    if (/^\|?[\s:|-]+\|?$/.test(t) && t.includes('-')) return ''; // table separator row
+    const text = t.startsWith('|')
+      ? t.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()).join(': ')
+      : t.replace(/^(#{1,6}|>)\s+/, '').replace(/^[-*]\s+/, '- ');
+    return text
+      .replace(/<br\s*\/?>/gi, '')
+      .replace(/<[^>]+>/g, '')
+      .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // links/images -> their text
+      .replace(/(\*\*|__|\*|`)/g, '')
+      .replace(/[ \t]+/g, ' ')
+      .trim();
+  };
   return body
     .replace(/<!--[\s\S]*?-->/g, '')
     .split(/\n\s*\n/)
-    .map((p) =>
-      p
-        .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // links/images -> their text
-        .replace(/[*_`#>]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim(),
-    )
+    .map((p) => p.split('\n').map(line).filter(Boolean).join('\n'))
     .filter(Boolean);
 }
 
 // Meta description: explicit seoDescription, else the first paragraph trimmed to ~155 characters.
 export function describe(entry: Entry) {
   if (entry.data.seoDescription) return entry.data.seoDescription;
-  const first = plainParagraphs(entry.body)[0];
+  const first = plainParagraphs(entry.body)[0]?.replace(/\s+/g, ' ');
   if (!first) {
     const { title, role } = entry.data;
     if (entry.collection === 'illustration') return `${title}: an illustration gallery by Peter Magulak.`;

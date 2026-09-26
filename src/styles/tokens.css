@@ -31,6 +31,7 @@
 
   --header-height: 120px;
   --gutter: clamp(1rem, 4vw, 3rem);
+  --detail-max: 1680px;   /* case-study pages stop growing here (text ~470px, images ~1050px) and center */
   --home-stack: 1rem;
 
   /* Motion (all switched off for visitors who prefer reduced motion) */

@@ -29,6 +29,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 ## Conventions
 
 - **Planning docs are local-only** (in `.gitignore`): `docs/reference/`, `docs/design/`, `docs/decisions.md`, `docs/brand-voice.md`, `docs/seo.md`. Read and update them as usual, but they won't appear in commits or on GitHub. Never `git add -f` them.
+- **Case-study format:** Pete wants every case study in the Comcast Business format. When he sends new copy, structure it from `src/content/work/_case-study-template.md` (headline, Executive Summary, Skill Matrix table, Key Initiatives, Workflow steps). Role goes in frontmatter (it shows above the title, never repeated in the body). Any JSON-LD he pastes goes into `seoDescription` + `keywords`, not onto the page. Keep his wording and only fix grammar. Say what you changed.
 - **Content lives in markdown, not components.** Never hard-code project copy in `.astro` files.
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
 - **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break. Use `pagePath(Astro.url)` for the current page's clean path.
@@ -37,6 +38,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
   - Commits in this repo are signed as `Peter Magulak <268468626+PeteweeJP@users.noreply.github.com>` (repo-local git config) so no personal email or Mac name leaks. Don't change it.
   - GitHub Actions are pinned to commit SHAs (version in a comment); Dependabot proposes updates. Keep them pinned.
   - `src/integrations/image-privacy.mjs` fails the build if a JPEG has GPS data.
+  - `src/integrations/csp-guard.mjs` fails the build if any page has an inline `style=""` attribute (markdown table alignment `| :--- |` is the usual cause).
   - Pushing uses Pete's fine-grained token (petemag repo only) from macOS Keychain. If a push fails on authentication, don't retry in a loop: have Pete follow "Renewing the token" in `docs/how-to-edit.md`.
 - **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers. Keep those rules when editing the schema.
 - **Change styles through tokens** in `tokens.css` first. Add new CSS to `global.css` only for new layouts.
@@ -55,5 +57,7 @@ npm run dev      # local preview at http://localhost:4321/petemag (Astro 7 may d
 npm run build    # production build into dist/
 npm run check    # type and content check (CI runs this before every deploy)
 ```
+
+Don't delete `.astro/` while the dev server is running: it holds the content cache and the server's status file, so pages 404 and `astro dev status` loses track. If you must, restart the server afterwards (`kill` its pid, then `npm run dev`).
 
 Pushing to `main` builds and deploys automatically via GitHub Actions.

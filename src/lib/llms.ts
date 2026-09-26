@@ -41,6 +41,7 @@ export async function llmsFull(base: URL) {
       const d = e.data;
       out.push(`### ${d.title}`, '', `URL: ${abs(base, e.id)}`, `Client: ${d.client}`);
       if (d.role) out.push(`Role: ${d.role}`);
+      if (d.keywords.length) out.push(`Skills: ${d.keywords.join(', ')}`);
       out.push('', ...plainParagraphs(e.body).flatMap((p) => [p, '']));
       if (d.media.length) out.push('Shown on the page:', ...d.media.map((m) => `- ${m.type === 'video' ? 'Video: ' : ''}${m.alt}`), '');
     }

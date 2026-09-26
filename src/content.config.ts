@@ -38,6 +38,7 @@ const project = z.object({
   links: z.array(z.object({ label: z.string(), url: linkUrl })).default([]),
   media: z.array(media).default([]),
   seoDescription: z.string().optional(), // otherwise generated from the first paragraph
+  keywords: z.array(z.string()).default([]), // skills/topics for structured data and llms-full.txt
   slugVerified: z.boolean().default(false), // true once the slug matches the live Squarespace URL
   draft: z.boolean().default(false),
 });

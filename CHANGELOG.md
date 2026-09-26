@@ -3,6 +3,11 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Contact (and 404) centered with the same max width and columns as case studies.
+- Added `src/content/work/_case-study-template.md`: the Comcast Business structure as the standard for all case studies.
+- Case studies: role now sits above the title in an `<hgroup>` (with a hidden "Role:" label for screen readers and agents); layout capped at 1680px and centered on wide screens. Comcast: removed the Client / Brand line.
+- Comcast Business case study: role now "Creative Director"; new structured copy (summary, skill matrix, initiatives, workflow) replacing the audit paraphrase. Case-study text now styles headings, lists, numbered steps and tables; text column widened to ~30%.
+- Case studies can list `keywords` (fed into structured data and llms-full.txt); llms-full.txt now keeps list and table structure.
 - Home tagline reduced from 16px to 14px.
 - Motion: nav hover bar now grows outward from the center; page text fades up in a staggered sequence on load (home, case studies, resume, contact). CSS only; off for reduced-motion users.
 - Nav hover: orange (#F9700E) bar under the link, text turns charcoal. Orange kept off text for AA contrast.

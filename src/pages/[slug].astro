@@ -33,7 +33,7 @@ interface Props {
 }
 
 const { entry, section, entries, prev, next } = Astro.props;
-const { title, client, role, media, tile } = entry.data;
+const { title, client, role, media, tile, keywords } = entry.data;
 const links = entry.data.links.filter((l) => l.url); // skip links whose URL is still a TODO
 const description = describe(entry);
 const shareImage = media.find((m) => hasAsset(m.src))?.src ?? tile.image;
@@ -51,6 +51,8 @@ const schema = [
     creator: { '@id': personId(siteUrl) },
     ...(section === 'illustration' ? { genre: 'Illustration' } : { sourceOrganization: { '@type': 'Organization', name: client } }),
     ...(role && { creditText: role }),
+    ...(section !== 'illustration' && { about: { '@type': 'Organization', name: client } }),
+    ...(keywords.length > 0 && { keywords: keywords.join(', ') }),
     ...(hasAsset(shareImage) && { image: new URL(url(shareImage), Astro.site).href }),
   },
   breadcrumbs([
@@ -67,8 +69,12 @@ const schema = [
       <a href={url(next.id)} rel="next" aria-label={`Next: ${next.data.title}`}>›</a>
     </nav>
     <div class="detail__text">
-      <h1>{title}</h1>
-      {role && <p class="detail__role">{role}</p>}
+      {/* Role sits above the title (it differs between projects). hgroup ties the two together;
+          the hidden "Role:" label makes it read as "Role: Creative Director" for screen readers and agents. */}
+      <hgroup class="detail__title">
+        {role && <p class="detail__role"><span class="visually-hidden">Role: </span>{role}</p>}
+        <h1>{title}</h1>
+      </hgroup>
       <div class="detail__body"><Content /></div>
       {links.length > 0 && (
         <div class="detail__links">

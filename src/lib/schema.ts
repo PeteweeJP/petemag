@@ -15,7 +15,7 @@ export function person(siteUrl: URL) {
     email: `mailto:${site.email}`,
     sameAs: [site.linkedin],
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Rhode Island' },
-    knowsAbout: ['User experience design', 'Creative direction', 'Design systems', 'Branding', 'Digital advertising', 'Illustration'],
+    knowsAbout: ['User experience design', 'UI design', 'Creative direction', 'Design systems', 'A/B testing', 'User testing', 'E-commerce strategy', 'Branding', 'Digital advertising', 'Illustration'],
   };
 }
 
