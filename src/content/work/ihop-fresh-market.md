@@ -32,4 +32,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A seasonal fresh-fruit limited-time campaign, supported with video, homepage modules, a landing page, Snapchat filters, email, and paid and social promotion.

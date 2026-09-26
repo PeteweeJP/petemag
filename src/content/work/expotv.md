@@ -3,6 +3,7 @@ title: "Expo TV Redesign"
 client: "Expo"
 tile:
   label: "Expo"
+  subtitle: "Redesign"
   logo: images/work/expotv/logo.png
   image: images/work/expotv/tile.jpg
 role: "Strategy, UX, Creative Direction"
@@ -23,6 +24,8 @@ slugVerified: true
 ---
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
+
+**Role:** Strategy, UX, Creative Direction
 
 Expo TV updated its look to attract engaged, "always on" influencers. The work started with a logo that merged a camera lens with a conversation bubble, putting Expo at the center of the dialogue between consumers and brands.
 

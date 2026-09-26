@@ -25,4 +25,6 @@ slugVerified: true
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** UX/Creative Lead
+
 Led UX and a team of designers on the Learn experience for new and existing Comcast Business Mobile customers. Partnered with Sales, Content, Marketing, Product, Development, Analytics and Accessibility.

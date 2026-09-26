@@ -37,6 +37,8 @@ slugVerified: true
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Strategy, UX, Creative Lead
+
 IHOP faced a crowded market and fewer sit-down diners, so it added online ordering: IHOP 'N Go.
 
 The work ran in an agile cycle of stakeholder interviews, user research, analytics, strategy, wireframes, prototypes and high-fidelity design. Guests can customize an order, choose pickup or delivery, find the nearest restaurant, and pay online or in store.

@@ -1,8 +1,9 @@
 ---
-title: "U.S. Army C.O.R.E. OPS Website and Mobile App"
+title: "U.S. Army C.O.R.E. OPS Website & App"
 client: "U.S. Army"
 tile:
   label: "U.S. Army"
+  subtitle: "C.O.R.E. OPS"
   logo: images/work/us-army/logo.png
   image: images/work/us-army/tile.jpg
 role: "Creative Lead"
@@ -29,3 +30,5 @@ slugVerified: false
 ---
 
 <!-- TODO: original description was unreadable in the audit screenshots. Paste the real copy from Squarespace. -->
+**Role:** Creative Lead
+

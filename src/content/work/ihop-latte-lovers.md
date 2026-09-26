@@ -25,3 +25,5 @@ slugVerified: false
 ---
 
 <!-- TODO: original description was unreadable in the audit screenshots. Paste the real copy from Squarespace. -->
+**Role:** Creative Lead
+

@@ -1,8 +1,9 @@
 ---
-title: "Empire State Building Digital Redesign and Concepts"
+title: "Empire State Building Redesign & Concepts"
 client: "Empire State Building"
 tile:
   label: "Empire State Building"
+  subtitle: "Redesign & Concepts"
   logo: images/work/empire-state-building/logo.png
   image: images/work/empire-state-building/tile.jpg
 role: "Strategy, UX, Art Direction"
@@ -24,6 +25,8 @@ slugVerified: false
 ---
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
+
+**Role:** Strategy, UX, Art Direction
 
 A redesign of the Empire State Building website: a central hub where visitors from around the world could buy observatory tickets and find tourist information, with a secure area for new business.
 

@@ -24,4 +24,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Strategy, UX, Art Direction
+
 Branding, a website and a fantasy-golf gaming platform for the Pro Team Golf League, a team-based golf league. A design system and brand guidelines were developed alongside.

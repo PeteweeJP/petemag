@@ -3,6 +3,7 @@ title: "gen.video Rebranding"
 client: "gen.video"
 tile:
   label: "gen.video"
+  subtitle: "Rebranding"
   logo: images/work/genvideo/logo.png
   image: images/work/genvideo/tile.jpg
 role: "Strategy, UX, Creative Direction"
@@ -21,6 +22,8 @@ slugVerified: true
 ---
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
+
+**Role:** Strategy, UX, Creative Direction
 
 Expo.tv rebranded as gen.video to attract new brands and focus on its most engaged creators.
 

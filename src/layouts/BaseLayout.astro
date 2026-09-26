@@ -16,6 +16,7 @@ interface Props {
   schema?: object[]; // extra schema.org items for this page
   noindex?: boolean;
   header?: boolean;
+  readingProgress?: boolean; // case-study pages: orange reading-progress bar under the header
 }
 
 const {
@@ -27,9 +28,11 @@ const {
   schema = [],
   noindex = false,
   header = true,
+  readingProgress = false,
 } = Astro.props;
 
-const fullTitle = title ? `${title} — ${site.titleSuffix}` : site.homeTitle;
+// Short suffix keeps titles within the ~60 characters search results show.
+const fullTitle = title ? `${title} — ${site.name}` : site.homeTitle;
 const siteUrl = new URL(url(), Astro.site); // home page, e.g. https://peteweejp.github.io/petemag/
 const canonical = new URL(pagePath(Astro.url), Astro.site);
 const ogImage = hasAsset(image) ? new URL(url(image), Astro.site) : undefined;
@@ -70,9 +73,9 @@ const jsonLd = toJsonLd([
     />
     <script type="application/ld+json" is:inline set:html={jsonLd} />
   </head>
-  <body>
+  <body class:list={{ 'has-sticky-header': header }}>
     <a class="skip-link" href="#main">Skip to content</a>
-    {header && <Header section={section} />}
+    {header && <Header section={section} progress={readingProgress} />}
     <main id="main">
       <slot />
     </main>

@@ -23,6 +23,8 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** UX, Art Direction
+
 eBay wanted to reposition itself from an auction site to a shopping destination. Building on its Daily Deal program, it ran a game-show-style game on Times Square billboards that people played by text message.
 
 The game was supported by a microsite, rich media, email and influencer bloggers. In the first week, first-time buyers rose roughly 260%, with a multi-fold increase in first-time Daily Deal purchases.

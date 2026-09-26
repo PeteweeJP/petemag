@@ -3,6 +3,7 @@ title: "RFL Rebranding"
 client: "RFL Electronics"
 tile:
   label: "RFL"
+  subtitle: "Rebranding"
   logo: images/work/rfl-rebranding/logo.png
   image: images/work/rfl-rebranding/tile.jpg
 role: "Strategy, UX, Creative Direction"
@@ -25,6 +26,8 @@ slugVerified: false
 ---
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
+
+**Role:** Strategy, UX, Creative Direction
 
 RFL Electronics had changed its approach to product engineering, adding solutions and technologies for utility communications. To express this, RFL rebranded with a new identity, tagline, product sheets and messaging.
 

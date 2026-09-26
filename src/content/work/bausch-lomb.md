@@ -3,6 +3,7 @@ title: "Bausch + Lomb Digital Redesign"
 client: "Bausch + Lomb"
 tile:
   label: "Bausch + Lomb"
+  subtitle: "Digital Redesign"
   logo: images/work/bausch-lomb/logo.png
   image: images/work/bausch-lomb/tile.jpg
 role: "Art Direction"
@@ -20,5 +21,7 @@ slugVerified: false
 ---
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
+
+**Role:** Art Direction
 
 Bausch + Lomb had hundreds of microsites, one per product, tracked in a PowerPoint file, and wanted them organized into a central hub. This was new-business pitch work.

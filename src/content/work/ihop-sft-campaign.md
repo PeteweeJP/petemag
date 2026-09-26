@@ -26,4 +26,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A holiday limited-time campaign for Cheesecake Stuffed French Toast, supported across digital and social with a homepage takeover, landing pages, social, email and branded holiday items.

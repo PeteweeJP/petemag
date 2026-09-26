@@ -30,7 +30,11 @@
   --space-5: 4rem;
 
   --header-height: 120px;
+  --header-height-compact: 64px;   /* sticky header after scrolling (case-study pages) */
+  --progress-height: 3px;          /* orange reading-progress bar under the sticky header */
   --gutter: clamp(1rem, 4vw, 3rem);
+  --menu-duration: 0.6s;   /* hamburger menu: circle reveal */
+  --menu-step: 55ms;       /* delay between menu links appearing */
   --detail-max: 1680px;   /* case-study pages stop growing here (text ~470px, images ~1050px) and center */
   --home-stack: 1rem;
 
@@ -40,3 +44,11 @@
   --reveal-duration: 0.6s;  /* page-load text fade */
   --reveal-step: 90ms;      /* delay between staggered lines */   /* equal gap between role, name and tagline on the home page */
 }
+/* Tablet and phone: slimmer header */
+@media (max-width: 900px) {
+  :root {
+    --header-height: 80px;
+    --header-height-compact: 60px;
+  }
+}
+

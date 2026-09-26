@@ -20,6 +20,8 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 Supported IHOP's new "Eat Up Every Moment" platform with the "My IHOP Moment" photo contest. Guests submitted photos and stories of moments at IHOP for a chance to win breakfast for a year.
 
 The contest was supported by a microsite, social, a 360 video and a "moment generator" that paired moments with menu items.

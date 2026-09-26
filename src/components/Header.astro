@@ -2,14 +2,23 @@
 import { site } from '../data/site';
 import { url, pagePath } from '../lib/url';
 
-const { section } = Astro.props;
+interface Props {
+  section?: string;
+  progress?: boolean; // case-study pages: orange reading-progress bar under the header
+}
+
+const { section, progress = false } = Astro.props;
 // "page" on the section's own index page; "true" on a page inside that section (e.g. a case study).
 const current = (item: (typeof site.nav)[number]) =>
   section !== item.section ? undefined : pagePath(Astro.url) === url(item.href) ? 'page' : 'true';
 ---
-<header class="site-header">
-  <nav aria-label="Main">
-    <ul>
+<header class="site-header site-header--sticky" data-menu="closed">
+  <nav aria-label="Main" class="site-nav">
+    {/* Shown on tablet and phone only (CSS). Without JavaScript the plain link list shows instead. */}
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+      <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <ul id="site-menu">
       <li><a href={url()}>Home</a></li>
       {site.nav.map((item) => (
         <li>
@@ -19,4 +28,88 @@ const current = (item: (typeof site.nav)[number]) =>
     </ul>
   </nav>
   <a class="wordmark" href={url()}>{site.name}</a>
+  {progress && <div class="read-progress" aria-hidden="true"><span class="read-progress__bar"></span></div>}
 </header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header--sticky');
+  if (header) {
+    const root = document.documentElement;
+
+    // --- Sticky header: compacts after scrolling a little; fills the reading bar on case studies ---
+    const article = document.querySelector<HTMLElement>('.detail');
+    const bar = header.querySelector('.read-progress');
+    const COMPACT_AFTER = 80; // px scrolled before the header shrinks
+
+    // The header is fixed, so the page reserves its full height as top padding. Measure it
+    // (it varies with screen width) while it's full size, never mid-animation.
+    const measure = () => {
+      if (!header.classList.contains('is-compact')) {
+        root.style.setProperty('--header-offset', `${header.offsetHeight}px`);
+      }
+    };
+
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const y = window.scrollY;
+      header.classList.toggle('is-compact', y > COMPACT_AFTER);
+      if (bar && article) {
+        // 0 at the top of the page, 1 when the end of the case study reaches the bottom of the screen.
+        const end = article.getBoundingClientRect().bottom + y - window.innerHeight;
+        const progress = end > 0 ? Math.min(Math.max(y / end, 0), 1) : 1;
+        header.style.setProperty('--progress', progress.toFixed(4));
+      }
+    };
+    const request = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    measure();
+    update();
+    addEventListener('scroll', request, { passive: true });
+    addEventListener('resize', () => {
+      measure();
+      request();
+    });
+
+    // --- Hamburger menu (tablet and phone) ---
+    const toggle = header.querySelector<HTMLButtonElement>('.menu-toggle');
+    const menu = document.getElementById('site-menu');
+    const main = document.querySelector('main');
+    const narrow = matchMedia('(max-width: 900px)');
+
+    const setOpen = (open: boolean) => {
+      if (!toggle || !menu) return;
+      if (open) {
+        // The menu grows out of the button: tell the CSS where the button's center is.
+        const r = toggle.getBoundingClientRect();
+        header.style.setProperty('--menu-x', `${r.left + r.width / 2}px`);
+        header.style.setProperty('--menu-y', `${r.top + r.height / 2}px`);
+      }
+      header.dataset.menu = open ? 'open' : 'closed';
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open); // stops the page scrolling behind the menu
+      if (main) main.inert = open; // keeps keyboard focus and screen readers inside the menu
+    };
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => setOpen(header.dataset.menu !== 'open'));
+      menu.addEventListener('click', (e) => {
+        if ((e.target as Element).closest('a')) setOpen(false);
+      });
+      addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && header.dataset.menu === 'open') {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+      narrow.addEventListener('change', (e) => {
+        if (!e.matches) setOpen(false); // back to desktop width: close it
+      });
+    }
+  }
+</script>

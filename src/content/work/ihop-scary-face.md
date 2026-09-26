@@ -29,4 +29,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 IHOP's annual October Scary Face Pancakes event, where kids 12 and under eat free. It was supported across digital and social with a homepage module and landing page, downloadable activity books and Snapchat filters.

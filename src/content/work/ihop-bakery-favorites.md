@@ -30,4 +30,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A limited-time bakery-themed menu campaign, supported with a homepage module, a landing page, social and Snapchat, and animated food imagery.

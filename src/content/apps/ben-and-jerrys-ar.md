@@ -17,4 +17,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Art Direction
+
 I worked on Ben & Jerry's first mobile app. We created an augmented reality app where people pointed their camera at the cap of certain ice cream pints, and an environment appeared on screen related to the flavor and fair trade.

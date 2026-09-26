@@ -33,6 +33,8 @@ slugVerified: true
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A limited-time campaign for tropical Paradise Pancakes, aimed at driving restaurant traffic and appetite appeal.
 
 It included a first-in-category Facebook Live event that filmed the pancakes on a beach for about an hour and a half, three times in one day, to support "breakfast all day." The livestream won MarCom Gold and AVA Digital Gold awards.

@@ -29,4 +29,6 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A holiday limited-time campaign, supported across digital and social with a homepage module, a landing page and a "Breakfastarian" story page, plus Snapchat filters, a Facebook Live event, rich-media banners and a #BreakfastFriday social push.

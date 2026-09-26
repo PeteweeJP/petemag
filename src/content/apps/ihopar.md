@@ -36,6 +36,8 @@ slugVerified: true
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Direction
+
 The goal was to drive restaurant traffic and awareness of the limited-time Summer Splashers drinks and Appetizer Sampler. We created two AR games in the IHOP Play app.
 
 Diners scanned a table ad with their phone camera to play, then shared screengrabs to Facebook and Twitter. IHOP's website and social channels promoted downloading the app.

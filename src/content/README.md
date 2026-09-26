@@ -42,7 +42,7 @@ The content is checked on every build. A mistake stops the build with a message 
 
 ## Case-study format (the standard for every project)
 Pete writes copy in `drafts/` (see `drafts/README.md`), and Claude applies it here.
-New case-study copy follows the Comcast Business page, using the template **`work/_case-study-template.md`**. It never publishes, because files starting with `_` are ignored. The sections are: headline → Executive Summary → Skill Matrix table → Key Initiatives (A/B/C) → Workflow steps. The role shows above the title automatically, so the copy never repeats it. Put search text in `seoDescription` and skills in `keywords`.
+New case-study copy follows the Comcast Business page, using the template **`work/_case-study-template.md`**. It never publishes, because files starting with `_` are ignored. The sections are: headline → Executive Summary → Skill Matrix table → Key Initiatives (A/B/C) → Workflow steps. The page heading mirrors the tile: `tile.subtitle` is the eyebrow and `tile.label` is the big title. The role is a `**Role:**` line above Core Domain, and also set in `role:`. `title` stays the full project name used in the browser tab and search results. Put search text in `seoDescription` and skills in `keywords`.
 
 ## Tables
 Markdown tables work in case-study text. Write the divider row as `| --- | --- |`, **not** `| :--- |`. Alignment markers turn into inline styles, which the site's security policy blocks, so the build stops with a message saying so.

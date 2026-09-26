@@ -30,6 +30,8 @@ slugVerified: false
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 A limited-time campaign for Double Dipped French Toast, aimed at driving restaurant traffic. The homepage module's background changed through the day, from morning to afternoon to night, to reinforce breakfast all day.
 
 It was supported by a Breakfastarian page, a rich-media banner, a Snapchat filter and social promotion on Facebook and YouTube.

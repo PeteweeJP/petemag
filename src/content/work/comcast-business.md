@@ -3,6 +3,7 @@ title: "Comcast Business"
 client: "Comcast Business"
 tile:
   label: "Comcast Business"
+  subtitle: "Small Business"
   logo: images/work/comcast-business/logo.png
   image: images/work/comcast-business/tile.jpg
 role: "Creative Director"
@@ -28,6 +29,7 @@ slugVerified: true
 
 ## Enterprise Design Leadership & Web Ecosystem Optimization
 
+**Role:** Creative Director<br>
 **Core Domain:** UX/UI Design, Creative Direction, Digital Strategy, Design Systems<br>
 **User Journey Scope:** Full Funnel (Learn → Buy → Get)
 

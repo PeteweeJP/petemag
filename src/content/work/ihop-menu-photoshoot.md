@@ -42,4 +42,6 @@ slugVerified: true
 
 <!-- TODO: paraphrase from the site audit. Replace with the original copy (or rewrite) before launch. -->
 
+**Role:** Creative Lead
+
 Directed a photoshoot refreshing IHOP's menu imagery for print and digital: more than 120 menu images shot in one month.

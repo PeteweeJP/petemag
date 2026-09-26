@@ -3,6 +3,13 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Case-study heading now mirrors the tile: eyebrow = tile subtitle (SMALL BUSINESS, PARADISE PANCAKES…), big title = client (Comcast Business, IHOP…). Role moved into the copy as a "Role:" line (above Core Domain on Comcast); browser/search titles unchanged. Added subtitles to 9 tiles that lacked one. Drafts gained an "Eyebrow:" line.
+- Comcast Business tile: added "Small Business" subtitle, matching Enterprise and Mobile.
+- Sticky, compacting header on every page with a header (Work, Apps, Illustration, Resume, Contact, case studies, 404); reading bar stays on case studies only.
+- Tablet/phone (≤900px): hamburger menu. Circle reveal from the button, staggered large links, icon morphs to ✕; Esc closes; page behind is locked and inert. Plain links without JavaScript.
+- Shortened three project titles to fit search results: Empire State Building Redesign & Concepts; U.S. Army C.O.R.E. OPS Website & App; Ben & Jerry's Website & Digital Activations.
+- Page titles shortened to "{Page} — Peter Magulak" (was "— The Portfolio of Peter Magulak").
+- Case-study pages: fixed header that compacts from 120px to 64px after 80px of scrolling, with a 3px orange reading-progress bar under it.
 - Added a local-only `drafts/` folder: one pre-filled copy file per case study (28), plus a template and README. Set a file to `Status: ready` and ask Claude to publish. Included in the backup zip.
 - Contact (and 404) centered with the same max width and columns as case studies.
 - Added `src/content/work/_case-study-template.md`: the Comcast Business structure as the standard for all case studies.

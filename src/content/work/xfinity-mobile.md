@@ -3,6 +3,7 @@ title: "Xfinity Mobile"
 client: "Xfinity Mobile"
 tile:
   label: "Xfinity Mobile"
+  subtitle: "Product Launches"
   logo: images/work/xfinity-mobile/logo.png
   image: images/work/xfinity-mobile/tile.jpg
 # role: TODO (unreadable in audit)
