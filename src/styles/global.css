@@ -1,6 +1,6 @@
 /* Base styles and page-level layouts. Values come from tokens.css. */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; font-synthesis: none; } /* never fake bold/italic */
 body {
   margin: 0;
   background: var(--color-bg);
@@ -24,10 +24,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* Label style shared by nav, roles and tile subtitles */
-.site-header nav a, .home__role, .home__nav a, .detail__role, .detail__links h2 {
+/* Small uppercase labels: home role line, case-study role, "Links" heading */
+.home__role, .detail__role, .detail__links h2 {
   font-family: var(--font-ui);
-  font-size: 0.75rem;
+  font-size: var(--label-size);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Navigation (header and home page): Inter Bold */
+.site-header nav a, .home__nav a {
+  font-family: var(--font-ui);
+  font-size: var(--nav-size);
+  font-weight: var(--nav-weight);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
 }
@@ -40,20 +50,44 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
   background: var(--color-surface);
 }
 .site-header ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); margin: 0; padding: 0; list-style: none; }
-.site-header nav a { color: var(--color-muted); text-decoration: none; padding-bottom: 2px; }
-.site-header nav a:hover, .site-header nav a[aria-current] { color: var(--color-text); border-bottom: 1px solid currentColor; }
-.wordmark { font: 700 1.25rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+.site-header nav a { color: var(--color-muted); }
+/* Nav links: a 2px bar under the text. Current page = charcoal bar; hover = orange bar that
+   grows outward from the center. The text never turns orange (fails AA); it goes charcoal. */
+.site-header nav a, .home__nav a {
+  position: relative; display: inline-block; padding-bottom: 5px;
+  text-decoration: none; transition: color 0.2s;
+}
+.site-header nav a::after, .home__nav a::after {
+  content: ''; position: absolute; bottom: 0; height: 2px;
+  left: 0; right: var(--tracking-wide); /* stop under the last letter, not its trailing letter-space */
+  background: var(--color-accent);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform var(--bar-duration) var(--ease-out), background-color 0.2s;
+}
+.site-header nav a[aria-current] { color: var(--color-text); }
+.site-header nav a[aria-current]::after { background: currentColor; transform: scaleX(1); }
+.site-header nav a:hover, .home__nav a:hover,
+.site-header nav a:focus-visible, .home__nav a:focus-visible { color: var(--color-text); }
+.site-header nav a:hover::after, .home__nav a:hover::after,
+.site-header nav a:focus-visible::after, .home__nav a:focus-visible::after { background: var(--color-accent); transform: scaleX(1); }
+.wordmark { font: 400 1.25rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
 
 /* Home: 50/50 split */
 .home { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; min-height: 100svh; background: var(--color-surface); }
 .home__photo { background: var(--color-rule); }
 .home__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; } /* keep the face in frame when cropped */
 .home__intro { align-self: center; padding: var(--space-5) var(--gutter); }
-.home__name { margin: 0; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
-.home__role { margin: var(--space-2) 0; }
-.home__tagline { font-family: var(--font-display); color: var(--color-muted); }
+.home__name { margin: 0; font-weight: 400; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
+.home__role { margin: 0 0 var(--home-stack); } /* sits just above the name */
+.home__tagline { margin: var(--home-stack) 0 0; font-family: var(--font-ui); font-weight: 400; color: var(--color-muted); }
+/* Equal visual spacing: trim each line's built-in leading to the letters themselves
+   (cap height to baseline), so --home-stack is the real gap whatever the font size. */
+.home__role, .home__name, .home__tagline { text-box: trim-both cap alphabetic; }
+/* Browsers without text-box (Firefox for now): tighten the name's line box instead. */
+@supports not (text-box: trim-both cap alphabetic) {
+  .home__name { line-height: 1; }
+}
 .home__nav { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
-.home__nav a { text-decoration: none; }
 
 /* Tile grid */
 .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -66,7 +100,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .tile__face, .tile__hover { position: relative; z-index: 2; display: grid; gap: var(--space-1); padding: var(--space-2); transition: opacity 0.3s; }
 .tile__hover { position: absolute; inset: 0; place-content: center; opacity: 0; }
 .tile__logo { width: auto; max-width: 60%; max-height: 5rem; margin: 0 auto; object-fit: contain; }
-.tile__label { font: 700 clamp(1.25rem, 2.2vw, 1.75rem)/1.1 var(--font-display); }
+.tile__label { font: 400 clamp(1.25rem, 2.2vw, 1.75rem)/1.1 var(--font-display); }
 .tile__subtitle { font: 0.7rem var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-xwide); }
 .tile__title { font: 400 1.25rem/1.2 var(--font-ui); }
 .tile__view { font-size: 0.8rem; }
@@ -113,6 +147,27 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .prose-page { max-width: 46rem; margin: 0 auto; padding: var(--space-5) var(--gutter); }
 
 .media-stack img { width: 100%; height: auto; }
+
+/* Page-load reveal: the main text of each page fades up, one line after another.
+   Only the animation hides the text, so with animations off everything is simply visible. */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: none; }
+}
+.home__intro > *, .home__nav a, .detail__text > *, .split-page > *, .prose-page > * {
+  animation: reveal var(--reveal-duration) var(--ease-out) both;
+}
+.home__intro > :nth-child(2), .detail__text > :nth-child(2), .split-page > :nth-child(2), .prose-page > :nth-child(2) { animation-delay: calc(var(--reveal-step) * 1); }
+.home__intro > :nth-child(3), .detail__text > :nth-child(3), .prose-page > :nth-child(3) { animation-delay: calc(var(--reveal-step) * 2); }
+.detail__text > :nth-child(4), .prose-page > :nth-child(4) { animation-delay: calc(var(--reveal-step) * 3); }
+.prose-page > :nth-child(n + 5) { animation-delay: calc(var(--reveal-step) * 4); }
+/* Home nav: the container is 4th in line; its links then follow one by one. */
+.home__intro > .home__nav { animation: none; }
+.home__nav a:nth-child(1) { animation-delay: calc(var(--reveal-step) * 3); }
+.home__nav a:nth-child(2) { animation-delay: calc(var(--reveal-step) * 4); }
+.home__nav a:nth-child(3) { animation-delay: calc(var(--reveal-step) * 5); }
+.home__nav a:nth-child(4) { animation-delay: calc(var(--reveal-step) * 6); }
+.home__nav a:nth-child(5) { animation-delay: calc(var(--reveal-step) * 7); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }

@@ -1,7 +1,7 @@
 // Site-wide settings. Edit here, not in individual pages.
 export const site = {
   name: 'Peter Magulak',
-  role: 'User Experience / Creative Direction',
+  role: 'Creative Director', // small line above the name on the home page
   jobTitle: 'Creative Director, Experience Design', // used in structured data
   employer: 'Comcast',
   tagline: 'Idea guy. User Experience. Strategy. Design. Branding. Social.',

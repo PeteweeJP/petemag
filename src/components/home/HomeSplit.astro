@@ -1,5 +1,5 @@
 ---
-// Original Squarespace home: portrait photo left, name/role/tagline/nav right.
+// Original Squarespace home: portrait photo left, role/name/tagline/nav right.
 // Kept as a fallback while the new home is designed. Select it in src/data/site.ts (home: 'split').
 import { site } from '../../data/site';
 import { url } from '../../lib/url';
@@ -14,8 +14,8 @@ const portrait = 'images/home/portrait.jpg';
     )}
   </div>
   <div class="home__intro">
-    <h1 class="home__name">{site.name}</h1>
     <p class="home__role">{site.role}</p>
+    <h1 class="home__name">{site.name}</h1>
     <p class="home__tagline">{site.tagline}</p>
     <nav aria-label="Main" class="home__nav">
       {site.nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}

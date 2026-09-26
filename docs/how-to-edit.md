@@ -89,8 +89,9 @@ Colors, spacing and font names are all in `src/styles/tokens.css`:
 ```css
 --color-bg: #f8f8f8;      ← page background
 --color-text: #333333;    ← main text
---font-display: 'Playfair Display', Georgia, serif;   ← headings
---font-ui: 'PT Sans', system-ui, sans-serif;          ← body and menu
+--font-display: 'Archivo Black', 'Arial Black', Helvetica, sans-serif;   ← headings, name, tiles, wordmark
+--font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;   ← body (400), menu and bold text (700)
+--nav-size: 0.875rem;                                   ← menu text size (14px)
 ```
 
 **Changing a font takes two edits:**
@@ -99,6 +100,8 @@ Colors, spacing and font names are all in `src/styles/tokens.css`:
 3. In `tokens.css`, change the name in `--font-ui` or `--font-display`.
 
 If you skip step 2, the site quietly falls back to a default font.
+
+**Single-weight fonts** (like Archivo Black, which only has 400): drop the `:wght@…` part in step 2 (`family=Archivo+Black`), and make sure nothing asks that font for bold (`700`) in `global.css`. The site turns off fake bold, so a missing weight just shows the regular one.
 
 ---
 
