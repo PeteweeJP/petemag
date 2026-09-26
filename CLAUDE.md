@@ -8,6 +8,9 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 
 | If the task is about… | Go to |
 |---|---|
+| Routines: publish drafts, add images, release | Skills in `.claude/skills/` (`/publish-drafts`, `/add-images`, `/release`). Follow them. |
+| Independent pre-release review | `.claude/agents/petemag-reviewer.md` (read-only) |
+| Quality checks on the built site | `npm run audit` → `scripts/audit.mjs` (also runs in CI) |
 | How Pete edits images, copy, fonts and publishes (his reference guide) | `docs/how-to-edit.md`. Keep it current when workflows change |
 | What the old site looked like / what's on each page | `docs/reference/petemag-site-overview.md` (source of truth for migrated content) |
 | Why something was decided | `docs/decisions.md` |
@@ -63,6 +66,7 @@ npm run dev      # local preview at http://localhost:4321/petemag (Astro 7 may d
                  # manage with `npx astro dev status | stop | logs`)
 npm run build    # production build into dist/
 npm run check    # type and content check (CI runs this before every deploy)
+npm run audit    # after build: titles, descriptions, h1s, alt text, links, JSON-LD, contrast, local-only files
 ```
 
 Don't delete `.astro/` while the dev server is running: it holds the content cache and the server's status file, so pages 404 and `astro dev status` loses track. If you must, restart the server afterwards (`kill` its pid, then `npm run dev`).

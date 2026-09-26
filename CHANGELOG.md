@@ -3,6 +3,9 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Added Claude routines: skills `/publish-drafts`, `/add-images`, `/release`, and a read-only `petemag-reviewer` agent.
+- Added `npm run audit` (scripts/audit.mjs): titles, descriptions, h1s, alt text, links, JSON-LD, canonicals, AA contrast, accent use, local-only files. Runs in CI after the build.
+- Fixed: auto meta descriptions had become "Role: …" on 27 pages (caught by the new audit); they now use the first real sentence.
 - Case-study heading now mirrors the tile: eyebrow = tile subtitle (SMALL BUSINESS, PARADISE PANCAKES…), big title = client (Comcast Business, IHOP…). Role moved into the copy as a "Role:" line (above Core Domain on Comcast); browser/search titles unchanged. Added subtitles to 9 tiles that lacked one. Drafts gained an "Eyebrow:" line.
 - Comcast Business tile: added "Small Business" subtitle, matching Enterprise and Mobile.
 - Sticky, compacting header on every page with a header (Work, Apps, Illustration, Resume, Contact, case studies, 404); reading bar stays on case studies only.

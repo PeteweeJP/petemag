@@ -32,6 +32,8 @@ jobs:
       # Stop the deploy if any file has a type or content error.
       - run: npm run check
       - run: npm run build
+      # Titles, descriptions, headings, alt text, links, JSON-LD, contrast (scripts/audit.mjs).
+      - run: npm run audit
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: dist

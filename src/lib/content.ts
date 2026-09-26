@@ -54,7 +54,10 @@ export function plainParagraphs(body = '') {
 // Meta description: explicit seoDescription, else the first paragraph trimmed to ~155 characters.
 export function describe(entry: Entry) {
   if (entry.data.seoDescription) return entry.data.seoDescription;
-  const first = plainParagraphs(entry.body)[0]?.replace(/\s+/g, ' ');
+  // First real prose paragraph: skip headings, bullet lists, tables and label lines like "Role: Creative Lead".
+  const isProse = (p: string) =>
+    p.length >= 80 && !p.startsWith('- ') && !/^[A-Z][\w /&-]{1,30}: [^\n]{0,60}$/m.test(p.split('\n')[0]);
+  const first = plainParagraphs(entry.body).find(isProse)?.replace(/\s+/g, ' ');
   if (!first) {
     const { title, role } = entry.data;
     if (entry.collection === 'illustration') return `${title}: an illustration gallery by Peter Magulak.`;

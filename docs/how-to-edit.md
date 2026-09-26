@@ -5,6 +5,12 @@ Each change follows the same loop: **edit → preview (optional) → publish**.
 
 Or skip all of this and ask Claude: "I dropped the IHOP images in, wire them up and publish."
 
+**Shortcuts** you can type to Claude in this project:
+- **/publish-drafts**: apply every draft marked `Status: ready`, then preview
+- **/add-images**: check, compress, rename and wire in new images, then preview
+- **/release**: check, publish and confirm the site is live (or just say "publish")
+- **"review the site"**: a read-only reviewer checks accessibility, SEO and security before you publish
+
 ---
 
 ## 1. Adding images
