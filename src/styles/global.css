@@ -79,7 +79,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .home__intro { align-self: center; padding: var(--space-5) var(--gutter); }
 .home__name { margin: 0; font-weight: 400; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
 .home__role { margin: 0 0 var(--home-stack); } /* sits just above the name */
-.home__tagline { margin: var(--home-stack) 0 0; font-family: var(--font-ui); font-weight: 400; color: var(--color-muted); }
+.home__tagline { margin: var(--home-stack) 0 0; font-family: var(--font-ui); font-size: 0.875rem; /* 14px */ font-weight: 400; color: var(--color-muted); }
 /* Equal visual spacing: trim each line's built-in leading to the letters themselves
    (cap height to baseline), so --home-stack is the real gap whatever the font size. */
 .home__role, .home__name, .home__tagline { text-box: trim-both cap alphabetic; }
