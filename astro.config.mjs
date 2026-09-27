@@ -21,7 +21,7 @@ export default defineConfig({
 
   // imagePrivacy: blocks publishing photos that still contain GPS location data.
   // cspGuard: fails the build if a page has inline style="" attributes (the CSP would block them).
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') }), imagePrivacy(), cspGuard()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.endsWith('/thanks') }), imagePrivacy(), cspGuard()],
 
   // Content Security Policy, added as a <meta> tag on every page. Astro hashes its own
   // scripts and styles; everything else must come from the sources listed here.
@@ -32,14 +32,16 @@ export default defineConfig({
         "default-src 'self'",
         "img-src 'self' data:",
         'font-src https://fonts.gstatic.com',
-        'frame-src https://player.vimeo.com',
-        "connect-src 'self'",
+        // hCaptcha (contact form) needs its own domains; don't pin subdomains (per hCaptcha docs).
+        'frame-src https://player.vimeo.com https://hcaptcha.com https://*.hcaptcha.com',
+        "connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com",
         "object-src 'none'",
         "base-uri 'self'",
-        "form-action 'self'",
+        "form-action 'self' https://api.web3forms.com",
         'upgrade-insecure-requests',
       ],
-      styleDirective: { resources: ["'self'", 'https://fonts.googleapis.com'] },
+      styleDirective: { resources: ["'self'", 'https://fonts.googleapis.com', 'https://hcaptcha.com', 'https://*.hcaptcha.com'] },
+      scriptDirective: { resources: ["'self'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'] },
     },
   },
 });

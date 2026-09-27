@@ -25,6 +25,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Home page (switchable designs) | `src/components/home/` (see its README); pick one in `src/data/site.ts` → `home` |
 | Home background video (files, player, pause button) | `public/images/home/home-loop.*`, `src/components/home/HomeSplit.astro` |
 | Pete's photo (Resume page, structured data) | `public/images/about/portrait.jpg`, `site.portrait` in `src/data/site.ts` |
+| Contact form (Web3Forms + hCaptcha; key in `site.contactForm`) | `src/pages/contact.astro`, `src/pages/thanks.astro`; CSP domains in `astro.config.mjs` |
 | Resume page | `src/pages/resume.md` |
 | Contact page | `src/pages/contact.astro` |
 | Page structure / markup | `src/pages/`, `src/layouts/`, `src/components/` (see `src/README.md`) |

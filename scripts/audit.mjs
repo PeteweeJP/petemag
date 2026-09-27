@@ -112,6 +112,8 @@ const pairs = [
   ['muted text on page background', color('color-muted'), color('color-bg')],
   ['muted text on white', color('color-muted'), color('color-surface')],
   ['tile text over a white photo', color('color-on-image'), worstTile],
+  ['form error message', color('color-error'), color('color-bg')],
+  ['form success message', color('color-success'), color('color-bg')],
 ];
 for (const [label, fg, bg] of pairs) {
   if (!fg || !bg) {

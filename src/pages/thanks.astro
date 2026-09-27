@@ -1,0 +1,14 @@
+---
+// Shown after sending the contact form when JavaScript is off (Web3Forms redirects here).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+---
+<BaseLayout title="Message sent" description="Thanks for getting in touch with Peter Magulak." section="contact" noindex>
+  <section class="split-page">
+    <h1>Thanks!</h1>
+    <div>
+      <p>Your message is on its way. I'll get back to you soon.</p>
+      <p><a href={url('work')}>Back to the work</a></p>
+    </div>
+  </section>
+</BaseLayout>

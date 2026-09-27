@@ -13,6 +13,13 @@ export const site = {
   portrait: 'images/about/portrait.jpg',
   portraitAlt: 'Peter Magulak, smiling, in a grey knit beanie and a denim jacket',
   email: 'pete@petemag.com',
+  // Contact form (Web3Forms). The access key comes from web3forms.com (sign up with pete@petemag.com);
+  // it's designed to be public. Leave it empty to hide the form. The hCaptcha key is Web3Forms'
+  // free-plan key (docs.web3forms.com → hCaptcha).
+  contactForm: {
+    accessKey: 'f103b213-13f0-4d48-a50c-7f553610a2cf',
+    hcaptchaSiteKey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2',
+  },
   linkedin: 'https://www.linkedin.com/in/petermagulak',
   // false while previewing on github.io so search engines don't index a duplicate of petemag.com.
   // Flip to true at domain cutover (docs/seo.md).

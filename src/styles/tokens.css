@@ -17,6 +17,8 @@
   --color-overlay: rgb(0 0 0 / 0.55);   /* keeps white tile text readable on bright photos */
   --color-overlay-hover: rgb(0 0 0 / 0.72);
   --color-focus: #1a5fb4;
+  --color-error: #B3261E;     /* 6.2:1 on --color-bg */
+  --color-success: #1E7A3C;   /* 5.1:1 on --color-bg */
   --color-accent: #F9700E;   /* brand orange: underlines/bars only. As text it fails AA (2.86:1 on white) */
   --color-on-image: #ffffff;
 

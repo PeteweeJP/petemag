@@ -101,6 +101,23 @@ Full details are in `drafts/README.md`. The drafts folder lives only on your Mac
 
 ---
 
+## 2c. Contact form
+
+The Contact page form (name, email, message, with a captcha) is delivered by **Web3Forms** (free: 250 messages a month) and protected by **hCaptcha**. Messages arrive by email at the address the key was created with.
+
+**One-time setup**
+1. Go to **web3forms.com** and click **Create your Access Key**.
+2. Enter **pete@petemag.com** (messages will be sent there) and submit.
+3. Open the email from Web3Forms and copy the access key (a long code like `a1b2c3d4-…`).
+4. Give it to Claude ("here's my Web3Forms key: …"), or paste it into `src/data/site.ts` → `contactForm.accessKey`. The key is designed to be public, so it's safe on the site.
+5. Publish. Then send yourself a test message from the live Contact page.
+
+Until the key is added, the live site shows only the email and LinkedIn line (no half-working form).
+
+**Good to know:** the free plan has no inbox dashboard, so the email is your copy of each message. Spam protection is the hCaptcha checkbox, plus a hidden trap field that bots fill in.
+
+---
+
 ## 3. Changing fonts and colors
 
 Colors, spacing and font names are all in `src/styles/tokens.css`:
