@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Fix: contact form was rejected as "reCaptcha (Pro)". hCaptcha's reCAPTCHA-compatibility field is now off (`recaptchacompat=off`) and stripped before sending.
 - Fix: contact form showed an error on send. JavaScript submissions no longer include the no-JS `redirect` field (it made Web3Forms redirect, which the browser blocks) and are sent as JSON; errors now show Web3Forms' reason.
 - Contact: form (name, email, message) via Web3Forms with hCaptcha and a honeypot; sends in place with accessible status messages; /thanks page for no-JavaScript. Connected to Pete's Web3Forms key. CSP opened only to hCaptcha and api.web3forms.com.
 - Home (tablet/phone): nav links stack one per line instead of wrapping.

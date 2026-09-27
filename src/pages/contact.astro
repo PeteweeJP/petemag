@@ -60,7 +60,7 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
   </section>
 </BaseLayout>
 
-{(formReady || import.meta.env.DEV) && <script is:inline src="https://js.hcaptcha.com/1/api.js" async defer></script>}
+{(formReady || import.meta.env.DEV) && <script is:inline src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>}
 
 <script>
   // Sends the form in the background and shows the result in place. Without JavaScript the
@@ -93,6 +93,10 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
       // no-JavaScript fallback; sending it makes the API redirect, which the browser blocks), and
       // should be sent as JSON.
       data.delete('redirect');
+      // hCaptcha can also add a reCAPTCHA-compatible copy of its answer (g-recaptcha-response).
+      // Web3Forms treats that as reCAPTCHA, a paid feature, and rejects the message. The script URL
+      // turns the copy off (recaptchacompat=off); this line is the backstop.
+      data.delete('g-recaptcha-response');
       try {
         const res = await fetch(form.action, {
           method: 'POST',
