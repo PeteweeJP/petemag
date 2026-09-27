@@ -9,8 +9,10 @@ tile:
 role: "Creative Lead"
 order: 8
 media:
-  - src: images/work/ihop-sft-campaign/01.jpg
-    alt: "Holiday gift-wrap hero"
+  - type: video
+    vimeo: "246280134"
+    alt: "Holiday gift-wrap unwrapping animation for Cheesecake Stuffed French Toast"
+    caption: "Holiday unwrap animation"
   - src: images/work/ihop-sft-campaign/02.jpg
     alt: "Branded ugly sweater, front and back"
   - src: images/work/ihop-sft-campaign/03.jpg
@@ -18,7 +20,8 @@ media:
   - src: images/work/ihop-sft-campaign/04.jpg
     alt: "Landing page with the three flavors"
   - src: images/work/ihop-sft-campaign/05.jpg
-    alt: "Grid of six social posts"
+    alt: "Six slides from a Cheesecake Stuffed French Toast display ad"
+    caption: "Display ad slides"
   - src: images/work/ihop-sft-campaign/06.jpg
     alt: "Email design"
 slugVerified: false

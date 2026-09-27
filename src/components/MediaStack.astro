@@ -11,31 +11,58 @@ interface Props {
 
 const { items } = Astro.props;
 const hasZoom = items.some((item) => item.zoom && hasAsset(item.src));
+
+// Vimeo player URL. Always: no tracking cookies, and no title/byline/avatar overlays.
+// Looping videos also get loop + muted; autoplay is added by the script below unless the
+// visitor prefers reduced motion (so no-JavaScript and reduced-motion visitors get click-to-play).
+const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
+  const params = new URLSearchParams({ dnt: '1', title: '0', byline: '0', portrait: '0' });
+  if (loop) {
+    params.set('loop', '1');
+    params.set('muted', '1');
+    params.set('autopause', '0');
+    params.set('playsinline', '1');
+  }
+  if (autoplay) params.set('autoplay', '1');
+  return `https://player.vimeo.com/video/${id}?${params}`;
+};
 ---
 <div class="media-stack">
   {items.map((item) => {
+    // Small eyebrow-style label above each item: `caption`, or else the description (alt).
+    // When the label repeats the description, screen readers skip the label so they don't hear it twice.
+    const caption = item.caption ?? item.alt;
+    const repeatsAlt = caption === item.alt;
+    let media;
     if (item.type === 'video') {
-      return item.vimeo ? (
+      media = item.vimeo ? (
         <div class="media-video">
           <iframe
-            src={`https://player.vimeo.com/video/${item.vimeo}?dnt=1`}
+            src={vimeoSrc(item.vimeo, item.loop)}
+            data-autoplay-src={item.loop ? vimeoSrc(item.vimeo, true, true) : undefined}
             title={item.alt}
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
-            allow="fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture"
           />
         </div>
       ) : (
         <div class="media-placeholder">Video: {item.alt}<br /><small>add a Vimeo ID</small></div>
       );
+    } else if (!hasAsset(item.src)) {
+      media = <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>;
+    } else {
+      const img = <img src={url(item.src)} alt={item.alt} {...imageDims(item.src)} loading="lazy" decoding="async" />;
+      media = item.zoom ? (
+        <button class="zoomable" type="button" aria-label={`Enlarge image: ${item.alt}`}>{img}</button>
+      ) : img;
     }
-    if (!hasAsset(item.src)) {
-      return <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>;
-    }
-    const img = <img src={url(item.src)} alt={item.alt} {...imageDims(item.src)} loading="lazy" decoding="async" />;
-    return item.zoom ? (
-      <button class="zoomable" type="button" aria-label={`Enlarge image: ${item.alt}`}>{img}</button>
-    ) : img;
+    return (
+      <figure class="media-item">
+        <figcaption class="media-caption" aria-hidden={repeatsAlt ? 'true' : undefined}>{caption}</figcaption>
+        {media}
+      </figure>
+    );
   })}
 </div>
 
@@ -46,6 +73,13 @@ const hasZoom = items.some((item) => item.zoom && hasAsset(item.src));
 )}
 
 <script>
+  // Looping Vimeo videos start playing on their own, unless the visitor prefers reduced motion.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll<HTMLIFrameElement>('iframe[data-autoplay-src]').forEach((frame) => {
+      frame.src = frame.dataset.autoplaySrc!;
+    });
+  }
+
   const dialog = document.querySelector<HTMLDialogElement>('dialog.lightbox');
   if (dialog) {
     const full = document.createElement('img');

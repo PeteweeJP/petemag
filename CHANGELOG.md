@@ -3,6 +3,10 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-27
+- SFT Campaign: the "social posts" image is display-ad slides; label and description updated.
+- Case studies: a small eyebrow-style label above each image and video (from its description, or an optional shorter `caption`), marked up as a figure caption.
+- All Vimeo embeds: title, byline and avatar overlays hidden. New per-video `loop: true` option (silent autoplay loop, motion-safe); tried on the SFT unwrap animation and rolled back to click-to-play at Pete's request.
+- SFT Campaign: first media slot is now the "unwrap" animation on Vimeo (246280134) instead of the gift-wrap image.
 - Work covers: 16 tile images added (converted from PNG to JPEG, about 14 MB down to 1.6 MB; originals in MySite-originals/work-covers).
 - Tiles: the photo zooms to 106% on hover or keyboard focus, inside a fixed frame. Off for reduced motion.
 

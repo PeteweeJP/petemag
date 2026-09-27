@@ -50,7 +50,9 @@ Markdown tables work in case-study text. Write the divider row as `| --- | --- |
 ## Common edits
 - **Reorder the grid:** change `order:` numbers.
 - **Hide a project:** `draft: true`.
+- **Image labels:** every image and video shows a small label above it, taken from its `alt` description. To show something shorter, add `caption: "…"` under that media item. The `alt` stays the full description for screen readers and search engines.
 - **Make an image zoomable:** add `zoom: true` under that media item.
+- **Make a short Vimeo video loop like a GIF:** add `loop: true` under it (silent and on repeat, with Vimeo's pause control still available; not for reduced-motion visitors).
 - **Add a project:** copy an existing file, rename it (this sets the URL), and update the fields.
 - **Find what's unfinished:** `grep -rn TODO src/content`.
 

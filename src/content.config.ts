@@ -21,7 +21,9 @@ const media = z.object({
   src: assetPath.optional(),
   vimeo: z.string().regex(/^\d*$/, 'Vimeo ID is the number from the video URL').optional(),
   alt: z.string().min(1),
+  caption: z.string().optional(), // short label shown above the item; defaults to alt
   zoom: z.boolean().default(false), // true = click to open full size (good for long screenshots)
+  loop: z.boolean().default(false), // videos: play silently on repeat, like a GIF (not for reduced-motion visitors)
 });
 
 const project = z.object({
