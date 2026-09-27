@@ -47,7 +47,8 @@
   --reveal-step: 90ms;      /* delay between staggered lines */
   --tile-rise: 0.75rem;      /* how far the client name/logo rises inside its tile */
   --tile-duration: 0.8s;     /* name/logo fade; the photo takes 1.4x this */
-  --tile-zoom: 1.12;         /* tile photo starts slightly zoomed and settles to 100% */   /* equal gap between role, name and tagline on the home page */
+  --tile-zoom: 1.12;         /* tile photo starts slightly zoomed and settles to 100% */
+  --tile-hover-zoom: 1.06;   /* tile photo grows slightly on hover; the tile frame stays the same */   /* equal gap between role, name and tagline on the home page */
 }
 /* Tablet and phone: slimmer header */
 @media (max-width: 900px) {

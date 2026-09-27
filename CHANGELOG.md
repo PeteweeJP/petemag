@@ -2,6 +2,10 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-09-27
+- Work covers: 16 tile images added (converted from PNG to JPEG, about 14 MB down to 1.6 MB; originals in MySite-originals/work-covers).
+- Tiles: the photo zooms to 106% on hover or keyboard focus, inside a fixed frame. Off for reduced motion.
+
 ## 2026-09-26
 - Tiles (Work, Apps, Illustration, and the grids under case studies): animate in, staggered, as they scroll into view. The tiles stay in place (a solid grid); inside each, the photo fades up from dark and settles from a slight zoom, then the client name rises in. Animate once; off for reduced motion; failsafe shows them if the script doesn't run.
 - Fix: contact form was rejected as "reCaptcha (Pro)". hCaptcha's reCAPTCHA-compatibility field is now off (`recaptchacompat=off`) and stripped before sending.
