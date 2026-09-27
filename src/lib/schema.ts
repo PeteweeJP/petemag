@@ -1,6 +1,8 @@
 // schema.org structured data (JSON-LD). Helps search engines and AI agents understand
 // who the site is about and what each page is.
 import { site } from '../data/site';
+import { url } from './url';
+import { hasAsset } from './content';
 
 export const personId = (siteUrl: URL) => new URL('#person', siteUrl).href;
 
@@ -14,6 +16,7 @@ export function person(siteUrl: URL) {
     url: siteUrl.href,
     email: `mailto:${site.email}`,
     sameAs: [site.linkedin],
+    ...(hasAsset(site.portrait) && { image: new URL(url(site.portrait), siteUrl).href }),
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Rhode Island' },
     knowsAbout: ['User experience design', 'UI design', 'Creative direction', 'Design systems', 'A/B testing', 'User testing', 'E-commerce strategy', 'Branding', 'Digital advertising', 'Illustration'],
   };

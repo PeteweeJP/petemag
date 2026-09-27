@@ -1,5 +1,5 @@
-// Stops the build if a JPEG in public/images still carries GPS coordinates
-// (phones embed where a photo was taken). In `npm run dev` it only warns.
+// Stops the build if a JPEG or video in public/images still carries location data
+// (phones embed where a photo or clip was taken). In `npm run dev` it only warns.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,12 +31,17 @@ export function hasGps(buf) {
   return false;
 }
 
+// Videos: QuickTime/MP4 location atoms (©xyz, Apple's ISO 6709 key) anywhere in the file.
+export function videoHasLocation(buf) {
+  return buf.includes(Buffer.from('\xa9xyz', 'latin1')) || buf.includes(Buffer.from('com.apple.quicktime.location'));
+}
+
 function* jpegs(dir) {
   if (!fs.existsSync(dir)) return;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) yield* jpegs(full);
-    else if (/\.jpe?g$/i.test(entry.name)) yield full;
+    else if (/\.(jpe?g|mp4|m4v|mov|webm)$/i.test(entry.name)) yield full;
   }
 }
 
@@ -47,13 +52,16 @@ export default function imagePrivacy() {
       'astro:config:setup': ({ config, command, logger }) => {
         const publicDir = fileURLToPath(config.publicDir);
         const found = [...jpegs(path.join(publicDir, 'images'))]
-          .filter((file) => hasGps(fs.readFileSync(file)))
+          .filter((file) => {
+            const buf = fs.readFileSync(file);
+            return /\.jpe?g$/i.test(file) ? hasGps(buf) : videoHasLocation(buf);
+          })
           .map((file) => path.relative(publicDir, file));
         if (!found.length) return;
         const message =
-          `These photos contain GPS location data:\n  ${found.join('\n  ')}\n` +
+          `These photos or videos contain location data:\n  ${found.join('\n  ')}\n` +
           'Remove it before publishing: open the photo in Preview → Tools → Show Inspector → ⓘ tab → GPS → ' +
-          '"Remove Location Info", then save. (Or ask Claude to strip it.)';
+          '"Remove Location Info", then save. For videos, ask Claude to re-export without metadata.';
         if (command === 'build') throw new Error(message);
         logger.warn(message);
       },

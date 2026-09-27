@@ -3,6 +3,9 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Home: portrait replaced by a looping background video (NYC at night, stock): cropped, crossfaded to loop seamlessly, WebM 2 MB / MP4 3 MB, poster first frame. Pause/play button (WCAG 2.2.2); no autoplay for reduced motion or data saver; pause remembered per browser.
+- Resume: Pete's portrait added; also added to structured data (Person.image).
+- Checks: privacy check now covers videos (location data); audit fails files over 8 MB and raw .mov files.
 - Comcast Business Enterprise: new case-study copy from drafts (role Creative Director, User Journey Scope, search description, skills).
 - Comcast Business headline: "Small Business Design Leadership & Web Ecosystem Optimization".
 - Added Claude routines: skills `/publish-drafts`, `/add-images`, `/release`, and a read-only `petemag-reviewer` agent.

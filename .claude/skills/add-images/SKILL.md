@@ -9,7 +9,8 @@ Images live in `public/images/<section>/<slug>/` (see `public/images/README.md`)
 - `tile.jpg`: grid tile background
 - `logo.png` (or `.svg`): client logo on the tile
 - `01.jpg`, `02.jpg`, …: case-study media, top to bottom, as listed in the content file's `media:`
-- `public/images/home/portrait.jpg`: home page photo
+- `public/images/about/portrait.jpg`: Pete's photo (Resume page and structured data)
+- `public/images/home/home-loop.webm`, `.mp4` and `-poster.jpg`: home background video (see Videos below)
 
 ## 1. Find what's new
 
@@ -44,8 +45,23 @@ mdls -name kMDItemAcquisitionMake -name kMDItemLatitude <img>
 
 - **Media images:** make sure the content file's `media:` list has an entry with this `src`. Rewrite its `alt` to describe what the image actually shows, specifically ("IHOP 'N Go checkout: pickup or delivery step", not "screenshot").
 - Long full-page screenshots: add `zoom: true` so visitors can open them full size.
-- **Portrait:** update the alt text in `src/components/home/HomeSplit.astro` to describe the new photo.
+- **Portrait:** update `portraitAlt` in `src/data/site.ts` to describe the new photo.
 - Tile and logo images need no content change; the file name is enough.
+
+## Videos (home background loop)
+
+Video tools aren't installed on Pete's Mac. Download a standalone ffmpeg/ffprobe into the scratchpad: release assets `ffmpeg-darwin-arm64.gz` and `ffprobe-darwin-arm64.gz` from github.com/eugeneware/ffmpeg-static (latest release), then gunzip and chmod +x.
+
+1. Inspect it with `ffprobe` (duration, size, fps, audio, metadata tags). Look at frames (`-vf fps=1/1.5,scale=480:-1,tile=3x2`) to choose the crop.
+2. **Crop** to what the half-screen slot can show (4:3 is enough; keep the subject centered). **Seamless loop:** with clip length T and crossfade D (~1.2 s), `trim` [D..T] and [0..D], then `xfade=transition=fade:duration=D:offset=T-2D`. Output length is T−D, starting and ending on the same frame. Check it: the first and last frames of the result should match.
+3. Encode **without audio or metadata** (`-an -map_metadata -1`):
+   - MP4 H.264 (`-crf 27 -preset slow -movflags +faststart`)
+   - WebM VP9 (`-b:v 0 -crf ~46`); it must be smaller than the MP4, or drop it
+   - Poster: the first frame as JPEG (`-q:v 4`)
+
+   Target 2–4 MB each; the audit fails anything over 8 MB.
+4. Replace `public/images/home/home-loop.{webm,mp4}` and `home-loop-poster.jpg`. Move the original to `~/Desktop/MySite-originals/`. **Never publish a .mov** (the audit fails it).
+5. The player, pause button, reduced-motion and data-saver handling live in `src/components/home/HomeSplit.astro`. No code change is needed when you swap the files.
 
 ## 5. Check and preview
 

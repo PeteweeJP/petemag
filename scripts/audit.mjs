@@ -10,6 +10,7 @@
 //   Canonical     every page has a canonical URL
 //   Contrast      text color tokens pass WCAG AA on the backgrounds they're used on
 //   Accent        the brand orange is never used as text color (fails AA)
+//   File sizes    no published file over 8 MB, and no raw .mov originals
 //   Drafts        nothing in drafts/ or the local-only planning docs is tracked by git
 import fs from 'node:fs';
 import path from 'node:path';
@@ -127,6 +128,17 @@ if (/(^|[\s;{])color:\s*var\(--color-accent\)/m.test(css)) {
   fail('global.css uses --color-accent as a text color (it fails AA). Use it for bars, underlines and backgrounds only.');
 }
 
+// --- Published file sizes: keep pages fast and the repo small ---
+const MAX_MB = 8;
+const walk = (dir) =>
+  fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]));
+for (const file of walk(dist)) {
+  const rel = path.relative(dist, file);
+  const mb = fs.statSync(file).size / 1024 / 1024;
+  if (mb > MAX_MB) fail(`${rel} is ${mb.toFixed(1)} MB (max ${MAX_MB} MB). Compress it.`);
+  if (/\.mov$/i.test(rel)) fail(`${rel}: raw .mov file published. Convert it to MP4/WebM (see the add-images skill).`);
+}
+
 // --- Local-only files must not be tracked by git ---
 try {
   const tracked = execSync('git ls-files drafts docs/reference docs/design docs/decisions.md docs/brand-voice.md docs/seo.md', {
@@ -146,4 +158,4 @@ if (failures.length) {
   for (const f of failures) console.log(`  ✗ ${f}`);
   process.exit(1);
 }
-console.log('All checks passed: titles, descriptions, headings, alt text, links, JSON-LD, canonicals, contrast, accent use, local-only files.');
+console.log('All checks passed: titles, descriptions, headings, alt text, links, JSON-LD, canonicals, contrast, accent use, file sizes, local-only files.');

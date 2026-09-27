@@ -23,6 +23,8 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Adding image files | `public/images/<section>/<slug>/` (see `public/images/README.md`) |
 | Name, tagline, nav, email, LinkedIn, indexing on/off | `src/data/site.ts` |
 | Home page (switchable designs) | `src/components/home/` (see its README); pick one in `src/data/site.ts` → `home` |
+| Home background video (files, player, pause button) | `public/images/home/home-loop.*`, `src/components/home/HomeSplit.astro` |
+| Pete's photo (Resume page, structured data) | `public/images/about/portrait.jpg`, `site.portrait` in `src/data/site.ts` |
 | Resume page | `src/pages/resume.md` |
 | Contact page | `src/pages/contact.astro` |
 | Page structure / markup | `src/pages/`, `src/layouts/`, `src/components/` (see `src/README.md`) |

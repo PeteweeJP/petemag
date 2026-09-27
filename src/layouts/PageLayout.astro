@@ -1,18 +1,32 @@
 ---
 // Wrapper for markdown pages in src/pages (e.g. resume.md).
-// Frontmatter: title, description, section, and `profile: true` for pages about Pete himself.
+// Frontmatter: title, description, section; `profile: true` for pages about Pete himself;
+// `portrait: true` to show Pete's photo (site.portrait) beside the opening text.
 import BaseLayout from './BaseLayout.astro';
+import { site } from '../data/site';
 import { url, pagePath } from '../lib/url';
+import { hasAsset, imageDims } from '../lib/content';
 import { personId } from '../lib/schema';
 
-const { title, description, section, profile } = Astro.props.frontmatter;
+const { title, description, section, profile, portrait } = Astro.props.frontmatter;
 const siteUrl = new URL(url(), Astro.site);
+const showPortrait = portrait && hasAsset(site.portrait);
 const schema = profile
   ? [{ '@type': 'ProfilePage', name: title, url: new URL(pagePath(Astro.url), Astro.site).href, mainEntity: { '@id': personId(siteUrl) } }]
   : [];
 ---
-<BaseLayout title={title} description={description} section={section} type={profile ? 'profile' : 'website'} schema={schema}>
+<BaseLayout
+  title={title}
+  description={description}
+  section={section}
+  type={profile ? 'profile' : 'website'}
+  schema={schema}
+  image={showPortrait ? site.portrait : undefined}
+>
   <article class="prose-page">
+    {showPortrait && (
+      <img class="prose-page__portrait" src={url(site.portrait)} alt={site.portraitAlt} {...imageDims(site.portrait)} />
+    )}
     <slot />
   </article>
 </BaseLayout>

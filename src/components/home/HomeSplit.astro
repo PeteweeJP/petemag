@@ -1,16 +1,31 @@
 ---
-// Original Squarespace home: portrait photo left, role/name/tagline/nav right.
-// Kept as a fallback while the new home is designed. Select it in src/data/site.ts (home: 'split').
+// Split home: looping background video left, role/name/tagline/nav right.
+// Select it in src/data/site.ts (home: 'split').
 import { site } from '../../data/site';
 import { url } from '../../lib/url';
 import { hasAsset, imageDims } from '../../lib/content';
 
-const portrait = 'images/home/portrait.jpg';
+// Night-time New York street loop (stock), crossfaded to loop seamlessly. See public/images/README.md.
+const video = {
+  poster: 'images/home/home-loop-poster.jpg', // first frame: shown instantly, and instead of the video when it can't play
+  webm: 'images/home/home-loop.webm',
+  mp4: 'images/home/home-loop.mp4',
+};
 ---
 <section class="home">
-  <div class="home__photo">
-    {hasAsset(portrait) && (
-      <img src={url(portrait)} alt="Peter Magulak, smiling, in a grey knit beanie and a denim jacket" {...imageDims(portrait)} fetchpriority="high" />
+  <div class="home__media">
+    {hasAsset(video.poster) && (
+      <img class="home__poster" src={url(video.poster)} alt="" {...imageDims(video.poster)} fetchpriority="high" />
+    )}
+    {hasAsset(video.mp4) && (
+      <video class="home__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-home-video>
+        {hasAsset(video.webm) && <source src={url(video.webm)} type="video/webm" />}
+        <source src={url(video.mp4)} type="video/mp4" />
+      </video>
+      <button class="video-toggle" type="button" aria-label="Play background video" data-video-toggle hidden>
+        <svg class="video-toggle__pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+        <svg class="video-toggle__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" /></svg>
+      </button>
     )}
   </div>
   <div class="home__intro">
@@ -22,3 +37,59 @@ const portrait = 'images/home/portrait.jpg';
     </nav>
   </div>
 </section>
+
+<script>
+  // Background video: starts only if the visitor hasn't asked for reduced motion or data saving,
+  // and hasn't paused it before. The pause/play button satisfies WCAG 2.2.2 (Pause, Stop, Hide).
+  const video = document.querySelector<HTMLVideoElement>('[data-home-video]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-video-toggle]');
+  if (video && toggle) {
+    const media = video.parentElement;
+    const KEY = 'home-video-paused'; // per-browser preference; the page works the same without it
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+    const remembered = (() => {
+      try {
+        return localStorage.getItem(KEY) === '1';
+      } catch {
+        return false;
+      }
+    })();
+    const remember = (paused: boolean) => {
+      try {
+        if (paused) localStorage.setItem(KEY, '1');
+        else localStorage.removeItem(KEY);
+      } catch {
+        /* storage unavailable: nothing to remember */
+      }
+    };
+
+    const show = (playing: boolean) => {
+      toggle.dataset.state = playing ? 'playing' : 'paused';
+      toggle.setAttribute('aria-label', playing ? 'Pause background video' : 'Play background video');
+    };
+    const play = () => {
+      video.preload = 'auto';
+      video.play().catch(() => show(false)); // e.g. iPhone Low Power Mode: the poster stays
+    };
+
+    video.addEventListener('playing', () => {
+      media?.classList.add('is-playing'); // fades the video in over the poster
+      show(true);
+    });
+    video.addEventListener('pause', () => show(false));
+    toggle.addEventListener('click', () => {
+      if (video.paused) {
+        remember(false);
+        play();
+      } else {
+        remember(true);
+        video.pause();
+      }
+    });
+
+    toggle.hidden = false;
+    show(false);
+    if (!reduceMotion && !saveData && !remembered) play();
+  }
+</script>

@@ -91,8 +91,27 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 
 /* Home: 50/50 split */
 .home { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; min-height: 100svh; background: var(--color-surface); }
-.home__photo { background: var(--color-rule); }
-.home__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; } /* keep the face in frame when cropped */
+/* Home background video: poster image first, video fades in over it once playing */
+.home__media { position: relative; overflow: hidden; background: #111; }
+.home__poster, .home__video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 40%; /* keep the Empire State Building in frame */
+}
+.home__video { opacity: 0; transition: opacity 0.8s var(--ease-out); }
+.home__media.is-playing .home__video { opacity: 1; }
+/* Pause/play (WCAG 2.2.2): 44px round button in the corner of the video */
+.video-toggle {
+  position: absolute; right: var(--space-2); bottom: var(--space-2); z-index: 1;
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 0; border-radius: 50%; background: rgb(0 0 0 / 0.55); color: #fff; cursor: pointer;
+  transition: background-color 0.2s;
+}
+.video-toggle[hidden] { display: none; }
+.video-toggle:hover { background: rgb(0 0 0 / 0.75); }
+.video-toggle:focus-visible { outline-color: #fff; }
+.video-toggle svg { width: 20px; height: 20px; fill: currentColor; }
+.video-toggle[data-state='playing'] .video-toggle__play,
+.video-toggle:not([data-state='playing']) .video-toggle__pause { display: none; }
 .home__intro { align-self: center; padding: var(--space-5) var(--gutter); }
 .home__name { margin: 0; font-weight: 400; font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
 .home__role { margin: 0 0 var(--home-stack); } /* sits just above the name */
@@ -188,6 +207,7 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .split-page h1 { margin-top: 0; font-size: 3rem; }
 .contact-links { padding: 0; list-style: none; font-size: 1.1rem; }
 .prose-page { max-width: 46rem; margin: 0 auto; padding: var(--space-5) var(--gutter); }
+.prose-page__portrait { float: right; width: 220px; height: auto; margin: 0 0 var(--space-3) var(--space-4); }
 
 .media-stack img { width: 100%; height: auto; }
 
@@ -223,7 +243,8 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 @media (max-width: 600px) {
   .tile-grid { grid-template-columns: 1fr; }
   .home { grid-template-columns: 1fr; }
-  .home__photo { aspect-ratio: 4 / 5; }
+  .home__media { aspect-ratio: 4 / 5; }
+  .prose-page__portrait { float: none; width: min(60%, 220px); margin: 0 0 var(--space-3); }
 }
 
 /* ---------- Hamburger menu button (hidden on desktop) ---------- */

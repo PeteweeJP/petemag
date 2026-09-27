@@ -4,7 +4,9 @@ Every image on the site lives here. Files in `public/` are copied to the site un
 
 ```
 images/
-  home/portrait.jpg              Home page photo (left half)
+  home/home-loop.webm, .mp4      Home page background video (left half), about 8 s, loops seamlessly
+  home/home-loop-poster.jpg      Its first frame: shown instantly, and instead of the video when it can't play
+  about/portrait.jpg             Pete's photo: Resume page, and structured data for search results
   work/<slug>/tile.jpg           Tile background on the Work grid
   work/<slug>/logo.png           Client logo shown on the tile (white or brand-colored, transparent background)
   work/<slug>/01.jpg, 02.jpg …   Media stack, top to bottom
@@ -18,4 +20,4 @@ images/
 - Logos: transparent PNG or SVG. If you use `.svg`, update the `logo:` path in the content file to match.
 - Prefer `.jpg` for photos/screenshots and `.png` only when transparency is needed. Keep files under ~500 KB and about 2000px wide max. Very tall full-page screenshots should be cropped into readable sections.
 - **Remove location data from photos.** Phone photos often embed GPS coordinates. The build refuses to publish a JPEG that still has them. Fix it in Preview → Tools → Show Inspector → ⓘ → GPS → *Remove Location Info*.
-- Videos are not stored here. They stay on Vimeo; put the Vimeo ID in the content file.
+- **Case-study videos** are not stored here. They stay on Vimeo; put the Vimeo ID in the content file. (The home background loop is the one exception.)

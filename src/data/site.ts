@@ -9,6 +9,9 @@ export const site = {
   homeTitle: 'Creative Director Peter Magulak',
   description:
     'Portfolio of creative director and UX/product designer Peter Magulak: user experience, design systems, advertising campaigns, mobile and app design, and illustration.',
+  // Pete's photo: on the Resume page and in structured data (search results can show it with his name).
+  portrait: 'images/about/portrait.jpg',
+  portraitAlt: 'Peter Magulak, smiling, in a grey knit beanie and a denim jacket',
   email: 'pete@petemag.com',
   linkedin: 'https://www.linkedin.com/in/petermagulak',
   // false while previewing on github.io so search engines don't index a duplicate of petemag.com.
