@@ -12,7 +12,55 @@ const { entries, heading, headingLevel: H = 'h2' } = Astro.props;
 ---
 <section class="tile-section" aria-label={heading}>
   <H class="visually-hidden">{heading}</H>
-  <div class="tile-grid">
+  {/* data-reveal: each tile's photo and name animate in as it scrolls into view (styles in global.css) */}
+  <div class="tile-grid" data-reveal>
     {entries.map((entry) => <Tile entry={entry} />)}
   </div>
 </section>
+
+<script>
+  // Scroll reveal: each tile's photo and name animate in once, the first time the tile enters the
+  // screen (the tile itself never moves). Tiles that
+  // arrive together (the first screenful, or a new row) are staggered in reading order.
+  // They never animate out again when scrolling back up.
+  const grids = document.querySelectorAll<HTMLElement>('.tile-grid[data-reveal]');
+  const STEP = 80; // ms between tiles arriving together
+  const MAX_STEPS = 8; // cap, so a big first screenful doesn't take too long
+
+  const SETTLE_MS = 1400; // longest reveal transition (photo: 1.4 x 0.8s) plus a margin
+
+  const reveal = (tile: HTMLElement, order = 0) => {
+    const delay = Math.min(order, MAX_STEPS) * STEP;
+    tile.style.setProperty('--tile-delay', `${delay}ms`);
+    // .is-revealing carries the slow staggered transitions; .is-revealed is the visible end state.
+    tile.classList.add('is-revealing', 'is-revealed');
+    // Once settled, drop the reveal timing so hover uses its normal quick transitions.
+    setTimeout(() => {
+      tile.classList.remove('is-revealing');
+      tile.style.removeProperty('--tile-delay');
+    }, delay + SETTLE_MS);
+  };
+
+  if (grids.length) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries
+            .filter((e) => e.isIntersecting)
+            .map((e) => e.target as HTMLElement)
+            .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))
+            .forEach((tile, i) => {
+              reveal(tile, i);
+              observer.unobserve(tile);
+            });
+        },
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.1 },
+      );
+      grids.forEach((grid) => grid.querySelectorAll<HTMLElement>('.tile').forEach((tile) => observer.observe(tile)));
+    } else {
+      grids.forEach((grid) => grid.querySelectorAll<HTMLElement>('.tile').forEach((tile) => reveal(tile)));
+    }
+    // Tells the CSS the script is running, which switches off the "show anyway" failsafe.
+    grids.forEach((grid) => (grid.dataset.revealReady = ''));
+  }
+</script>
