@@ -88,18 +88,29 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
         return;
       }
       if (button) button.disabled = true;
-      say('Sending…', 'info');
+      say('Sending\u2026', 'info');
+      // Per Web3Forms: JavaScript submissions must not include "redirect" (that field is only for the
+      // no-JavaScript fallback; sending it makes the API redirect, which the browser blocks), and
+      // should be sent as JSON.
+      data.delete('redirect');
       try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(data)),
+        });
         const json = await res.json().catch(() => ({}));
         if (res.ok && json.success) {
           form.reset();
-          say('Thanks! Your message is on its way. I’ll get back to you soon.', 'success');
+          say('Thanks! Your message is on its way. I\u2019ll get back to you soon.', 'success');
         } else {
-          throw new Error(json?.body?.message || json?.message || 'Send failed');
+          const reason = json?.body?.message || json?.message;
+          console.error('Contact form: Web3Forms rejected the message', res.status, json);
+          say(`Sorry, that didn\u2019t send${reason ? ` (${reason})` : ''}. Please try again, or email me directly.`, 'error');
         }
-      } catch {
-        say('Sorry, that didn’t send. Please try again, or email me directly.', 'error');
+      } catch (err) {
+        console.error('Contact form: request failed', err);
+        say('Sorry, that didn\u2019t send. Please try again, or email me directly.', 'error');
       } finally {
         (window as Window & { hcaptcha?: HCaptcha }).hcaptcha?.reset();
         if (button) button.disabled = false;

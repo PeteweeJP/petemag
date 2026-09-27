@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-26
+- Fix: contact form showed an error on send. JavaScript submissions no longer include the no-JS `redirect` field (it made Web3Forms redirect, which the browser blocks) and are sent as JSON; errors now show Web3Forms' reason.
 - Contact: form (name, email, message) via Web3Forms with hCaptcha and a honeypot; sends in place with accessible status messages; /thanks page for no-JavaScript. Connected to Pete's Web3Forms key. CSP opened only to hCaptcha and api.web3forms.com.
 - Home (tablet/phone): nav links stack one per line instead of wrapping.
 - Home: portrait replaced by a looping background video (NYC at night, stock): cropped, crossfaded to loop seamlessly, WebM 2 MB / MP4 3 MB, poster first frame. Pause/play button (WCAG 2.2.2); no autoplay for reduced motion or data saver; pause remembered per browser.
