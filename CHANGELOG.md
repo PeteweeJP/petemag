@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-28
+- Case-study text column: body 14px (was 15.2), section headings 16px (was 18), sub-headings 14px (was 15.2), table 12.6px (was 13.6).
 - New per-image `actualSize: true`: shows an image at its real width instead of filling the column. Used for the SFT email (600px).
 - Cheesecake Stuffed French Toast: new case-study copy from Pete's markdown ("Unwrapping the Unexpected"), search description and skills; 5 images added (ugly sweater, homepage and landing page as zoomable full pages, display ad, email). WebP metadata stripped; unused dark AHA logo moved to originals.
 
