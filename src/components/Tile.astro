@@ -3,7 +3,8 @@
 // The background is a real lazy-loaded <img> (not CSS), so a grid of 25 tiles doesn't
 // download every photo up front.
 import { url } from '../lib/url';
-import { hasAsset } from '../lib/content';
+import { hasAsset, imageDims } from '../lib/content';
+import { site } from '../data/site';
 import type { Entry } from '../lib/content';
 
 interface Props {
@@ -12,12 +13,21 @@ interface Props {
 
 const { entry } = Astro.props;
 const { title, client, tile } = entry.data;
+
+// Logos are sized for equal *visual weight*: every logo gets roughly the same area, so a very wide
+// wordmark comes out wide but short and a compact badge comes out taller but narrow.
+// width = LOGO_BASE x sqrt(aspect ratio), as a percentage of the tile's width, rounded to the
+// 2% steps defined in global.css (.tile__logo[data-size]). LOGO_BASE is the width a square logo gets.
+const LOGO_BASE = 21;
+const hasLogo = site.tileLogos && hasAsset(tile.logo);
+const { width = 1, height = 1 } = hasLogo && tile.logo ? imageDims(tile.logo) : {};
+const logoSize = Math.min(70, Math.max(10, Math.round((LOGO_BASE * Math.sqrt(width / height)) / 2) * 2));
 ---
 <a class="tile" href={url(entry.id)} aria-label={`${title} (${client})`}>
   {hasAsset(tile.image) && <img class="tile__bg" src={url(tile.image)} alt="" loading="lazy" decoding="async" />}
   <span class="tile__face">
-    {hasAsset(tile.logo)
-      ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} loading="lazy" decoding="async" />
+    {hasLogo
+      ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} width={width} height={height} data-size={logoSize} loading="lazy" decoding="async" />
       : <span class="tile__label">{tile.label}</span>}
     {tile.subtitle && <span class="tile__subtitle">{tile.subtitle}</span>}
   </span>

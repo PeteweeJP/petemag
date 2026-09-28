@@ -31,6 +31,17 @@ export function hasGps(buf) {
   return false;
 }
 
+// WebP: any EXIF chunk (it can hold GPS). Photos should be exported/cleaned without it.
+export function webpHasExif(buf) {
+  if (buf.toString('latin1', 0, 4) !== 'RIFF' || buf.toString('latin1', 8, 12) !== 'WEBP') return false;
+  for (let i = 12; i + 8 <= buf.length; ) {
+    const size = buf.readUInt32LE(i + 4);
+    if (buf.toString('latin1', i, i + 4) === 'EXIF') return true;
+    i += 8 + size + (size & 1);
+  }
+  return false;
+}
+
 // Videos: QuickTime/MP4 location atoms (©xyz, Apple's ISO 6709 key) anywhere in the file.
 export function videoHasLocation(buf) {
   return buf.includes(Buffer.from('\xa9xyz', 'latin1')) || buf.includes(Buffer.from('com.apple.quicktime.location'));
@@ -41,7 +52,7 @@ function* jpegs(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) yield* jpegs(full);
-    else if (/\.(jpe?g|mp4|m4v|mov|webm)$/i.test(entry.name)) yield full;
+    else if (/\.(jpe?g|webp|mp4|m4v|mov|webm)$/i.test(entry.name)) yield full;
   }
 }
 
@@ -54,7 +65,9 @@ export default function imagePrivacy() {
         const found = [...jpegs(path.join(publicDir, 'images'))]
           .filter((file) => {
             const buf = fs.readFileSync(file);
-            return /\.jpe?g$/i.test(file) ? hasGps(buf) : videoHasLocation(buf);
+            if (/\.jpe?g$/i.test(file)) return hasGps(buf);
+            if (/\.webp$/i.test(file)) return webpHasExif(buf);
+            return videoHasLocation(buf);
           })
           .map((file) => path.relative(publicDir, file));
         if (!found.length) return;

@@ -58,7 +58,7 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
       ) : img;
     }
     return (
-      <figure class="media-item">
+      <figure class:list={['media-item', { 'media-item--actual': item.actualSize }]}>
         <figcaption class="media-caption" aria-hidden={repeatsAlt ? 'true' : undefined}>{caption}</figcaption>
         {media}
       </figure>

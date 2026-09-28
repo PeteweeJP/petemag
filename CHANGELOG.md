@@ -2,7 +2,14 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-09-28
+- New per-image `actualSize: true`: shows an image at its real width instead of filling the column. Used for the SFT email (600px).
+- Cheesecake Stuffed French Toast: new case-study copy from Pete's markdown ("Unwrapping the Unexpected"), search description and skills; 5 images added (ugly sweater, homepage and landing page as zoomable full pages, display ad, email). WebP metadata stripped; unused dark AHA logo moved to originals.
+
 ## 2026-09-27
+- Tile logos switched off for now (`tileLogos: false` in site.ts): tiles show client names in text. The 8 trimmed logos and the equal-weight sizing are kept for later.
+- Tile logos sized for equal visual weight: each gets roughly the same area (width = 21% of tile × √aspect), relative to the tile, so wide wordmarks and compact badges look balanced at every screen size.
+- Images: 11 covers (3 Apps: Ben & Jerry's AR, Facebook Canvas, IHOP AR; new for AHA, Bausch + Lomb, IHOP Contest, Ecommerce, Menu Photoshoot; replaced gen.video, Double Dipped, Holiday), 8 client logos on tiles (trimmed; AHA pending a light version), and 21 Menu Photoshoot dishes (WebP, EXIF stripped) with labels. Privacy check now also covers WebP metadata.
 - SFT Campaign: the "social posts" image is display-ad slides; label and description updated.
 - Case studies: a small eyebrow-style label above each image and video (from its description, or an optional shorter `caption`), marked up as a figure caption.
 - All Vimeo embeds: title, byline and avatar overlays hidden. New per-video `loop: true` option (silent autoplay loop, motion-safe); tried on the SFT unwrap animation and rolled back to click-to-play at Pete's request.

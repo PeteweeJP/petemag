@@ -24,6 +24,9 @@ export const site = {
   // false while previewing on github.io so search engines don't index a duplicate of petemag.com.
   // Flip to true at domain cutover (docs/seo.md).
   indexable: false,
+  // Client logos on tiles (logo.png in each project folder). Off = client names in text.
+  // The logo files and their balanced sizing (Tile.astro) are kept, ready to switch back on.
+  tileLogos: false,
   // Which home page design is live (src/components/home/). 'split' = the original Squarespace layout.
   home: 'split' as const,
   nav: [
