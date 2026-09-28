@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-28
+- Cheesecake Stuffed French Toast: copy replaced with Pete's revised markdown; role now "Creative Direction & Strategy Lead".
 - Fresh Market: homepage hero video moved above the homepage image; the Instagram story ad is now a GIF-style loop (720px square, ~0.6 MB, pause/play button, paused for reduced motion and off screen). New media `type: loop`.
 - Fresh Market: new case-study copy from Pete's markdown; three Vimeo videos (drone film, homepage hero, Instagram story) and five images (homepage and What's New page zoomable, mobile, Instagram stickers, email at actual size). Empty "food photo spread" slot removed.
 - Case-study text column: body 14px (was 15.2), section headings 16px (was 18), sub-headings 14px (was 15.2), table 12.6px (was 13.6).

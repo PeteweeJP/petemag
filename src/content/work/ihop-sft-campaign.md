@@ -6,7 +6,7 @@ tile:
   logo: images/work/ihop-sft-campaign/logo.png
   subtitle: "Cheesecake Stuffed French Toast"
   image: images/work/ihop-sft-campaign/tile.jpg
-role: "Creative Lead"
+role: "Creative Direction & Strategy Lead"
 order: 8
 media:
   - type: video
@@ -36,49 +36,51 @@ keywords: ["Campaign Strategy", "Digital Marketing", "Social Media Activation", 
 slugVerified: false
 ---
 
-## IHOP Stuffed French Toast Campaign
+## IHOP Stuffed French Toast (SFT) Campaign
 
-**Role:** Creative Lead<br>
-**Initiative:** Stuffed French Toast (SFT) Limited-Time Offer (LTO) Campaign<br>
-**Core Objective:** Drive Restaurant Foot Traffic, Boost Appetite Appeal, & Execute Multi-Channel Digital Strategy
+**Role:** Creative Direction & Strategy Lead<br>
+**Core Domain:** Campaign Strategy, Digital Ecosystems, Social Innovation, Location-Based Marketing<br>
+**User Journey Scope:** Full Funnel (Awareness → Engagement → Drive-to-Store)
 
-## Executive Summary
+## 1. Executive Summary
 
-For the holiday season, IHOP launched a new limited-time offer (LTO) product line: **Stuffed French Toast (SFT)**. The strategic objective was to drive foot traffic into IHOP restaurants by pairing an accessible price point with intense appetite appeal centered on the uniqueness of the product and its premium ingredients.
+I directed the digital creative strategy and execution for the holiday product launch of IHOP's **Stuffed French Toast (SFT)** Limited Time Offer (LTO). The strategic objective was to drive foot traffic into physical IHOP locations by combining an accessible price point with intense appetite appeal centered on the uniqueness of the offering and its premium ingredients.
 
-Through an integrated digital campaign built around the concept of *"Unwrapping the Unexpected,"* IHOP combined high-impact rich media, location-gated social engagement, targeted email marketing, and holiday novelty to capture consumer interest and drive physical store visits.
+The campaign was built around the seasonal theme **"Unwrapping the Unexpected."** By pairing a complete web ecosystem overhaul with location-gated social activations, holiday brand extensions, rich media publisher placements, and drive-to-store navigation ads, the campaign successfully connected holiday engagement with measurable store visits.
 
-## Technical & Professional Scope
+## 2. Core Entity & Skill Matrix
 
 | Categorization | Details & Competencies |
 | --- | --- |
-| **Role & Expertise** | Campaign Creative Direction, Digital Strategy, Experience Design, Social Engagement |
-| **Channels & Touchpoints** | Web (Homepage/Landing Page), Social Media, Email, Rich Media, Location-Based Mobile Ads |
-| **Core Delivery Lifecycle** | Creative Strategy → Web Experience Redesign → Asset Production → Multi-Channel Rollout |
-| **Specialized Tactics** | In-Restaurant Geofencing (Snapchat), Navigation Ads (Waze), Viral Social Merchandising |
+| **Role & Focus** | Creative Direction & Strategy (Digital & Social Campaigns, Brand Experience) |
+| **Domain Scope** | LTO Product Launches, Web Ecosystems, Location-Based Social & Navigation Ads |
+| **Cross-Functional Stakeholders** | Marketing Strategy, Product Development, Digital/Web Engineering, Paid Media Teams |
+| **UX/UI & Creative Workflow** | Discovery, Concept Development, Web Redesign, Social Production, Merchandising |
+| **Optimization & Mechanics** | Value-Driven Price Point Messaging, In-Restaurant Geo-Gating, Seasonal Engagement |
+| **Lifecycle Stages** | **Awareness** (CBS Sports, Waze, Email) → **Engagement** (Social, Web) → **Conversion** (In-Store Foot Traffic) |
 
-## Strategic Responsibilities & Execution
+## 3. Key Initiatives & Strategic Impact
 
-### 1. Web Ecosystem & Digital Storytelling ("Unwrapping the Unexpected")
+### A. Web Ecosystem & Seasonal Experience ("Unwrapping the Unexpected")
 
-- **Homepage & Landing Page Redesign:** Overhauled IHOP's primary digital touchpoints under the holiday theme *"Unwrapping the Unexpected."* Focused layout architecture on high-res product visual hierarchy and ingredient highlights.
-- **Email Marketing Campaigns:** Designed targeted promotional email campaigns highlighting the LTO price point and appetizing imagery directly to IHOP's subscriber database.
+- **Homepage & Landing Page Redesign:** Redesigned IHOP's primary digital touchpoints under the theme *"Unwrapping the Unexpected,"* showcasing mouthwatering visuals of Stuffed French Toast ingredients alongside clear price point messaging.
+- **Targeted Email Campaign:** Designed dedicated promotional emails distributed across IHOP's subscriber base to build early holiday awareness and communicate value directly to loyal guests.
 
-### 2. Location-Gated & Social Engagement Tactics
+### B. In-Restaurant Geo-Gating & Social Innovation
 
-- **In-Restaurant Snapchat Geofilters:** Designed custom Snapchat filters promoting both the Stuffed French Toast LTO and IHOP's core equity offerings. The filters were geofenced so they could **only be unlocked inside an IHOP restaurant**, creating a direct digital incentive for store visits.
-- **Holiday Ugly Sweater Giveaway:** Executed the second annual custom IHOP holiday ugly sweater social giveaway to drive organic buzz, brand affinity, and social engagement.
-- **Social Ad Formats:** Produced high-performing Instagram Snap Ads and lightweight Twitter GIFs tailored for fast-scrolling appetite appeal.
+- **In-Restaurant Snapchat Filters:** Developed custom Snapchat Filters promoting both the SFT LTO and IHOP's core equity offerings that could **only be unlocked inside an IHOP restaurant**, creating a direct digital incentive for in-person visits.
+- **Multi-Platform Social Creative:** Directed native social assets, including Instagram Snap Ads and Twitter GIFs, designed to maximize feed stopping power and appetite appeal.
+- **Holiday Brand Extension:** Produced a custom holiday ugly sweater for the second consecutive year as a social media giveaway, driving brand affinity, organic social reach, and seasonal buzz.
 
-### 3. Rich Media & Drive-to-Store Partnerships
+### C. Contextual Media & Drive-to-Store Execution
 
-- **High-Impact Publisher Ads:** Deployed interactive rich media banner placements across high-traffic platforms, including **CBS Sports**.
-- **Navigation-Based Targeting:** Partnered with **Waze** to display contextual, location-aware ads targeting drivers near IHOP locations during prime meal times.
+- **High-Impact Publisher Placements:** Deployed rich media banner campaigns across premium digital properties, including **CBS Sports**, to capture high-volume audience attention.
+- **Waze Navigation Advertising:** Integrated drive-to-store mobile advertising on **Waze** to target drivers near IHOP locations, converting mealtime intent into immediate physical foot traffic.
 
-## Campaign Architecture
+## 4. Workflows & Cross-Functional Governance
 
-The holiday campaign, *"Unwrapping the Unexpected,"* ran across three pillars:
-
-- **Digital Touchpoints:** Homepage Redesign · Dedicated Landing Page · Promotional Email Series
-- **Social Engagement:** Holiday Ugly Sweater Social Giveaway · Twitter GIFs · Instagram Snap Ads
-- **High-Impact Media & Location:** In-Restaurant Snapchat Location Filters · Waze Location Ads · CBS Sports Rich Media
+- **Strategic Briefing & Campaign Direction:** Translated product requirements, price point objectives, and holiday promotional goals into the cohesive *"Unwrapping the Unexpected"* creative concept.
+- **Digital Ecosystem Refresh:** Led the visual and structural redesign of homepage and landing page touchpoints to balance brand equity with appetite appeal.
+- **Social & Brand Merchandise Production:** Directed creative execution across multi-platform social formats (Snapchat, Instagram, Twitter) and managed custom merchandise development for the holiday ugly sweater giveaway.
+- **Media & Engineering Handoffs:** Partnered with paid media and development teams to deploy rich media banners and execute in-restaurant location-gated digital triggers.
+- **In-Market Execution & Performance Monitoring:** Evaluated performance across digital touchpoints to ensure appetite appeal and drive-to-store mechanics performed effectively.
