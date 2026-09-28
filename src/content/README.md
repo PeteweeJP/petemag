@@ -52,6 +52,7 @@ Markdown tables work in case-study text. Write the divider row as `| --- | --- |
 - **Hide a project:** `draft: true`.
 - **Image labels:** every image and video shows a small label above it, taken from its `alt` description. To show something shorter, add `caption: "…"` under that media item. The `alt` stays the full description for screen readers and search engines.
 - **Make an image zoomable:** add `zoom: true` under that media item.
+- **GIF-style loop** (short clip that plays silently on repeat, with a pause button): `type: loop` with `src:` (MP4), `webm:` and `poster:`. Better than a real GIF: much smaller, sharper, and pausable (accessibility). Claude can make one from a Vimeo video.
 - **Show an image at its real size** (e.g. an email, instead of stretching it to the column): add `actualSize: true`.
 - **Make a short Vimeo video loop like a GIF:** add `loop: true` under it (silent and on repeat, with Vimeo's pause control still available; not for reduced-motion visitors).
 - **Add a project:** copy an existing file, rename it (this sets the URL), and update the fields.

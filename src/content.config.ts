@@ -17,9 +17,12 @@ const linkUrl = z.union([
 
 // One item in a case study's media stack (right column, top to bottom).
 const media = z.object({
-  type: z.enum(['image', 'video']).default('image'),
+  // image | video (Vimeo) | loop (self-hosted silent loop, like a GIF, with a pause button)
+  type: z.enum(['image', 'video', 'loop']).default('image'),
   src: assetPath.optional(),
   vimeo: z.string().regex(/^\d*$/, 'Vimeo ID is the number from the video URL').optional(),
+  webm: assetPath.optional(), // loop: smaller WebM version (src is the MP4)
+  poster: assetPath.optional(), // loop: still frame shown before playing, when paused for reduced motion, and without JavaScript
   alt: z.string().min(1),
   caption: z.string().optional(), // short label shown above the item; defaults to alt
   zoom: z.boolean().default(false), // true = click to open full size (good for long screenshots)

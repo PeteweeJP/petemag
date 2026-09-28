@@ -49,6 +49,30 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
       ) : (
         <div class="media-placeholder">Video: {item.alt}<br /><small>add a Vimeo ID</small></div>
       );
+    } else if (item.type === 'loop' && hasAsset(item.src)) {
+      // GIF-style loop: silent, repeating, no player chrome, with a pause/play button (WCAG 2.2.2).
+      // The script below starts it unless the visitor prefers reduced motion, and pauses it off screen.
+      media = (
+        <div class="media-loop">
+          <video
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={hasAsset(item.poster) ? url(item.poster) : undefined}
+            aria-label={item.alt}
+            {...imageDims(item.poster ?? item.src)}
+            data-loop
+          >
+            {hasAsset(item.webm) && <source src={url(item.webm)} type="video/webm" />}
+            <source src={url(item.src)} type="video/mp4" />
+          </video>
+          <button class="video-toggle" type="button" aria-label={`Play: ${item.caption ?? item.alt}`} data-loop-toggle hidden>
+            <svg class="video-toggle__pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+            <svg class="video-toggle__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" /></svg>
+          </button>
+        </div>
+      );
     } else if (!hasAsset(item.src)) {
       media = <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>;
     } else {
@@ -73,6 +97,34 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
 )}
 
 <script>
+  // GIF-style loops: play while on screen (unless reduced motion or the visitor paused it); pause button.
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll<HTMLElement>('.media-loop').forEach((box) => {
+    const video = box.querySelector<HTMLVideoElement>('video[data-loop]');
+    const toggle = box.querySelector<HTMLButtonElement>('[data-loop-toggle]');
+    if (!video || !toggle) return;
+    const name = (toggle.getAttribute('aria-label') ?? '').replace(/^Play: /, '');
+    let userPaused = reduceMotion; // reduced motion: start paused; the visitor can press play
+    const show = (playing: boolean) => {
+      toggle.dataset.state = playing ? 'playing' : 'paused';
+      toggle.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'}: ${name}`);
+    };
+    video.addEventListener('play', () => show(true));
+    video.addEventListener('pause', () => show(false));
+    toggle.addEventListener('click', () => {
+      userPaused = !video.paused;
+      if (video.paused) video.play().catch(() => show(false));
+      else video.pause();
+    });
+    // Only run while visible: saves battery and bandwidth on long pages.
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !userPaused) video.play().catch(() => show(false));
+      else if (!entry.isIntersecting) video.pause();
+    }, { threshold: 0.25 }).observe(video);
+    toggle.hidden = false;
+    show(false);
+  });
+
   // Looping Vimeo videos start playing on their own, unless the visitor prefers reduced motion.
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll<HTMLIFrameElement>('iframe[data-autoplay-src]').forEach((frame) => {

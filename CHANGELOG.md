@@ -3,6 +3,8 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-28
+- Fresh Market: homepage hero video moved above the homepage image; the Instagram story ad is now a GIF-style loop (720px square, ~0.6 MB, pause/play button, paused for reduced motion and off screen). New media `type: loop`.
+- Fresh Market: new case-study copy from Pete's markdown; three Vimeo videos (drone film, homepage hero, Instagram story) and five images (homepage and What's New page zoomable, mobile, Instagram stickers, email at actual size). Empty "food photo spread" slot removed.
 - Case-study text column: body 14px (was 15.2), section headings 16px (was 18), sub-headings 14px (was 15.2), table 12.6px (was 13.6).
 - New per-image `actualSize: true`: shows an image at its real width instead of filling the column. Used for the SFT email (600px).
 - Cheesecake Stuffed French Toast: new case-study copy from Pete's markdown ("Unwrapping the Unexpected"), search description and skills; 5 images added (ugly sweater, homepage and landing page as zoomable full pages, display ad, email). WebP metadata stripped; unused dark AHA logo moved to originals.

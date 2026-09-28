@@ -63,6 +63,8 @@ Video tools aren't installed on Pete's Mac. Download a standalone ffmpeg/ffprobe
 4. Replace `public/images/home/home-loop.{webm,mp4}` and `home-loop-poster.jpg`. Move the original to `~/Desktop/MySite-originals/`. **Never publish a .mov** (the audit fails it).
 5. The player, pause button, reduced-motion and data-saver handling live in `src/components/home/HomeSplit.astro`. No code change is needed when you swap the files.
 
+**Case-study "GIF" loops** (`type: loop` in a media list): same encode steps. Crop to the subject, no crossfade needed if the clip loops naturally. Save as `<name>.mp4`, `<name>.webm` and `<name>-poster.jpg` in the project folder. When Pete asks for a GIF, make one of these instead: it's smaller, sharper, and pausable (WCAG 2.2.2). From his Vimeo videos: load `https://player.vimeo.com/video/<id>` in headless Firefox and read `window.playerConfig.request.files.progressive` for the MP4 links.
+
 ## 5. Check and preview
 
 ```bash

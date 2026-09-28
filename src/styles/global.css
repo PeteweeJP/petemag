@@ -281,7 +281,11 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 
 .media-stack img { width: 100%; height: auto; }
 /* actualSize: the image keeps its real width (never wider than the column), left-aligned under its label */
-.media-item--actual img { width: auto; max-width: 100%; }
+.media-item--actual img, .media-item--actual video { width: auto; max-width: 100%; }
+/* GIF-style loop: video with a pause button in its corner */
+.media-loop { position: relative; display: inline-block; max-width: 100%; vertical-align: top; }
+.media-loop video { display: block; width: 100%; height: auto; }
+.media-item:not(.media-item--actual) .media-loop { display: block; }
 .media-item--actual .zoomable { display: inline-block; width: auto; max-width: 100%; }
 
 /* Page-load reveal: the main text of each page fades up, one line after another.
