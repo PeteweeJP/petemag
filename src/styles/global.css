@@ -95,7 +95,7 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .home__media { position: relative; overflow: hidden; background: #111; }
 .home__poster, .home__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: 50% 40%; /* keep the Empire State Building in frame */
+  object-fit: cover; object-position: 50% 50%; /* 4:5 reel: centered crop */
 }
 .home__video { opacity: 0; transition: opacity 0.8s var(--ease-out); }
 .home__media.is-playing .home__video { opacity: 1; }

@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-09-28
+- Home: the NYC stock clip is replaced by Pete's 30-second work reel (4:5, 1080x1350 WebM/MP4, 720x900 MP4 for phones), centered crop. Same pause button and reduced-motion handling. NYC clip kept in MySite-originals.
 - Cheesecake Stuffed French Toast: copy replaced with Pete's revised markdown; role now "Creative Direction & Strategy Lead".
 - Fresh Market: homepage hero video moved above the homepage image; the Instagram story ad is now a GIF-style loop (720px square, ~0.6 MB, pause/play button, paused for reduced motion and off screen). New media `type: loop`.
 - Fresh Market: new case-study copy from Pete's markdown; three Vimeo videos (drone film, homepage hero, Instagram story) and five images (homepage and What's New page zoomable, mobile, Instagram stickers, email at actual size). Empty "food photo spread" slot removed.

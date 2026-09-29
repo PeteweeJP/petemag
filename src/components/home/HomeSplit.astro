@@ -5,11 +5,13 @@ import { site } from '../../data/site';
 import { url } from '../../lib/url';
 import { hasAsset, imageDims } from '../../lib/content';
 
-// Night-time New York street loop (stock), crossfaded to loop seamlessly. See public/images/README.md.
+// Pete's work reel: 30s silent 4:5 loop, seamless (ends by crossfading into its first shot).
+// Phones get the lighter 720x900 file. See public/images/README.md.
 const video = {
   poster: 'images/home/home-loop-poster.jpg', // first frame: shown instantly, and instead of the video when it can't play
   webm: 'images/home/home-loop.webm',
   mp4: 'images/home/home-loop.mp4',
+  mp4Small: 'images/home/home-loop-720.mp4', // phones and small tablets (max-width: 768px)
 };
 ---
 <section class="home">
@@ -19,6 +21,7 @@ const video = {
     )}
     {hasAsset(video.mp4) && (
       <video class="home__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-home-video>
+        {hasAsset(video.mp4Small) && <source src={url(video.mp4Small)} type="video/mp4" media="(max-width: 768px)" />}
         {hasAsset(video.webm) && <source src={url(video.webm)} type="video/webm" />}
         <source src={url(video.mp4)} type="video/mp4" />
       </video>

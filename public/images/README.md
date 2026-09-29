@@ -4,7 +4,8 @@ Every image on the site lives here. Files in `public/` are copied to the site un
 
 ```
 images/
-  home/home-loop.webm, .mp4      Home page background video (left half), about 8 s, loops seamlessly
+  home/home-loop.webm, .mp4      Home page video (left half): Pete's 30 s work reel, 4:5 (1080x1350), loops seamlessly
+  home/home-loop-720.mp4         Lighter 720x900 version for phones
   home/home-loop-poster.jpg      Its first frame: shown instantly, and instead of the video when it can't play
   about/portrait.jpg             Pete's photo: Resume page, and structured data for search results
   work/<slug>/tile.jpg           Tile background on the Work grid
