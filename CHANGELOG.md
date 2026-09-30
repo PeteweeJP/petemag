@@ -2,6 +2,14 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-09-29
+- Scary Face Pancakes: Snapchat video label is now "Snapchat filter video".
+- Scary Face Pancakes: new case-study copy from Pete's markdown; role "Creative Direction & Digital Strategy Lead"; search description written from the copy.
+- Scary Face Pancakes: reordered (social media video, then Snapchat filter video), removed the phone slot, added 5 images (laptop, zoomable landing page, activity book, pumpkin cutout book, Snapchat filter). New `caption: ""` hides an item's label (used for the laptop).
+- Scary Face Pancakes: two Vimeo videos embedded (the Scary Face video at the top; the Snapchat filter video in place of the empty Snapchat image slot).
+- Covers for PTGL and Latte Lovers (23 of 25 Work tiles now have one; still missing: Cheesecake Stuffed French Toast, Fresh Market).
+- Favicon: Pete's "pm" mark (favicon.ico 32px, 192px PNG, 180px Apple touch icon on white) replaces the placeholder.
+
 ## 2026-09-28
 - Home: the NYC stock clip is replaced by Pete's 30-second work reel (4:5, 1080x1350 WebM/MP4, 720x900 MP4 for phones), centered crop. Same pause button and reduced-motion handling. NYC clip kept in MySite-originals.
 - Cheesecake Stuffed French Toast: copy replaced with Pete's revised markdown; role now "Creative Direction & Strategy Lead".

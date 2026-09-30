@@ -50,7 +50,7 @@ Markdown tables work in case-study text. Write the divider row as `| --- | --- |
 ## Common edits
 - **Reorder the grid:** change `order:` numbers.
 - **Hide a project:** `draft: true`.
-- **Image labels:** every image and video shows a small label above it, taken from its `alt` description. To show something shorter, add `caption: "…"` under that media item. The `alt` stays the full description for screen readers and search engines.
+- **Image labels:** every image and video shows a small label above it, taken from its `alt` description. To show something shorter, add `caption: "…"` under that media item. To show no label at all, use `caption: ""`. The `alt` stays the full description for screen readers and search engines.
 - **Make an image zoomable:** add `zoom: true` under that media item.
 - **GIF-style loop** (short clip that plays silently on repeat, with a pause button): `type: loop` with `src:` (MP4), `webm:` and `poster:`. Better than a real GIF: much smaller, sharper, and pausable (accessibility). Claude can make one from a Vimeo video.
 - **Show an image at its real size** (e.g. an email, instead of stretching it to the column): add `actualSize: true`.
