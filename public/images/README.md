@@ -22,4 +22,5 @@ images/
 - Logos: transparent PNG or SVG. If you use `.svg`, update the `logo:` path in the content file to match.
 - Prefer `.jpg` for photos/screenshots and `.png` only when transparency is needed. Keep files under ~500 KB and about 2000px wide max. Very tall full-page screenshots should be cropped into readable sections.
 - **Remove location data from photos.** Phone photos often embed GPS coordinates. The build refuses to publish a JPEG that still has them. Fix it in Preview → Tools → Show Inspector → ⓘ → GPS → *Remove Location Info*.
-- **Case-study videos** are not stored here. They stay on Vimeo; put the Vimeo ID in the content file. (The home background loop is the one exception.)
+- **Case-study videos** are not stored here. They stay on Vimeo (or YouTube); put the video ID in the content file. The exceptions are short silent loops made from GIFs or clips (`<name>.mp4`, `.webm`, `-poster.jpg` in the project folder) and the home background reel.
+- **Animated GIFs** are converted to those loops: much smaller, sharper, and pausable.

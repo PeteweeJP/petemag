@@ -49,7 +49,7 @@ Until a file is there, the page shows a dashed placeholder box with the descript
       alt: "IHOP homepage"
       zoom: true
   ```
-- **Video:** put the number from the Vimeo URL (`vimeo.com/123456789`) in `vimeo: "123456789"`.
+- **Video:** put the number from the Vimeo URL (`vimeo.com/123456789`) in `vimeo: "123456789"`. For a YouTube video, use `youtube: "CtZolktCplc"` (the 11 characters after `watch?v=`). Older 4:3 or square videos: add `aspect: "4:3"` or `aspect: "1:1"` so they fill the frame.
 
 **File tips**
 - JPG for photos and screenshots; PNG or SVG for logos. If a logo is `.svg`, change the `logo:` line to end in `.svg`.
