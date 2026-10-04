@@ -49,6 +49,12 @@ const descriptions = new Map();
 
 for (const file of pages) {
   const html = fs.readFileSync(path.join(dist, file), 'utf8');
+  // Redirect pages (astro.config.mjs → redirects) only need a target that exists.
+  const redirect = html.match(/<meta http-equiv="refresh" content="\d+;url=([^"]+)"/)?.[1];
+  if (redirect && file !== '404.html') {
+    if (!redirect.startsWith(`${base}/`) || !exists(redirect)) fail(`${file}: redirects to ${redirect}, which doesn't exist (destinations must include the base)`);
+    continue;
+  }
   const noindex = /<meta name="robots" content="noindex"/.test(html) && file === '404.html';
 
   const title = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '');

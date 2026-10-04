@@ -7,7 +7,7 @@ tile:
   logo: images/work/xfinity-mobile/logo.png
   image: images/work/xfinity-mobile/tile.jpg
 # role: TODO (unreadable in audit)
-order: 4
+order: 5
 media:
   - src: images/work/xfinity-mobile/01.jpg
     alt: "\"Find your fit\" phone case and accessory pages"

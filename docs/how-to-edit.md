@@ -63,7 +63,7 @@ Until a file is there, the page shows a dashed placeholder box with the descript
 |---|---|
 | A case study's title, role, description, links | `src/content/work/<project>.md` (or `apps/`, `illustration/`) |
 | Name, tagline, email, LinkedIn, menu | `src/data/site.ts` |
-| Resume | `src/pages/resume.md` |
+| About Me | `src/pages/about.md` |
 | Contact page text | `src/pages/contact.astro` |
 
 A project file has two parts:

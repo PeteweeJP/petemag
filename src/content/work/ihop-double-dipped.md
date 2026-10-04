@@ -7,14 +7,15 @@ tile:
   subtitle: "Double Dipped French Toast"
   image: images/work/ihop-double-dipped/tile.jpg
 role: "Creative Lead"
-order: 23
+order: 24
 links:
   - label: Website
     url: "" # TODO: add URL
 media:
   - type: video
-    vimeo: "" # TODO: Vimeo ID
-    alt: "Video hero"
+    vimeo: "195997447"
+    alt: "Double Dipped French Toast social media video"
+    caption: "Social media video"
   - src: images/work/ihop-double-dipped/01.jpg
     alt: "Laptop, tablet and phone mockup"
   - src: images/work/ihop-double-dipped/02.jpg

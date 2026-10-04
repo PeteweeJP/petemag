@@ -16,6 +16,11 @@ export default defineConfig({
   trailingSlash: 'ignore',
   build: { format: 'file' },
 
+  // Renamed pages: old addresses forward to the new ones (see docs/seo.md).
+  // Astro doesn't add `base` to the destination, so it's written out; drop '/petemag' at domain cutover
+  // (npm run audit fails if a redirect points at a page that doesn't exist).
+  redirects: { '/resume': '/petemag/about' },
+
   // No code blocks on this site; the default highlighter's inline styles would conflict with the CSP below.
   markdown: { syntaxHighlight: false },
 

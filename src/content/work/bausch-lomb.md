@@ -7,7 +7,7 @@ tile:
   logo: images/work/bausch-lomb/logo.png
   image: images/work/bausch-lomb/tile.jpg
 role: "Art Direction"
-order: 24
+order: 25
 media:
   - src: images/work/bausch-lomb/01.jpg
     alt: "Corporate homepage concept"

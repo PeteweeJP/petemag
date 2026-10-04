@@ -7,7 +7,7 @@ tile:
   subtitle: "Bakery Favorites"
   image: images/work/ihop-bakery-favorites/tile.jpg
 role: "Creative Lead"
-order: 22
+order: 23
 media:
   - src: images/work/ihop-bakery-favorites/01.jpg
     alt: "Pancake photo collage"

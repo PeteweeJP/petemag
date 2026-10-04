@@ -8,7 +8,7 @@ images/
   home/home-loop-720.mp4         Lighter 720x900 version for phones
   home/home-loop-poster.jpg      Its first frame: shown instantly, and instead of the video when it can't play
   ../favicon.ico, ../favicon-192.png, ../apple-touch-icon.png   Site icon ("pm" mark): browser tab, and iPhone/iPad home screen (on white)
-  about/portrait.jpg             Pete's photo: Resume page, and structured data for search results
+  about/portrait.jpg             Pete's photo: About Me page, and structured data for search results
   work/<slug>/tile.jpg           Tile background on the Work grid
   work/<slug>/logo.png           Client logo shown on the tile (white or brand-colored, transparent background)
   work/<slug>/01.jpg, 02.jpg …   Media stack, top to bottom

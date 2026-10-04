@@ -1,7 +1,8 @@
 ---
-// Wrapper for markdown pages in src/pages (e.g. resume.md).
+// Wrapper for markdown pages in src/pages (e.g. about.md).
 // Frontmatter: title, description, section; `profile: true` for pages about Pete himself;
 // `portrait: true` to show Pete's photo (site.portrait) beside the opening text.
+// The article gets `prose-page--<section>` so one page can be styled on its own (e.g. About Me).
 import BaseLayout from './BaseLayout.astro';
 import { site } from '../data/site';
 import { url, pagePath } from '../lib/url';
@@ -23,7 +24,7 @@ const schema = profile
   schema={schema}
   image={showPortrait ? site.portrait : undefined}
 >
-  <article class="prose-page">
+  <article class:list={['prose-page', section && `prose-page--${section}`]}>
     {showPortrait && (
       <img class="prose-page__portrait" src={url(site.portrait)} alt={site.portraitAlt} {...imageDims(site.portrait)} />
     )}

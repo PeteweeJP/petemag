@@ -7,7 +7,7 @@ tile:
   subtitle: "Holiday Celebrations"
   image: images/work/ihop-holiday/tile.jpg
 role: "Creative Lead"
-order: 20
+order: 21
 media:
   - type: video
     vimeo: "" # TODO: Vimeo ID

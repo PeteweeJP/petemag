@@ -7,7 +7,7 @@ tile:
   logo: images/work/ben-and-jerrys/logo.png
   image: images/work/ben-and-jerrys/tile.jpg
 role: "UX, Art Direction"
-order: 12
+order: 13
 media:
   - src: images/work/ben-and-jerrys/01.jpg
     alt: "\"Flipped Out\" sundae rich-media game"

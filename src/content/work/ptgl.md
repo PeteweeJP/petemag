@@ -7,7 +7,7 @@ tile:
   subtitle: "Pro Team Golf League"
   image: images/work/ptgl/tile.jpg
 role: "Strategy, UX, Art Direction"
-order: 25
+order: 26
 media:
   - src: images/work/ptgl/01.jpg
     alt: "Homepage: \"USA vs. Canada Team Match\""

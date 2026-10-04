@@ -2,7 +2,26 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-10-04
+- Contact: intro copy moved under the "Contact" title in the left column, with the case-study title and body styles (14px grey). The form stays on the right.
+- Buttons (Send, Back to top): orange with black text, black with white text on hover, 4px rounded corners. Contact form fields also get 4px corners (`--radius` token). White text on orange was ruled out: 2.9:1 fails AA.
+- Case studies: "↑ Back to top" link at the bottom, above the tiles. Same button style as the contact form's Send; smooth scroll unless the visitor prefers reduced motion.
+- Comcast Business Mobile: copy now mirrors the Small Business case study with "Small Business" changed to "Mobile"; role changed to Creative Director; search description and skills copied over.
+- Comcast Business Mobile: five new screenshots replace the four placeholders (Homepage, Landing Page, Mobile homepage, Plans, My Account), labeled, click-to-zoom on the long pages. PNGs converted to JPEG; originals in MySite-originals/2026-10-04-images.
+- Work: new tile **Comcast Business Global Design System** (`/comcast-business-global-design-system`) in 4th place, after Comcast Business Mobile; later tiles moved down one. Placeholder page until Pete's copy, tile image and role arrive (draft file created).
+- Resume page renamed **About Me** (page title, llms.txt; the menu says **About**) and moved to `/about`. `/resume` forwards to `/about`. Content trimmed to Professional Summary, Core Competencies, Awards & Recognition and Select Brand Experience; Experience, Education and Certifications removed.
+- Audit: redirect pages are checked for a valid target (including the `/petemag` base) instead of title/description/h1.
+
+## 2026-10-03
+- Resume: replaced with Pete's updated résumé (new Professional Summary, expanded Comcast and MRM bullets, Certifications section, updated tools). Scott Kay and East Coast Media roles removed. No contact line on the page (email and LinkedIn removed).
+- Resume: its own smaller type scale (`--resume-*` tokens) and a circular portrait. PageLayout now adds `prose-page--<section>` to the article so a single page can be styled on its own.
+
+## 2026-10-01
+- Empire State Building: copy replaced with Pete's shorter revision (overview, problem vs. solution table, pillars, deliverables, outcomes); first image label now "Homepage".
+- Empire State Building: new case-study copy from Pete's markdown (role "Lead Digital Strategist, UX Designer & Art Director"), six concept images with labels (WebP, metadata stripped), search description and skills.
+
 ## 2026-09-29
+- Double Dipped French Toast: social media video embedded (Vimeo 195997447).
 - Scary Face Pancakes: Snapchat video label is now "Snapchat filter video".
 - Scary Face Pancakes: new case-study copy from Pete's markdown; role "Creative Direction & Digital Strategy Lead"; search description written from the copy.
 - Scary Face Pancakes: reordered (social media video, then Snapchat filter video), removed the phone slot, added 5 images (laptop, zoomable landing page, activity book, pumpkin cutout book, Snapchat filter). New `caption: ""` hides an item's label (used for the laptop).

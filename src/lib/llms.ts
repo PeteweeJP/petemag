@@ -16,7 +16,7 @@ const header = (base: URL) =>
     '',
     `Tagline: ${site.tagline}`,
     `Contact: ${site.email} · LinkedIn: ${site.linkedin}`,
-    `Resume: ${abs(base, 'resume')}`,
+    `About Me: ${abs(base, 'about')}`,
     '',
   ];
 
@@ -46,8 +46,8 @@ export async function llmsFull(base: URL) {
       if (d.media.length) out.push('Shown on the page:', ...d.media.map((m) => `- ${m.type === 'video' ? 'Video: ' : ''}${m.alt}`), '');
     }
   }
-  // Resume: the markdown source without its frontmatter.
-  const resume = fs.readFileSync(path.join(process.cwd(), 'src/pages/resume.md'), 'utf8').replace(/^---[\s\S]*?---\s*/, '');
-  out.push('## Resume', '', resume.replace(/^#/gm, '##'));
+  // About Me: the markdown source without its frontmatter.
+  const about = fs.readFileSync(path.join(process.cwd(), 'src/pages/about.md'), 'utf8').replace(/^---[\s\S]*?---\s*/, '');
+  out.push('## About Me', '', about.replace(/^#/gm, '##'));
   return out.join('\n');
 }

@@ -7,7 +7,7 @@ tile:
   logo: images/work/american-heart-association/logo.png
   image: images/work/american-heart-association/tile.jpg
 role: "UX, Creative Direction"
-order: 21
+order: 22
 media:
   - src: images/work/american-heart-association/01.jpg
     alt: "Go Red for Women homepage"

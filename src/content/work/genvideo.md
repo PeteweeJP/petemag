@@ -7,7 +7,7 @@ tile:
   logo: images/work/genvideo/logo.png
   image: images/work/genvideo/tile.jpg
 role: "Strategy, UX, Creative Direction"
-order: 7
+order: 8
 links:
   - label: Website
     url: "" # TODO: add URL

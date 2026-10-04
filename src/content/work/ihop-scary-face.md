@@ -7,7 +7,7 @@ tile:
   subtitle: "Scary Face Pancakes"
   image: images/work/ihop-scary-face/tile.jpg
 role: "Creative Direction & Digital Strategy Lead"
-order: 17
+order: 18
 media:
   - type: video
     vimeo: "189661644"

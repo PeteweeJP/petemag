@@ -7,7 +7,7 @@ tile:
   subtitle: "Fresh Market"
   image: images/work/ihop-fresh-market/tile.jpg
 role: "Creative Lead"
-order: 13
+order: 14
 media:
   - type: video
     vimeo: "235779130"

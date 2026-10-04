@@ -7,7 +7,7 @@ tile:
   subtitle: "Menu Photoshoot"
   image: images/work/ihop-menu-photoshoot/tile.jpg
 role: "Creative Lead"
-order: 6
+order: 7
 media:
   - src: images/work/ihop-menu-photoshoot/01.webp
     alt: "Stack of IHOP original buttermilk pancakes with whipped butter and syrup"

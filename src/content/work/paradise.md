@@ -7,7 +7,7 @@ tile:
   subtitle: "Paradise Pancakes"
   image: images/work/paradise/tile.jpg
 role: "Creative Lead"
-order: 15
+order: 16
 media:
   - type: video
     vimeo: "" # TODO: Vimeo ID

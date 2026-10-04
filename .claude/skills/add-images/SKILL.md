@@ -9,7 +9,7 @@ Images live in `public/images/<section>/<slug>/` (see `public/images/README.md`)
 - `tile.jpg`: grid tile background
 - `logo.png` (or `.svg`): client logo on the tile
 - `01.jpg`, `02.jpg`, …: case-study media, top to bottom, as listed in the content file's `media:`
-- `public/images/about/portrait.jpg`: Pete's photo (Resume page and structured data)
+- `public/images/about/portrait.jpg`: Pete's photo (About Me page and structured data)
 - `public/images/home/home-loop.webm`, `.mp4` and `-poster.jpg`: home background video (see Videos below)
 
 ## 1. Find what's new

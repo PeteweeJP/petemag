@@ -9,7 +9,7 @@ export const site = {
   homeTitle: 'Creative Director Peter Magulak',
   description:
     'Portfolio of creative director and UX/product designer Peter Magulak: user experience, design systems, advertising campaigns, mobile and app design, and illustration.',
-  // Pete's photo: on the Resume page and in structured data (search results can show it with his name).
+  // Pete's photo: on the About Me page and in structured data (search results can show it with his name).
   portrait: 'images/about/portrait.jpg',
   portraitAlt: 'Peter Magulak, smiling, in a grey knit beanie and a denim jacket',
   email: 'pete@petemag.com',
@@ -33,7 +33,7 @@ export const site = {
     { label: 'Work', href: 'work', section: 'work' },
     { label: 'Apps', href: 'apps', section: 'apps' },
     { label: 'Illustration', href: 'illustration', section: 'illustration' },
-    { label: 'Resume', href: 'resume', section: 'resume' },
+    { label: 'About', href: 'about', section: 'about' },
     { label: 'Contact', href: 'contact', section: 'contact' },
   ],
 } as const;

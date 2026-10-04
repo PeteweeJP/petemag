@@ -11,13 +11,18 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
 ---
 <BaseLayout title="Contact" section="contact" description="Get in touch with Peter Magulak about freelance work, jobs or general questions.">
   <section class="split-page">
-    <h1>Contact</h1>
+    {/* Left column styled like a case study's text column (title, then small grey copy) */}
+    <div class="detail__text">
+      <hgroup class="detail__title"><h1>Contact</h1></hgroup>
+      <div class="detail__body">
+        <!-- TODO: paste the exact playful intro from the current Contact page (this is a paraphrase). -->
+        <p>
+          Want to compliment my beard-growing skills? Have a freelance project, a job opening, or just a
+          question? Drop me a line and I'll get back to you.
+        </p>
+      </div>
+    </div>
     <div>
-      <!-- TODO: paste the exact playful intro from the current Contact page (this is a paraphrase). -->
-      <p>
-        Want to compliment my beard-growing skills? Have a freelance project, a job opening, or just a
-        question? Drop me a line and I'll get back to you.
-      </p>
 
       {!formReady && import.meta.env.DEV && (
         <p class="form-note">Preview only: the form appears once the Web3Forms access key is added to <code>src/data/site.ts</code>.</p>

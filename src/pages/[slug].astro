@@ -88,5 +88,7 @@ const schema = [
     </div>
     <MediaStack items={media} />
   </article>
+  {/* "#top" scrolls to the very top of the page (an HTML built-in; no element needed) */}
+  <p class="back-to-top"><a class="button" href="#top"><span aria-hidden="true">↑ </span>Back to top</a></p>
   <TileGrid entries={entries} heading={`More in ${sections[section].title}`} />
 </BaseLayout>
