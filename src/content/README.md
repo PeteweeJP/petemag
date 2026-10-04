@@ -54,6 +54,8 @@ Markdown tables work in case-study text. Write the divider row as `| --- | --- |
 - **Make an image zoomable:** add `zoom: true` under that media item.
 - **GIF-style loop** (short clip that plays silently on repeat, with a pause button): `type: loop` with `src:` (MP4), `webm:` and `poster:`. Better than a real GIF: much smaller, sharper, and pausable (accessibility). Claude can make one from a Vimeo video.
 - **Show an image at its real size** (e.g. an email, instead of stretching it to the column): add `actualSize: true`.
+- **YouTube video:** `type: video` with `youtube: "CtZolktCplc"` (the 11 characters after `watch?v=`). It plays from YouTube's privacy-enhanced domain. Vimeo is still preferred for new uploads.
+- **Video shape:** add `aspect: "4:3"` or `aspect: "1:1"` for older or square videos so they fill the frame without black bars (default 16:9).
 - **Make a short Vimeo video loop like a GIF:** add `loop: true` under it (silent and on repeat, with Vimeo's pause control still available; not for reduced-motion visitors).
 - **Add a project:** copy an existing file, rename it (this sets the URL), and update the fields.
 - **Find what's unfinished:** `grep -rn TODO src/content`.

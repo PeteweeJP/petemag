@@ -38,7 +38,7 @@ export default defineConfig({
         "img-src 'self' data:",
         'font-src https://fonts.gstatic.com',
         // hCaptcha (contact form) needs its own domains; don't pin subdomains (per hCaptcha docs).
-        'frame-src https://player.vimeo.com https://hcaptcha.com https://*.hcaptcha.com',
+        'frame-src https://player.vimeo.com https://www.youtube-nocookie.com https://hcaptcha.com https://*.hcaptcha.com',
         "connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com",
         "object-src 'none'",
         "base-uri 'self'",

@@ -7,7 +7,7 @@ tile:
   logo: images/work/us-army/logo.png
   image: images/work/us-army/tile.jpg
 role: "Creative Lead"
-order: 10
+order: 11
 links:
   - label: Website
     url: "" # TODO: add URL

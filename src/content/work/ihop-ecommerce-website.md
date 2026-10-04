@@ -7,7 +7,7 @@ tile:
   subtitle: "Ecommerce Site"
   image: images/work/ihop-ecommerce-website/tile.jpg
 role: "Strategy, UX, Creative Lead"
-order: 6
+order: 7
 links:
   - label: Website
     url: "" # TODO: add URL

@@ -227,6 +227,8 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .media-caption { margin: 0 0 var(--space-1); text-align: left; }
 .media-video { position: relative; aspect-ratio: 16 / 9; }
 .media-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.media-video--4x3 { aspect-ratio: 4 / 3; }
+.media-video--1x1 { aspect-ratio: 1; max-width: 40rem; } /* square: capped so it doesn't tower over the column */
 .media-placeholder {
   display: grid; place-content: center; min-height: 240px; padding: var(--space-3);
   border: 1px dashed var(--color-muted); color: var(--color-muted); text-align: center; font-size: 0.9rem;

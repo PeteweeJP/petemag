@@ -7,7 +7,7 @@ tile:
   logo: images/work/rfl-rebranding/logo.png
   image: images/work/rfl-rebranding/tile.jpg
 role: "Strategy, UX, Creative Direction"
-order: 12
+order: 13
 links:
   - label: Website
     url: "" # TODO: add URL

@@ -7,7 +7,7 @@ tile:
   subtitle: "Mobile"
   image: images/work/comcast-business-mobile/tile.jpg
 role: "Creative Director"
-order: 3
+order: 4
 links:
   - label: Website
     url: "" # TODO: add URL

@@ -7,7 +7,7 @@ tile:
   subtitle: "Cheesecake Stuffed French Toast"
   image: images/work/ihop-sft-campaign/tile.jpg
 role: "Creative Direction & Strategy Lead"
-order: 9
+order: 10
 media:
   - type: video
     vimeo: "246280134"

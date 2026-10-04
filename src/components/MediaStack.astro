@@ -26,6 +26,9 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
   if (autoplay) params.set('autoplay', '1');
   return `https://player.vimeo.com/video/${id}?${params}`;
 };
+
+// YouTube player URL: the privacy-enhanced (no-cookie) domain, and no unrelated videos at the end.
+const youtubeSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
 ---
 <div class="media-stack">
   {items.map((item) => {
@@ -35,8 +38,19 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
     const repeatsAlt = caption === item.alt;
     let media;
     if (item.type === 'video') {
-      media = item.vimeo ? (
-        <div class="media-video">
+      const videoClass = ['media-video', item.aspect !== '16:9' && `media-video--${item.aspect.replace(':', 'x')}`];
+      media = item.youtube ? (
+        <div class:list={videoClass}>
+          <iframe
+            src={youtubeSrc(item.youtube)}
+            title={item.alt}
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="fullscreen; picture-in-picture; encrypted-media"
+          />
+        </div>
+      ) : item.vimeo ? (
+        <div class:list={videoClass}>
           <iframe
             src={vimeoSrc(item.vimeo, item.loop)}
             data-autoplay-src={item.loop ? vimeoSrc(item.vimeo, true, true) : undefined}
@@ -47,7 +61,7 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
           />
         </div>
       ) : (
-        <div class="media-placeholder">Video: {item.alt}<br /><small>add a Vimeo ID</small></div>
+        <div class="media-placeholder">Video: {item.alt}<br /><small>add a Vimeo or YouTube ID</small></div>
       );
     } else if (item.type === 'loop' && hasAsset(item.src)) {
       // GIF-style loop: silent, repeating, no player chrome, with a pause/play button (WCAG 2.2.2).

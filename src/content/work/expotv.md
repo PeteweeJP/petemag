@@ -7,7 +7,7 @@ tile:
   logo: images/work/expotv/logo.png
   image: images/work/expotv/tile.jpg
 role: "Strategy, UX, Creative Direction"
-order: 15
+order: 16
 links:
   - label: Website
     url: "" # TODO: add URL

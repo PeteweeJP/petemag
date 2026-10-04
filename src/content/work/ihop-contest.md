@@ -7,7 +7,7 @@ tile:
   subtitle: "Eat Up Every Moment"
   image: images/work/ihop-contest/tile.jpg
 role: "Creative Lead"
-order: 17
+order: 18
 media:
   - src: images/work/ihop-contest/01.jpg
     alt: "Contest landing page with how-to-enter steps and example moments"

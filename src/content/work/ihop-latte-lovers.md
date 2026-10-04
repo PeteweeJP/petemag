@@ -7,7 +7,7 @@ tile:
   subtitle: "Latte Lovers"
   image: images/work/ihop-latte-lovers/tile.jpg
 role: "Creative Lead"
-order: 11
+order: 12
 media:
   - src: images/work/ihop-latte-lovers/01.jpg
     alt: "Homepage combo module"

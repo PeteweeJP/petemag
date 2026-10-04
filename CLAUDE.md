@@ -53,7 +53,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
   - `src/integrations/image-privacy.mjs` fails the build if a JPEG has GPS data.
   - `src/integrations/csp-guard.mjs` fails the build if any page has an inline `style=""` attribute (markdown table alignment `| :--- |` is the usual cause).
   - Pushing uses Pete's fine-grained token (petemag repo only) from macOS Keychain. If a push fails on authentication, don't retry in a loop: have Pete follow "Renewing the token" in `docs/how-to-edit.md`.
-- **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers. Keep those rules when editing the schema.
+- **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers, YouTube IDs 11 characters. Keep those rules when editing the schema.
 - **Change styles through tokens** in `tokens.css` first. Add new CSS to `global.css` only for new layouts.
 - Unknown or unreadable copy is marked `<!-- TODO … -->` in content files. Don't invent facts; ask Pete.
 - After meaningful changes, add a line to `CHANGELOG.md`. Record decisions in `docs/decisions.md`.

@@ -17,10 +17,12 @@ const linkUrl = z.union([
 
 // One item in a case study's media stack (right column, top to bottom).
 const media = z.object({
-  // image | video (Vimeo) | loop (self-hosted silent loop, like a GIF, with a pause button)
+  // image | video (Vimeo or YouTube) | loop (self-hosted silent loop, like a GIF, with a pause button)
   type: z.enum(['image', 'video', 'loop']).default('image'),
   src: assetPath.optional(),
   vimeo: z.string().regex(/^\d*$/, 'Vimeo ID is the number from the video URL').optional(),
+  youtube: z.string().regex(/^[\w-]{11}$/, 'YouTube ID is the 11 characters after watch?v= in the video URL').optional(),
+  aspect: z.enum(['16:9', '4:3', '1:1']).default('16:9'), // videos: frame shape, to match the video and avoid black bars
   webm: assetPath.optional(), // loop: smaller WebM version (src is the MP4)
   poster: assetPath.optional(), // loop: still frame shown before playing, when paused for reduced motion, and without JavaScript
   alt: z.string().min(1),
