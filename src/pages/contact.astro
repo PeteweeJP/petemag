@@ -15,15 +15,17 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
     <div class="detail__text">
       <hgroup class="detail__title"><h1>Contact</h1></hgroup>
       <div class="detail__body">
-        <!-- TODO: paste the exact playful intro from the current Contact page (this is a paraphrase). -->
         <p>
-          Want to compliment my beard-growing skills? Have a freelance project, a job opening, or just a
-          question? Drop me a line and I'll get back to you.
+          I would love to hear from you. Whether it’s to compliment my beard-growing skills or just a
+          general question, feel free to send me a message. I’ll respond as soon as I’m able.
+        </p>
+        <p>
+          Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a> ·{' '}
+          <a href={site.linkedin} rel="me noopener noreferrer">LinkedIn</a>
         </p>
       </div>
     </div>
     <div>
-
       {!formReady && import.meta.env.DEV && (
         <p class="form-note">Preview only: the form appears once the Web3Forms access key is added to <code>src/data/site.ts</code>.</p>
       )}
@@ -57,10 +59,6 @@ const thanksUrl = new URL(url('thanks'), Astro.site).href; // no-JavaScript fall
         </form>
       )}
 
-      <p class="contact-alt">
-        Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a> ·
-        <a href={site.linkedin} rel="me noopener noreferrer">LinkedIn</a>
-      </p>
     </div>
   </section>
 </BaseLayout>

@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-10-04
+- Contact: Pete's own intro copy replaces the paraphrase; "Prefer email? … · LinkedIn" moved under it as its own paragraph (left column).
 - Contact: intro copy moved under the "Contact" title in the left column, with the case-study title and body styles (14px grey). The form stays on the right.
 - Buttons (Send, Back to top): orange with black text, black with white text on hover, 4px rounded corners. Contact form fields also get 4px corners (`--radius` token). White text on orange was ruled out: 2.9:1 fails AA.
 - Case studies: "↑ Back to top" link at the bottom, above the tiles. Same button style as the contact form's Send; smooth scroll unless the visitor prefers reduced motion.
