@@ -34,7 +34,7 @@ slugVerified: false
 
 ## Empire State Building Digital Redesign
 
-**Roles:** Lead Digital Strategist, UX Designer & Art Director<br>
+**Role:** Lead Digital Strategist, UX Designer & Art Director<br>
 **Core Deliverables:** Global E-Commerce Web Platform, Design System, Brand Guidelines
 
 ## Overview & Objectives

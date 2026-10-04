@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-10-04
+- Empire State Building: "Roles:" label changed to "Role:" to match the other case studies.
 - Docs: images README and how-to-edit now cover YouTube videos, video `aspect`, and GIF-style loops in project folders.
 - Bakery Favorites: responsive mockup, homepage, landing page, three chalkboard heroes, Snapchat filter, and the Cupcake Pancakes GIF as a loop; the "pancake photo collage" and "Snap Away!" placeholders removed (no files). Originals in MySite-originals/2026-10-04-images.
 - eBay Times Square: Pete's case-study copy (role "Sole Lead Designer (UX, Visual Design, Art Direction)"), search description and skills; the billboard video from YouTube (CtZolktCplc, 4:3); five images (microsite homepage, press room, three billboard sequences).
