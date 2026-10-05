@@ -212,6 +212,9 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .detail__body ul { margin: 0 0 var(--space-2); padding-left: 1.1rem; }
 .detail__body li + li { margin-top: var(--space-1); }
 .detail__body strong { color: var(--color-text); }
+/* Links inside case-study copy (e.g. cross-links to other case studies): AA-safe orange, charcoal on hover */
+.detail .detail__body a { color: var(--color-accent-text); text-underline-offset: 0.15em; transition: color 0.2s; }
+.detail .detail__body a:hover { color: var(--color-text); }
 .detail__body ol { margin: 0 0 var(--space-2); padding-left: 1.4rem; }
 .detail__body ol li::marker { font-weight: 700; color: var(--color-text); }
 .detail__body table { width: 100%; margin: 0 0 var(--space-3); border-collapse: collapse; font-size: 0.7875rem; line-height: 1.45; } /* 12.6px */

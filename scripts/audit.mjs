@@ -120,6 +120,8 @@ const pairs = [
   ['tile text over a white photo', color('color-on-image'), worstTile],
   ['form error message', color('color-error'), color('color-bg')],
   ['form success message', color('color-success'), color('color-bg')],
+  ['orange text link on page background', color('color-accent-text'), color('color-bg')],
+  ['orange text link on white', color('color-accent-text'), color('color-surface')],
 ];
 for (const [label, fg, bg] of pairs) {
   if (!fg || !bg) {

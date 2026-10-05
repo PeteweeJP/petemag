@@ -3,6 +3,11 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-10-04
+- Case-study copy links are orange: new `--color-accent-text` (#BA5000), the brand orange darkened to pass AA (4.67:1; #F9700E is only 2.69:1 as text). Charcoal on hover. Added to the audit's contrast checks.
+- IHOP Ecommerce Redesign: "new menu photography" (Key Initiatives) links to the IHOP Menu Photoshoot case study.
+- IHOP Ecommerce Redesign: copy updated to Pete's v2 (fewer agile references; new menu photography called out).
+- IHOP Ecommerce Redesign: Pete's case-study copy replaces the audit paraphrase (role unchanged), plus search description and skills; draft marked published.
+- IHOP Ecommerce: renamed "IHOP Ecommerce Redesign" (tile line "Ecommerce Redesign"; URL unchanged); nine images (menu, upsell, checkout steps, mobile, locator, gift cards); the separate footer placeholder removed (the full checkout image includes it). Originals in MySite-originals/2026-10-04-images.
 - Empire State Building: "Roles:" label changed to "Role:" to match the other case studies.
 - Docs: images README and how-to-edit now cover YouTube videos, video `aspect`, and GIF-style loops in project folders.
 - Bakery Favorites: responsive mockup, homepage, landing page, three chalkboard heroes, Snapchat filter, and the Cupcake Pancakes GIF as a loop; the "pancake photo collage" and "Snap Away!" placeholders removed (no files). Originals in MySite-originals/2026-10-04-images.
