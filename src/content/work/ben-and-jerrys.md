@@ -9,14 +9,18 @@ tile:
 role: "UX, Art Direction"
 order: 14
 media:
-  - src: images/work/ben-and-jerrys/01.jpg
-    alt: "\"Flipped Out\" sundae rich-media game"
-  - src: images/work/ben-and-jerrys/02.jpg
-    alt: "\"Pint Defenders\" Facebook game"
-  - src: images/work/ben-and-jerrys/03.jpg
-    alt: "\"Udderly Unique Board Designs\" snowboard customizer"
-  - src: images/work/ben-and-jerrys/04.jpg
-    alt: "\"Perfect Mooove\" cow-jump game"
+  - src: images/work/ben-and-jerrys/01.webp
+    caption: "Flipped Out"
+    alt: "\"Get Flipped Out\" rich-media sundae game with a serving meter and score"
+  - src: images/work/ben-and-jerrys/02.webp
+    caption: "Pint Defenders"
+    alt: "\"Pint Defenders\" Facebook game: Galactic Inc. and a pint Code of Conduct"
+  - src: images/work/ben-and-jerrys/03.webp
+    caption: "Udderly Unique Board Designs"
+    alt: "\"Udderly Unique Board Designs\" snowboard customizer with cow-print graphics"
+  - src: images/work/ben-and-jerrys/04.webp
+    caption: "Perfect Mooove"
+    alt: "\"Perfect Mooove\" game: a cow snowboarding through a halfpipe, with score"
 slugVerified: false
 ---
 

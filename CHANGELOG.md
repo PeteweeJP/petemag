@@ -3,6 +3,10 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-10-04
+- ExpoTV: nine images (homepage, three promo banners, P&G ad, logo construction and three color variants). IHOP Contest: the three contest phases (enter, voting closed, winners).
+- Ben & Jerry's: four games (Flipped Out, Pint Defenders, board designer, Perfect Mooove). Latte Lover's: homepage, landing page, mobile, banner ads and a hearts social-ad loop; "combo module" and "email" placeholders removed (no files). Paradise: 10 images (mockups, homepage, landing page, three heroes, Breakfastarian page, two Snapchat filters) and two GIF loops. Originals in MySite-originals/2026-10-04-images.
+- Videos: Latte Lover's web video (Vimeo 241584180) at the top of its page; Paradise Pancakes Facebook Live (196482789) fills the empty video slot; Sprinkle Mountain (225452359) on Bakery Favorites, between the Cupcake Pancakes and Red Velvet how-to videos.
+- gen.video, RFL Rebranding and U.S. Army C.O.R.E. OPS: Pete's case-study copy (roles updated to match), search descriptions and skills, and their images (gen.video 3, RFL 6, Army 11). Illustration galleries (Lebowski, Marvel, Misc, Movie Posters): all 13 posters. Xfinity Mobile: Homepage refresh concept C. Originals in MySite-originals/2026-10-04-images.
 - Case-study copy links are orange: new `--color-accent-text` (#BA5000), the brand orange darkened to pass AA (4.67:1; #F9700E is only 2.69:1 as text). Charcoal on hover. Added to the audit's contrast checks.
 - IHOP Ecommerce Redesign: "new menu photography" (Key Initiatives) links to the IHOP Menu Photoshoot case study.
 - IHOP Ecommerce Redesign: copy updated to Pete's v2 (fewer agile references; new menu photography called out).

@@ -9,18 +9,28 @@ tile:
 role: "Creative Lead"
 order: 12
 media:
-  - src: images/work/ihop-latte-lovers/01.jpg
-    alt: "Homepage combo module"
-  - src: images/work/ihop-latte-lovers/02.jpg
-    alt: "IHOP homepage with Latte Lover's hero"
-  - src: images/work/ihop-latte-lovers/03.jpg
-    alt: "Latte Lover's landing page"
-  - src: images/work/ihop-latte-lovers/04.jpg
-    alt: "Lifestyle photo: campaign on phone and notebook"
-  - src: images/work/ihop-latte-lovers/05.jpg
-    alt: "Grid of social posts"
-  - src: images/work/ihop-latte-lovers/06.jpg
-    alt: "Email design"
+  - type: video
+    vimeo: "241584180"
+    caption: "Web video"
+    alt: "Latte Lover's campaign web video"
+  - src: images/work/ihop-latte-lovers/01.webp
+    caption: "Homepage"
+    alt: "IHOP homepage: Latte Lover's Pancakes hero with a video placeholder, Pumpkin Spice Pancakes, combos and offers"
+  - src: images/work/ihop-latte-lovers/02.webp
+    caption: "Landing page"
+    alt: "Latte Lover's landing page: Espresso Mocha Cream, Double Vanilla and Salted Caramel Java pancakes, combos and Pumpkin Spice Pancakes"
+  - src: images/work/ihop-latte-lovers/03.webp
+    caption: "Mobile"
+    alt: "Latte Lover's campaign on a phone resting on a notebook beside a cup of coffee"
+  - src: images/work/ihop-latte-lovers/04.webp
+    caption: "Banner ads"
+    alt: "Latte Lover's banner ads in several sizes: Espresso Mocha, Double Vanilla and Salted Caramel Java"
+  - type: loop
+    src: images/work/ihop-latte-lovers/hearts.mp4
+    poster: images/work/ihop-latte-lovers/hearts-poster.jpg
+    caption: "Social ad"
+    alt: "\"It's love at first bite!\" Latte Lover's Pancakes social ad with blinking hearts"
+    actualSize: true
 slugVerified: false
 ---
 

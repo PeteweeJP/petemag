@@ -25,12 +25,15 @@ media:
     caption: "Homepage refresh concept B"
     alt: "Xfinity Mobile homepage variation: iPhone X hero, By the Gig and Unlimited plans, coverage map, devices and accessories"
   - src: images/work/xfinity-mobile/06.webp
+    caption: "Homepage refresh concept C"
+    alt: "Xfinity Mobile homepage concept: summer accessories hero, Xfinity Mobile Plan, 4G LTE and WiFi hotspots, devices and accessories"
+  - src: images/work/xfinity-mobile/07.webp
     caption: "Article concept"
     alt: "Essential XM content hub and XM Life issues: Foodie, Concert, Snowboard, Graduate and Mommy"
-  - src: images/work/xfinity-mobile/07.webp
+  - src: images/work/xfinity-mobile/08.webp
     caption: "Article template concept"
     alt: "XM Life \"The Snowboard Issue\": winter story with a Killington video and shoppable accessories"
-  - src: images/work/xfinity-mobile/08.webp
+  - src: images/work/xfinity-mobile/09.webp
     caption: "Article template"
     alt: "\"A Smart Home for Your Phone\" article: home automation, climate control, lighting, security and the Xfinity Home app"
 slugVerified: false

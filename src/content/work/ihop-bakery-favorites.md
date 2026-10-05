@@ -14,6 +14,10 @@ media:
     caption: "How-to video: Cupcake Pancakes"
     alt: "How-to video: making IHOP Cupcake Pancakes"
   - type: video
+    vimeo: "225452359"
+    caption: "Sprinkle Mountain video"
+    alt: "Sprinkle Mountain: Cupcake Pancakes social video"
+  - type: video
     vimeo: "195997601"
     caption: "How-to video: Red Velvet Pancakes"
     alt: "How-to video: making IHOP Red Velvet Pancakes"

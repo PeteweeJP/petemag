@@ -9,12 +9,15 @@ tile:
 role: "Creative Lead"
 order: 18
 media:
-  - src: images/work/ihop-contest/01.jpg
-    alt: "Contest landing page with how-to-enter steps and example moments"
-  - src: images/work/ihop-contest/02.jpg
-    alt: "\"The polls are now closed\" page with entrant photos"
-  - src: images/work/ihop-contest/03.jpg
-    alt: "Laptop mockup of the winners page"
+  - src: images/work/ihop-contest/01.webp
+    caption: "Phase 1: Enter"
+    alt: "Contest landing page, phase 1: Win Breakfast for a Year with the My IHOP Moment Photo Contest, how-to-enter steps and example moments"
+  - src: images/work/ihop-contest/02.webp
+    caption: "Phase 2: Voting closed"
+    alt: "Contest page, phase 2: \"The polls are now closed\" with a grid of entrant photos"
+  - src: images/work/ihop-contest/03.webp
+    caption: "Phase 3: Winners"
+    alt: "Contest winners page, phase 3, on a laptop"
 slugVerified: false
 ---
 

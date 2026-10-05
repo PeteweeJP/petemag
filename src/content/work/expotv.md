@@ -12,14 +12,33 @@ links:
   - label: Website
     url: "" # TODO: add URL
 media:
-  - src: images/work/expotv/01.jpg
-    alt: "Homepage: \"Pay It Forward\" hero, offers and video review grid"
-  - src: images/work/expotv/02.jpg
-    alt: "Promo banners"
-  - src: images/work/expotv/03.jpg
-    alt: "Logo construction: camera lens + conversation bubble"
-  - src: images/work/expotv/04.jpg
-    alt: "Logo color variants: Consumer, Commerce, Distribution"
+  - src: images/work/expotv/01.webp
+    caption: "Homepage"
+    alt: "EXPO homepage: \"Pay It Forward\" hero, Try New Products, Get Points, Earn Rewards offers and a video review grid"
+  - src: images/work/expotv/02.webp
+    caption: "Promo banner: Speak Up"
+    alt: "EXPO promo banner: \"Speak Up\" with a reviewer filming a product video"
+  - src: images/work/expotv/03.webp
+    caption: "Promo banner: VIP Access"
+    alt: "EXPO promo banner: \"Get VIP Access\" with Huggies"
+  - src: images/work/expotv/04.webp
+    caption: "Promo banner: Brand of the Month"
+    alt: "EXPO promo banner: CoverGirl \"Brand of the Month\" with reviewer photos"
+  - src: images/work/expotv/05.webp
+    caption: "P&G ad"
+    alt: "EXPO ad: a grid of video reviewers next to \"EXPO applauds P&G for paving the path of innovation in digital advertising and social media\""
+  - src: images/work/expotv/06.webp
+    caption: "Logo construction"
+    alt: "EXPO logo construction: a camera lens plus a conversation bubble"
+  - src: images/work/expotv/07.webp
+    caption: "Logo: Consumer"
+    alt: "EXPO logo in green for Consumer"
+  - src: images/work/expotv/08.webp
+    caption: "Logo: Commerce"
+    alt: "EXPO logo in blue for Commerce"
+  - src: images/work/expotv/09.webp
+    caption: "Logo: Distribution"
+    alt: "EXPO logo in orange for Distribution"
 slugVerified: true
 ---
 
