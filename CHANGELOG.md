@@ -3,6 +3,7 @@
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
 ## 2026-10-07
+- **petemag.com now shows the new site.** Domain DNS moved to Cloudflare; petemag.com and www attached; HTTPS certificate issued; search indexing turned on (sitemap and canonicals use petemag.com). Old Squarespace addresses 301 to the new pages. Email forwarding left as-is for now.
 - Hosting moved to Cloudflare (free plan): live at https://petemag.petemag.workers.dev, because GitHub flagged the account and GitHub Pages is offline. The site now serves from the root instead of /petemag/; old addresses get real 301 redirects (`_redirects`, from one list in `src/data/redirects.mjs`); `_headers` adds security and long-cache headers; `npm run deploy` publishes. Still hidden from search engines until petemag.com points here. Docs, release routine and domain checklist updated.
 
 ## 2026-10-05

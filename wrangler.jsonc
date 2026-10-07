@@ -1,9 +1,16 @@
 // Cloudflare hosting: the built site (dist/) is served as static files by a Worker with no code
 // (Cloudflare's current replacement for Pages). Deploy with `npm run deploy` after `npm run build`.
-// Address: https://petemag.petemag.workers.dev (until petemag.com is pointed here).
+// Address: https://petemag.com (also https://petemag.petemag.workers.dev).
 {
   "name": "petemag",
   "compatibility_date": "2026-10-06",
+  // petemag.com and www are attached to this site (Cloudflare manages the domain's DNS).
+  // Keep the petemag.petemag.workers.dev address working too (a backup way in).
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "petemag.com", "custom_domain": true },
+    { "pattern": "www.petemag.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
     // Unknown addresses get dist/404.html with a real 404 status.

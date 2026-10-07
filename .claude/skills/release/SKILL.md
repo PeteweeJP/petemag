@@ -49,13 +49,13 @@ Commits are signed as Peter Magulak with the GitHub noreply address (repo-local 
 npm run deploy    # wrangler deploy: uploads dist/ (see wrangler.jsonc)
 ```
 
-It prints `Uploaded … files` and the address `https://petemag.petemag.workers.dev`.
+It prints `Uploaded … files` and the addresses (petemag.com, www.petemag.com, petemag.petemag.workers.dev).
 
 **If it fails with "not logged in" or an authentication error:** run `npx wrangler login`. It opens a Cloudflare page in Pete's browser; ask him to click **Allow**, then deploy again. Don't retry in a loop.
 
 ## 5. Confirm it's live
 
-`curl` the pages that changed on `https://petemag.petemag.workers.dev/…` and check the specific change is there (a heading, an image URL and size, a CSS value). Changes are usually live within seconds.
+`curl` the pages that changed on `https://petemag.com/…` and check the specific change is there (a heading, an image URL and size, a CSS value). Changes are usually live within seconds.
 
 Report to Pete in 3–5 lines:
 - the commit

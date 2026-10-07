@@ -179,7 +179,7 @@ npm run build && npm run audit
 npm run deploy
 ```
 
-The site is hosted on **Cloudflare** (free plan) and updates within seconds at https://petemag.petemag.workers.dev (until petemag.com is pointed at it). The upload uses Cloudflare's `wrangler` tool and your Cloudflare login on this Mac.
+The site is hosted on **Cloudflare** (free plan) and updates within seconds at https://petemag.com (backup address: https://petemag.petemag.workers.dev). The upload uses Cloudflare's `wrangler` tool and your Cloudflare login on this Mac.
 
 **Cloudflare login expired, or "not logged in"?** Run `npx wrangler login` in `~/Desktop/MySite`, click **Allow** on the Cloudflare page that opens, then publish again. To remove this Mac's access: Cloudflare dashboard → My Profile → API Tokens.
 

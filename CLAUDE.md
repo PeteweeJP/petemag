@@ -1,6 +1,6 @@
 # petemag.com rebuild
 
-Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site hosted on **Cloudflare** (Workers static assets, free plan) at https://petemag.petemag.workers.dev until petemag.com is pointed there. The code's GitHub home is `github.com/PeteweeJP/petemag`, but GitHub flagged the account on 2026-10-05 (repo and old GitHub Pages site hidden), so commits stay local until it's restored.
+Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site hosted on **Cloudflare** (Workers static assets, free plan), live at **https://petemag.com** since 2026-10-07 (DNS on Cloudflare; domain still registered at Squarespace Domains; backup address https://petemag.petemag.workers.dev). The code's GitHub home is `github.com/PeteweeJP/petemag`, but GitHub flagged the account on 2026-10-05 (repo and old GitHub Pages site hidden), so commits stay local until it's restored.
 
 **Status:** scaffold stage. The current site is migrated as-is; the visual design direction isn't chosen yet. See `docs/decisions.md` for what's settled and `CHANGELOG.md` for what changed.
 

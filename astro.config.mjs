@@ -7,8 +7,8 @@ import hostRedirects from './src/integrations/host-redirects.mjs';
 import { withBase } from './src/data/redirects.mjs';
 
 // Hosted on Cloudflare (Workers static assets, see wrangler.jsonc) at the site root.
-// At domain cutover: site -> 'https://petemag.com' (see docs/seo.md).
-const site = 'https://petemag.petemag.workers.dev';
+// Live at https://petemag.com since 2026-10-07 (domain DNS on Cloudflare; see docs/seo.md).
+const site = 'https://petemag.com';
 const base = '/';
 
 export default defineConfig({
