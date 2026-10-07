@@ -21,7 +21,7 @@ export const site = {
     hcaptchaSiteKey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2',
   },
   linkedin: 'https://www.linkedin.com/in/petermagulak',
-  // false while previewing on github.io so search engines don't index a duplicate of petemag.com.
+  // false until petemag.com points at the new site, so search engines don't index a duplicate of it.
   // Flip to true at domain cutover (docs/seo.md).
   indexable: false,
   // Client logos on tiles (logo.png in each project folder). Off = client names in text.

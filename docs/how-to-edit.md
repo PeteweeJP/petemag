@@ -150,7 +150,7 @@ npm install        # first time only
 npm run dev
 ```
 
-Open http://localhost:4321/petemag. The preview updates each time you save a file.
+Open http://localhost:4321. The preview updates each time you save a file.
 
 Astro may run the preview **in the background**, handing the terminal straight back. It keeps running until you stop it or restart the Mac. These work either way (run them in `~/Desktop/MySite`):
 
@@ -170,15 +170,21 @@ If a project file has a mistake, the terminal shows an error naming the file and
 
 ## 5. Publishing
 
+**The easy way:** tell Claude "publish". It checks everything, saves a commit and uploads the site.
+
+**By hand:**
 ```
 cd ~/Desktop/MySite
-git add -A
-git commit -m "Describe what changed"
-git push
+npm run build && npm run audit
+npm run deploy
 ```
 
-The site updates in about two minutes at https://peteweejp.github.io/petemag/.
-Check progress in the repo's **Actions** tab (green check = live).
+The site is hosted on **Cloudflare** (free plan) and updates within seconds at https://petemag.petemag.workers.dev (until petemag.com is pointed at it). The upload uses Cloudflare's `wrangler` tool and your Cloudflare login on this Mac.
+
+**Cloudflare login expired, or "not logged in"?** Run `npx wrangler login` in `~/Desktop/MySite`, click **Allow** on the Cloudflare page that opens, then publish again. To remove this Mac's access: Cloudflare dashboard → My Profile → API Tokens.
+
+### GitHub (backup copy of the code)
+Until 2026-10-05 the site was hosted on GitHub Pages. GitHub flagged the account, so the repository and the old preview (peteweejp.github.io/petemag) are hidden. Commits are saved on this Mac; once GitHub restores the account, `git push` copies them back up as a backup. The rest of this section only matters for pushing to GitHub.
 
 **Push problems**
 | Symptom | Fix |
@@ -211,9 +217,9 @@ The token is a fine-grained token that can only touch the `petemag` repo. Your M
 ### What's backed up where
 | What | Backed up by |
 |---|---|
-| Site content, code, `CLAUDE.md`, this guide | GitHub (every push) |
+| Site content, code, `CLAUDE.md`, this guide | Your Mac (commits); GitHub again once the account is restored (`git push`) |
 | Copy drafts (`drafts/`) and planning docs: `docs/reference/`, `docs/design/`, `decisions.md`, `brand-voice.md`, `seo.md` | **Only your Mac.** Keep a zip copy somewhere else. |
-| Images in `public/images/` | GitHub, once committed |
+| Images in `public/images/` | Same as above. The live copy on Cloudflare isn't a backup |
 
 ### Refresh the planning-docs backup
 Ask Claude: "zip my planning docs." Or run this in Terminal:

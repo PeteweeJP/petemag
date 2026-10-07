@@ -33,7 +33,7 @@ const {
 
 // Short suffix keeps titles within the ~60 characters search results show.
 const fullTitle = title ? `${title} — ${site.name}` : site.homeTitle;
-const siteUrl = new URL(url(), Astro.site); // home page, e.g. https://peteweejp.github.io/petemag/
+const siteUrl = new URL(url(), Astro.site); // home page, e.g. https://petemag.petemag.workers.dev/
 const canonical = new URL(pagePath(Astro.url), Astro.site);
 const ogImage = hasAsset(image) ? new URL(url(image), Astro.site) : undefined;
 

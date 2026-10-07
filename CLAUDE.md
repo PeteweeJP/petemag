@@ -1,6 +1,6 @@
 # petemag.com rebuild
 
-Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site deployed to **GitHub Pages** from `github.com/PeteweeJP/petemag`.
+Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site hosted on **Cloudflare** (Workers static assets, free plan) at https://petemag.petemag.workers.dev until petemag.com is pointed there. The code's GitHub home is `github.com/PeteweeJP/petemag`, but GitHub flagged the account on 2026-10-05 (repo and old GitHub Pages site hidden), so commits stay local until it's restored.
 
 **Status:** scaffold stage. The current site is migrated as-is; the visual design direction isn't chosen yet. See `docs/decisions.md` for what's settled and `CHANGELOG.md` for what changed.
 
@@ -30,7 +30,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Contact page | `src/pages/contact.astro` |
 | Page structure / markup | `src/pages/`, `src/layouts/`, `src/components/` (see `src/README.md`) |
 | Styles | `src/styles/tokens.css` (values), `src/styles/global.css` (layout) |
-| Build/deploy, URL format, security policy (CSP) | `astro.config.mjs`, `.github/workflows/deploy.yml` |
+| Build/deploy, URL format, security policy (CSP) | `astro.config.mjs`, `wrangler.jsonc` (Cloudflare), `public/_headers`; old-address redirects in `src/data/redirects.mjs` |
 | What search engines and AI agents see (meta, JSON-LD, robots.txt, llms.txt) | `docs/seo.md`; code in `src/lib/schema.ts`, `src/lib/llms.ts`, `src/pages/*.txt.ts` |
 
 ## Conventions
@@ -45,14 +45,15 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 - **Case-study format:** Pete wants every case study in the Comcast Business format. When he sends new copy, structure it from `src/content/work/_case-study-template.md` (`headline` in frontmatter, not in the body; then exactly these sections, unnumbered: Executive Summary, Technical & Professional Scope table, Key Initiatives & Strategic Impact, Workflows & Governance). Role goes in frontmatter AND as the `**Role:**` line above Core Domain, in short form (no parenthetical skill list). Any JSON-LD he pastes goes into `seoDescription` + `keywords`, not onto the page. Keep his wording and only fix grammar. Say what you changed.
 - **Content lives in markdown, not components.** Never hard-code project copy in `.astro` files.
 - **URLs are flat** (`/paradise`, not `/work/paradise`) to match live Squarespace URLs. The file name is the slug. Don't rename a content file without updating `docs/seo.md`.
-- **Always link through `url()`** from `src/lib/url.ts`. The site runs under `/petemag/` during preview, and hard-coded `/` links will break. Use `pagePath(Astro.url)` for the current page's clean path.
+- **Always link through `url()`** from `src/lib/url.ts`. The site is at the root today, but `url()` keeps links working if it's ever served under a sub-path again (it was `/petemag/` on GitHub Pages). Use `pagePath(Astro.url)` for the current page's clean path.
 - **Security policy (CSP):** every page only loads scripts, styles, fonts, frames and images from sources listed in `astro.config.mjs` → `security.csp`. Adding a third-party embed or font service means adding its domain there, or it will silently fail on the live site (the CSP isn't enforced in `npm run dev`; test with `npm run build && npm run preview`). Don't use inline `style="…"` attributes or `is:inline` scripts; the CSP blocks them. (The JSON-LD `<script type="application/ld+json">` in `BaseLayout` is data, not code, and is the one allowed exception.)
 - **Security setup:**
   - Commits in this repo are signed as `Peter Magulak <268468626+PeteweeJP@users.noreply.github.com>` (repo-local git config) so no personal email or Mac name leaks. Don't change it.
   - GitHub Actions are pinned to commit SHAs (version in a comment); Dependabot proposes updates. Keep them pinned.
   - `src/integrations/image-privacy.mjs` fails the build if a JPEG has GPS data.
   - `src/integrations/csp-guard.mjs` fails the build if any page has an inline `style=""` attribute (markdown table alignment `| :--- |` is the usual cause).
-  - Pushing uses Pete's fine-grained token (petemag repo only) from macOS Keychain. If a push fails on authentication, don't retry in a loop: have Pete follow "Renewing the token" in `docs/how-to-edit.md`.
+  - Deploying uses Pete's Cloudflare login on this Mac (`npx wrangler login`, OAuth). If a deploy fails on authentication, run `npx wrangler login` once and have Pete click Allow; don't retry in a loop.
+  - Pushing to GitHub (backup, once the account is restored) uses Pete's fine-grained token (petemag repo only) from macOS Keychain. If a push fails on authentication, don't retry in a loop: have Pete follow "Renewing the token" in `docs/how-to-edit.md`.
 - **Content is validated** by `src/content.config.ts`: links must be http(s), image paths must start with `images/`, Vimeo IDs must be numbers, YouTube IDs 11 characters. Keep those rules when editing the schema.
 - **Change styles through tokens** in `tokens.css` first. Add new CSS to `global.css` only for new layouts.
 - Unknown or unreadable copy is marked `<!-- TODO … -->` in content files. Don't invent facts; ask Pete.
@@ -65,15 +66,16 @@ Requires Node 22.12+ (Pete's Mac has Node 24 at /usr/local/bin).
 
 ```
 npm install      # first time only
-npm run dev      # local preview at http://localhost:4321/petemag (Astro 7 may detach it to the background;
+npm run dev      # local preview at http://localhost:4321 (Astro 7 may detach it to the background;
                  # manage with `npx astro dev status | stop | logs`)
 npm run build    # production build into dist/
 npm run check    # type and content check (CI runs this before every deploy)
 npm run audit    # after build: titles, descriptions, h1s, alt text, links, JSON-LD, contrast, local-only files
+npm run deploy   # after build + audit: upload dist/ to Cloudflare (wrangler)
 ```
 
 Running `npm run build` while the dev server is up can leave the preview serving stale content. Before giving Pete a preview link, `curl` the page and confirm the change is there; if it isn't, restart the server (`npx astro dev stop`, then `npm run dev`). After changing `src/content.config.ts` (adding a field), a restart isn't enough: stop the server, delete `.astro/`, `node_modules/.astro/` and `node_modules/.vite/`, then `npm run dev`.
 
 Don't delete `.astro/` while the dev server is running: it holds the content cache and the server's status file, so pages 404 and `astro dev status` loses track. If you must, restart the server afterwards (`kill` its pid, then `npm run dev`).
 
-Pushing to `main` builds and deploys automatically via GitHub Actions.
+Publishing = `npm run build && npm run audit && npm run deploy` (the `/release` skill). The GitHub Actions workflow is kept for if/when the GitHub account is restored.

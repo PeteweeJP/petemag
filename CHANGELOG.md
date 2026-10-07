@@ -2,6 +2,9 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-10-07
+- Hosting moved to Cloudflare (free plan): live at https://petemag.petemag.workers.dev, because GitHub flagged the account and GitHub Pages is offline. The site now serves from the root instead of /petemag/; old addresses get real 301 redirects (`_redirects`, from one list in `src/data/redirects.mjs`); `_headers` adds security and long-cache headers; `npm run deploy` publishes. Still hidden from search engines until petemag.com points here. Docs, release routine and domain checklist updated.
+
 ## 2026-10-05
 - Comcast Business Public Sector: tile photo from Pete's U.S. Capitol cover image. Every tile now has a photo.
 - IHOP Fresh Market: tile photo from Pete's strawberry cover image.

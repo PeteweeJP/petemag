@@ -1,4 +1,4 @@
-// Prefix internal links and asset paths with the deploy base ("/petemag" during preview, "" after cutover).
+// Prefix internal links and asset paths with the deploy base ("" at the site root; it was "/petemag" on GitHub Pages).
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export const url = (path = '') => `${base}/${path.replace(/^\//, '')}`;

@@ -29,7 +29,7 @@ if (!fs.existsSync(dist)) {
 
 // Deploy base, e.g. "/petemag" during preview, "" after domain cutover.
 const config = fs.readFileSync(path.join(root, 'astro.config.mjs'), 'utf8');
-const base = (config.match(/base:\s*'([^']*)'/)?.[1] ?? '').replace(/\/$/, '');
+const base = (config.match(/(?:const base =|base:)\s*'([^']*)'/)?.[1] ?? '').replace(/\/$/, '');
 
 const pages = fs.readdirSync(dist).filter((f) => f.endsWith('.html'));
 const decode = (s) =>
