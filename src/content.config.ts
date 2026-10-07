@@ -34,7 +34,8 @@ const media = z.object({
 
 const project = z.object({
   title: z.string(), // detail page title
-  client: z.string(),
+  client: z.string(), // also the eyebrow above a case study's title
+  headline: z.string().optional(), // case studies: the big on-page title (what the project was); keep it under ~60 characters
   tile: z.object({
     label: z.string(), // client name; shown as text until the logo file exists, then used as the logo's alt text
     logo: assetPath.optional(), // client logo (SVG or transparent PNG, white or brand-colored)

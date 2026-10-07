@@ -4,6 +4,7 @@
 // download every photo up front.
 import { url } from '../lib/url';
 import { hasAsset, imageDims } from '../lib/content';
+import { srcsetFor, TILE_SIZES } from '../lib/responsive';
 import { site } from '../data/site';
 import type { Entry } from '../lib/content';
 
@@ -13,6 +14,8 @@ interface Props {
 
 const { entry } = Astro.props;
 const { title, client, tile } = entry.data;
+// Link name for screen readers: the title, plus the client when the title doesn't already name it.
+const label = title.toLowerCase().includes(client.toLowerCase()) ? title : `${title} (${client})`;
 
 // Logos are sized for equal *visual weight*: every logo gets roughly the same area, so a very wide
 // wordmark comes out wide but short and a compact badge comes out taller but narrow.
@@ -23,8 +26,8 @@ const hasLogo = site.tileLogos && hasAsset(tile.logo);
 const { width = 1, height = 1 } = hasLogo && tile.logo ? imageDims(tile.logo) : {};
 const logoSize = Math.min(70, Math.max(10, Math.round((LOGO_BASE * Math.sqrt(width / height)) / 2) * 2));
 ---
-<a class="tile" href={url(entry.id)} aria-label={`${title} (${client})`}>
-  {hasAsset(tile.image) && <img class="tile__bg" src={url(tile.image)} alt="" loading="lazy" decoding="async" />}
+<a class="tile" href={url(entry.id)} aria-label={label}>
+  {hasAsset(tile.image) && <img class="tile__bg" src={url(tile.image)} srcset={srcsetFor(tile.image)} sizes={srcsetFor(tile.image) ? TILE_SIZES : undefined} alt="" {...imageDims(tile.image)} loading="lazy" decoding="async" />}
   <span class="tile__face">
     {hasLogo
       ? <img class="tile__logo" src={url(tile.logo)} alt={tile.label} width={width} height={height} data-size={logoSize} loading="lazy" decoding="async" />

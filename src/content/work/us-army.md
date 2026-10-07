@@ -1,16 +1,14 @@
 ---
 title: "U.S. Army C.O.R.E. OPS Website & App"
 client: "U.S. Army"
+headline: "C.O.R.E. OPS Digital Platform & Mobile App Concept"
 tile:
   label: "U.S. Army"
   subtitle: "C.O.R.E. OPS"
   logo: images/work/us-army/logo.png
   image: images/work/us-army/tile.jpg
-role: "Sole Lead Designer (UX/UI, Visual Strategy, Creative Execution)"
+role: "Sole Lead Designer"
 order: 11
-links:
-  - label: Website
-    url: "" # TODO: add URL
 media:
   - src: images/work/us-army/01.webp
     caption: "Welcome"
@@ -31,39 +29,35 @@ media:
     caption: "Mission 1: Snake Eyes"
     alt: "Mission 1: Snake Eyes workout screen with exercise figure and download buttons"
   - src: images/work/us-army/07.webp
-    caption: "Exercise how-to"
+    caption: "Exercise How-To"
     alt: "Exercise how-to screen: crunches, shown step by step"
   - src: images/work/us-army/08.webp
-    caption: "Mission complete?"
+    caption: "Mission Complete?"
     alt: "Prompt: Did you complete your first mission?"
   - src: images/work/us-army/09.webp
-    caption: "First stripe"
+    caption: "First Stripe"
     alt: "Reward screen: Congratulations! Hooah! You earned your first stripe"
   - src: images/work/us-army/10.webp
-    caption: "Mobile: welcome and chapters"
+    caption: "Mobile: Welcome and Chapters"
     alt: "Mobile versions of the welcome and chapter screens"
   - src: images/work/us-army/11.webp
-    caption: "Mobile: mission"
+    caption: "Mobile: Mission"
     alt: "Mobile versions of the chapter and Mission 1 screens"
 seoDescription: "Sole lead designer for the U.S. Army C.O.R.E. OPS pitch: a gamified fitness website and app with audio missions, exercise guides, levels and badges."
 keywords: ["UX/UI Design", "Mobile App Design", "Gamification", "Fitness", "Pitch Design", "Visual Strategy"]
-slugVerified: false
+slugVerified: true
 ---
 
-## U.S. Army — C.O.R.E. OPS Digital Platform & Mobile App Concept
-
-**Role:** Sole Lead Designer (UX/UI, Visual Strategy, Creative Execution)<br>
+**Role:** Sole Lead Designer<br>
 **Core Domain:** Gamified Fitness & Mobile Experience, Behavioral Change, Dynamic Web & Mobile Ecosystem<br>
 **User Journey Scope:** Full Funnel (Engagement & Onboarding → Audio-Driven Mission Execution → Progress Tracking & Level Unlocks)
 
-## 1. Executive Summary
-
+## Executive Summary
 To address declining physical activity rates among younger demographics (Millennials) immersed in mobile technology, the U.S. Army conceptualized **C.O.R.E. OPS**—an innovative, gamified fitness platform designed to turn screen time into active movement through immersive auditory adventures.
 
 As the sole hands-on lead designer, I conceptualized and executed the end-to-end UX/UI architecture for the web and mobile app pitch presentation. The platform centered on downloadable "exercise tracks"—narrative-driven audio missions that guide users through physical workouts. The supporting website and mobile interface worked in tandem with these tracks, providing visual exercise tutorials, mission-specific form instructions, level progression tracking, and an achievement unlock ecosystem (badges, rewards, and milestones) to sustain user motivation.
 
-## 2. Core Entity & Skill Matrix
-
+## Technical & Professional Scope
 | Categorization | Details & Competencies |
 | --- | --- |
 | **Role & Focus** | Sole Lead Designer (100% Hands-On UX/UI, Visual Strategy, Art Direction, Prototyping) |
@@ -73,8 +67,7 @@ As the sole hands-on lead designer, I conceptualized and executed the end-to-end
 | **Target Audience** | Millennials, Active Lifestyle Seekers, Tech-First Gamers |
 | **Lifecycle Stages** | **Onboarding** (App Download & Goal Setting) → **Mission Execution** (Audio-Guided Exercises & Form Verification) → **Gamification** (Badge Unlocks, Level Progression & Milestones) |
 
-## 3. Key Initiatives & Strategic Execution
-
+## Key Initiatives & Strategic Impact
 ### A. Immersive Auditory Mission Architecture & Web Companion
 
 - **Audio-Driven Workout UX:** Designed the digital ecosystem supporting "C.O.R.E. OPS" auditory adventure tracks, seamlessly pairing immersive audio storytelling with guided physical exercise.
@@ -86,8 +79,7 @@ As the sole hands-on lead designer, I conceptualized and executed the end-to-end
 - **Level Progression & Badge Mechanics:** Designed a complete achievement framework featuring unlockable levels, badges, and operational ranks based on user workout completions and milestones.
 - **Engagement Engine:** Integrated visual progress dashboards, mission logs, and reward feeds to drive long-term habit formation and repeat workout engagement.
 
-## 4. Workflows & Production Standards
-
+## Workflows & Governance
 - **100% Solo Hands-On Execution:** Independently created all user experience flows, interface designs, visual layouts, and pitch presentation assets without design team delegation.
 - **Spec & Hand-Off Preparation:** Built structured UI component layouts, iconography sets, and interaction specs in Photoshop to demonstrate the full platform ecosystem for agency pitch execution.
 - **Behavioral Design Focus:** Aligned visual language and user flows with modern gaming aesthetics to bridge mobile phone interaction with outdoor physical fitness.

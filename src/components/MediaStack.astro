@@ -3,6 +3,7 @@
 // Images with `zoom: true` open full size in a lightbox when clicked.
 import { url } from '../lib/url';
 import { hasAsset, imageDims } from '../lib/content';
+import { srcsetFor, MEDIA_SIZES } from '../lib/responsive';
 import type { Entry } from '../lib/content';
 
 interface Props {
@@ -28,10 +29,28 @@ const vimeoSrc = (id: string, loop: boolean, autoplay = false) => {
 };
 
 // YouTube player URL: the privacy-enhanced (no-cookie) domain, and no unrelated videos at the end.
-const youtubeSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
+const youtubeSrc = (id: string, autoplay = false) => `https://www.youtube-nocookie.com/embed/${id}?rel=0${autoplay ? '&autoplay=1' : ''}`;
+
+// Click-to-play: videos show a still (images/video/<service>-<id>.jpg, saved from Vimeo/YouTube)
+// with a play button, and only load the player (~1 MB) when pressed. Without JavaScript the
+// still links to the video on Vimeo/YouTube. Videos without a saved still embed the player directly.
+const stillFor = (item: Props['items'][number]) =>
+  item.youtube ? `images/video/youtube-${item.youtube}.jpg` : item.vimeo ? `images/video/vimeo-${item.vimeo}.jpg` : undefined;
+
+// The first item is on screen when the page opens: load it right away instead of lazily.
+const loading = (i: number) => (i === 0 ? { loading: 'eager' as const, fetchpriority: 'high' as const } : { loading: 'lazy' as const });
+
+// Responsive image attributes: smaller copies for smaller screens (see src/lib/responsive.ts).
+// "Actual size" images never display wider than their own width.
+const responsive = (file: string, actualSize: boolean) => {
+  const srcset = srcsetFor(file);
+  if (!srcset) return {};
+  const { width } = imageDims(file);
+  return { srcset, sizes: actualSize && width ? `(max-width: ${width}px) 100vw, ${width}px` : MEDIA_SIZES };
+};
 ---
 <div class="media-stack">
-  {items.map((item) => {
+  {items.map((item, i) => {
     // Small eyebrow-style label above each item: `caption`, or else the description (alt). caption: "" = no label.
     // When the label repeats the description, screen readers skip the label so they don't hear it twice.
     const caption = item.caption ?? item.alt;
@@ -39,7 +58,24 @@ const youtubeSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}
     let media;
     if (item.type === 'video') {
       const videoClass = ['media-video', item.aspect !== '16:9' && `media-video--${item.aspect.replace(':', 'x')}`];
-      media = item.youtube ? (
+      const still = stillFor(item);
+      const watchUrl = item.youtube ? `https://www.youtube.com/watch?v=${item.youtube}` : `https://vimeo.com/${item.vimeo}`;
+      media = still && hasAsset(still) && !item.loop ? (
+        <div class:list={videoClass}>
+          <a
+            class="video-facade"
+            href={watchUrl}
+            data-embed={item.youtube ? youtubeSrc(item.youtube, true) : vimeoSrc(item.vimeo!, false, true)}
+            data-title={item.alt}
+            aria-label={`Play video: ${item.caption || item.alt}`}
+          >
+            <img src={url(still)} alt="" {...imageDims(still)} {...responsive(still, false)} {...loading(i)} decoding="async" />
+            <span class="video-facade__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" /></svg>
+            </span>
+          </a>
+        </div>
+      ) : item.youtube ? (
         <div class:list={videoClass}>
           <iframe
             src={youtubeSrc(item.youtube)}
@@ -90,7 +126,7 @@ const youtubeSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}
     } else if (!hasAsset(item.src)) {
       media = <div class="media-placeholder">{item.alt}<br /><small>{item.src ?? 'no file set'}</small></div>;
     } else {
-      const img = <img src={url(item.src)} alt={item.alt} {...imageDims(item.src)} loading="lazy" decoding="async" />;
+      const img = <img src={url(item.src)} alt={item.alt} {...imageDims(item.src)} {...responsive(item.src, item.actualSize)} {...loading(i)} decoding="async" />;
       media = item.zoom ? (
         <button class="zoomable" type="button" aria-label={`Enlarge image: ${item.alt}`}>{img}</button>
       ) : img;
@@ -139,6 +175,20 @@ const youtubeSrc = (id: string) => `https://www.youtube-nocookie.com/embed/${id}
     }, { threshold: 0.25 }).observe(video);
     toggle.hidden = false;
     show(false);
+  });
+
+  // Click-to-play: swap the still for the real player, which starts playing straight away.
+  document.querySelectorAll<HTMLAnchorElement>('a.video-facade').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const frame = document.createElement('iframe');
+      frame.src = link.dataset.embed!;
+      frame.title = link.dataset.title ?? '';
+      frame.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      link.replaceWith(frame);
+      frame.focus();
+    });
   });
 
   // Looping Vimeo videos start playing on their own, unless the visitor prefers reduced motion.

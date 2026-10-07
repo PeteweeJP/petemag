@@ -1,12 +1,34 @@
 ---
+// Shown for any address that doesn't exist (GitHub Pages serves dist/404.html), e.g. old
+// Squarespace pages that weren't moved over (/landing, /prints-flatiron). Gives the main
+// sections as links and the Work tiles so visitors are one click from a case study.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TileGrid from '../components/TileGrid.astro';
 import { url } from '../lib/url';
+import { getSection } from '../lib/content';
+import { site } from '../data/site';
+
+const work = await getSection('work');
 ---
-<BaseLayout title="Page not found" description="This page doesn't exist on Peter Magulak's portfolio." noindex>
-  <section class="split-page">
-    <h1>Not found</h1>
-    <p>That page doesn't exist. Try the <a href={url('work')}>work</a> instead.</p>
+<BaseLayout title="Page Not Found" description="This page doesn't exist on Peter Magulak's portfolio. Browse the work, apps and illustration instead." noindex>
+  <section class="split-page not-found">
+    {/* Left column styled like a case study's text column */}
+    <div class="detail__text">
+      <hgroup class="detail__title">
+        <p class="detail__eyebrow">404</p>
+        <h1>Page Not Found</h1>
+      </hgroup>
+      <div class="detail__body">
+        <p>This page may have moved when the site was rebuilt, or it never existed. Everything is still here, just a click away.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="not-found__links">
+        {site.nav.map((item) => <li><a href={url(item.href)}>{item.label}</a></li>)}
+      </ul>
+    </div>
   </section>
+  <TileGrid entries={work} heading="Work" />
 </BaseLayout>
 
 <script>

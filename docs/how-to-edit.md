@@ -130,14 +130,13 @@ Colors, spacing and font names are all in `src/styles/tokens.css`:
 --nav-size: 0.875rem;                                   ← menu text size (14px)
 ```
 
-**Changing a font takes two edits:**
-1. Pick a font at fonts.google.com (e.g. "Inter").
-2. In `src/layouts/BaseLayout.astro`, find the `fonts.googleapis.com` line and swap in the name: `family=Inter:wght@400;700`.
-3. In `tokens.css`, change the name in `--font-ui` or `--font-display`.
+**Fonts are served from this site** (faster than loading them from Google, and no request to Google). Changing a font:
+1. Pick a font at fonts.google.com, then ask Claude to "switch the body font to …" (or heading font). Claude downloads the font file into `public/fonts/`, updates the `@font-face` rules at the top of `src/styles/global.css` and the preload lines in `src/layouts/BaseLayout.astro`.
+2. The name in `tokens.css` (`--font-ui` or `--font-display`) changes to match.
 
-If you skip step 2, the site quietly falls back to a default font.
+If the font file is missing, the site quietly falls back to a default font.
 
-**Single-weight fonts** (like Archivo Black, which only has 400): drop the `:wght@…` part in step 2 (`family=Archivo+Black`), and make sure nothing asks that font for bold (`700`) in `global.css`. The site turns off fake bold, so a missing weight just shows the regular one.
+**Single-weight fonts** (like Archivo Black, which only has 400): make sure nothing asks that font for bold (`700`) in `global.css`. The site turns off fake bold, so a missing weight just shows the regular one.
 
 ---
 

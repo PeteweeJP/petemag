@@ -23,7 +23,8 @@ Each draft has a header, a line containing only `---`, then the copy.
 
 | Draft header | Frontmatter field | Notes |
 |---|---|---|
-| `Eyebrow:` | `tile.subtitle` | Also changes the tile on the grid. |
+| `Headline:` | `headline` | The big on-page title: what the project was, ~60 characters max, no client name (the client is the eyebrow). |
+| `Eyebrow:` | `tile.subtitle` | The short project name on the tile (the page's eyebrow is `client`). |
 | `Role:` | `role` | Also becomes the `**Role:** …<br>` line (see below). |
 | `Title:` | `title` | Full project name: browser tab, search, tile hover. Must be 60 characters or fewer including " — Peter Magulak" (so 44 or fewer on its own), and unique. |
 | `Search description:` | `seoDescription` | 140–160 characters is ideal. |
@@ -32,8 +33,8 @@ Each draft has a header, a line containing only `---`, then the copy.
 Never touch `tile.label`, `tile.logo`, `tile.image`, `media`, `order`, `links` or `slugVerified` from a draft.
 
 **Copy → the markdown body**, structured like the template:
-- The first `##` headline, then the details block, with `**Role:** <role><br>` as its **first** line, above Core Domain.
-- Never put a "Client / Brand" line, a JSON-LD block, or a top-level `#` heading in the body. The page title comes from the tile.
+- The details block first, with `**Role:** <role><br>` as its **first** line, above Core Domain. No `##` headline in the body: it goes in `headline`. If Pete's copy opens with one, move it there (dropping a leading client name).
+- Never put a "Client / Brand" line, a JSON-LD block, or a top-level `#` heading in the body. The page heading comes from `client` (eyebrow) and `headline` (title).
 - Table divider rows must be `| --- |`, never `| :--- |` (the build rejects alignment markers).
 - ASCII diagrams become numbered lists.
 - If Pete pasted JSON-LD, move its `description` into `seoDescription` and its skill list into `keywords`.

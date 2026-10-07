@@ -3,7 +3,6 @@ title: "Marvel Movie Posters"
 client: "Personal"
 tile:
   label: "Illustration"
-  logo: images/illustration/marvel/logo.png
   subtitle: "Marvel"
   image: images/illustration/marvel/tile.jpg
 order: 1
@@ -17,5 +16,8 @@ media:
   - src: images/illustration/marvel/03.webp
     caption: "The Incredible Hulk"
     alt: "The Incredible Hulk fan poster: the Hulk's face on a purple background"
-slugVerified: false
+seoDescription: "Fan poster illustrations by Peter Magulak for Iron Man, Captain America: The First Avenger and The Incredible Hulk, in a bold vintage print style."
+keywords: ["Illustration", "Poster Design", "Fan Art", "Vector Illustration"]
+slugVerified: true
 ---
+

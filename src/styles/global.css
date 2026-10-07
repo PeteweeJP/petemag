@@ -1,4 +1,17 @@
 /* Base styles and page-level layouts. Values come from tokens.css. */
+/* Fonts, served from this site (public/fonts/, Latin subset from Google Fonts; both are
+   SIL Open Font License). Inter is one variable file covering regular (400) and bold (700). */
+@font-face {
+  font-family: 'Archivo Black'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/fonts/archivo-black-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; font-synthesis: none; } /* never fake bold/italic */
 body {
@@ -70,11 +83,11 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .site-header nav a { color: var(--color-muted); }
 /* Nav links: a 2px bar under the text. Current page = charcoal bar; hover = orange bar that
    grows outward from the center. The text never turns orange (fails AA); it goes charcoal. */
-.site-header nav a, .home__nav a {
+.site-header nav a, .home__nav a, .not-found__links a {
   position: relative; display: inline-block; padding-bottom: 5px;
   text-decoration: none; transition: color 0.2s;
 }
-.site-header nav a::after, .home__nav a::after {
+.site-header nav a::after, .home__nav a::after, .not-found__links a::after {
   content: ''; position: absolute; bottom: 0; height: 2px;
   left: 0; right: var(--tracking-wide); /* stop under the last letter, not its trailing letter-space */
   background: var(--color-accent);
@@ -85,8 +98,8 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .site-header nav a[aria-current]::after { background: currentColor; transform: scaleX(1); }
 .site-header nav a:hover, .home__nav a:hover,
 .site-header nav a:focus-visible, .home__nav a:focus-visible { color: var(--color-text); }
-.site-header nav a:hover::after, .home__nav a:hover::after,
-.site-header nav a:focus-visible::after, .home__nav a:focus-visible::after { background: var(--color-accent); transform: scaleX(1); }
+.site-header nav a:hover::after, .home__nav a:hover::after, .not-found__links a:hover::after,
+.site-header nav a:focus-visible::after, .home__nav a:focus-visible::after, .not-found__links a:focus-visible::after { background: var(--color-accent); transform: scaleX(1); }
 .wordmark { font: 400 1.25rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
 
 /* Home: 50/50 split */
@@ -194,7 +207,7 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .detail__text { align-self: start; }
 .detail__title { margin: 0 0 var(--space-4); }
 .detail__eyebrow { margin: 0 0 var(--home-stack); }
-.detail__text h1 { margin: 0; font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.detail__text h1 { margin: 0; font-size: clamp(1.375rem, 2.1vw, 1.875rem); line-height: 1.2; } /* 22–30px: headlines run up to ~60 characters */
 /* Same equal-spacing treatment as the home page: trim leading to the letters */
 .detail__eyebrow, .detail__text h1 { text-box: trim-both cap alphabetic; }
 .detail__body { color: var(--color-muted); font-size: 0.875rem; } /* 14px */
@@ -231,6 +244,18 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
 .media-video { position: relative; aspect-ratio: 16 / 9; }
 .media-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .media-video--4x3 { aspect-ratio: 4 / 3; }
+/* Click-to-play: the video's still with a play button; the player loads only when pressed */
+.video-facade { position: absolute; inset: 0; display: block; background: #000; cursor: pointer; }
+.video-facade img { width: 100%; height: 100%; object-fit: cover; }
+.video-facade__play {
+  position: absolute; top: 50%; left: 50%; width: 4.5rem; height: 4.5rem; margin: -2.25rem 0 0 -2.25rem;
+  display: grid; place-items: center; border-radius: 50%;
+  background: rgb(0 0 0 / 0.6); color: #fff; transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.video-facade__play svg { width: 2rem; height: 2rem; margin-left: 0.2rem; fill: currentColor; }
+.video-facade:hover .video-facade__play, .video-facade:focus-visible .video-facade__play {
+  background: var(--color-accent); color: var(--color-on-accent); transform: scale(1.06);
+}
 .media-video--1x1 { aspect-ratio: 1; max-width: 40rem; } /* square: capped so it doesn't tower over the column */
 .media-placeholder {
   display: grid; place-content: center; min-height: 240px; padding: var(--space-3);
@@ -255,8 +280,15 @@ html:has(.has-sticky-header) { scroll-padding-top: calc(var(--header-height-comp
   max-width: var(--detail-max); margin-inline: auto; padding: var(--space-5) var(--gutter);
 }
 .split-page p { max-width: 40rem; } /* comfortable line length for the Contact text */
-.split-page > h1 { margin-top: 0; font-size: 3rem; } /* 404, Thanks; Contact uses the case-study title style */
-.contact-links { padding: 0; list-style: none; font-size: 1.1rem; }
+.split-page > h1 { margin-top: 0; font-size: 3rem; } /* Thanks; Contact and 404 use the case-study title style */
+/* 404: the main sections as large links (same orange hover bar as the nav) */
+.not-found { padding-bottom: var(--space-4); }
+.not-found__links { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); }
+.not-found__links a {
+  font: 400 clamp(1.5rem, 3vw, 2rem)/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+.not-found__links a::after { right: 0.02em; } /* tighter letter-spacing than the nav, so the bar runs to the last letter */
 
 /* ---------- Contact form ---------- */
 .contact-form { display: grid; gap: var(--space-3); max-width: 40rem; margin: var(--space-4) 0; }

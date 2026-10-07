@@ -73,6 +73,11 @@ for (const file of pages) {
     if (!/\balt=/.test(img)) fail(`${file}: <img> without alt: ${img.slice(0, 80)}`);
     const src = img.match(/\bsrc="([^"]+)"/)?.[1];
     if (src && src.startsWith('/') && !exists(src)) fail(`${file}: image not found: ${src}`);
+    // Responsive copies (srcset) are made at build time; every one listed must exist.
+    for (const candidate of (decode(img.match(/\bsrcset="([^"]+)"/)?.[1] ?? '')).split(',')) {
+      const u = candidate.trim().split(/\s+/)[0];
+      if (u && u.startsWith('/') && !exists(u)) fail(`${file}: srcset image not found: ${u}`);
+    }
   }
 
   for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {

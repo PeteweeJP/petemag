@@ -1,9 +1,9 @@
 ---
-title: "Scary Face Pancake Campaign"
+title: "IHOP Scary Face Pancakes Campaign"
 client: "IHOP"
+headline: "Scary Face Pancakes Campaign"
 tile:
   label: "IHOP"
-  logo: images/work/ihop-scary-face/logo.png
   subtitle: "Scary Face Pancakes"
   image: images/work/ihop-scary-face/tile.jpg
 role: "Creative Direction & Digital Strategy Lead"
@@ -16,52 +16,48 @@ media:
   - type: video
     vimeo: "198140249"
     alt: "Scary Face Pancakes Snapchat filter in use on a phone"
-    caption: "Snapchat filter video"
+    caption: "Snapchat Filter Video"
   - src: images/work/ihop-scary-face/01.webp
     alt: "Laptop showing the Scary Face Pancakes page on a Halloween table with candles, candy and a monster hand"
     caption: ""   # no label
   - src: images/work/ihop-scary-face/02.webp
     alt: "Full Scary Face Pancakes landing page: \"Scary Face Pancakes are FREE today! Kids 12 and under\", video and Halloween downloads"
-    caption: "Landing page"
+    caption: "Landing Page"
     zoom: true
   - src: images/work/ihop-scary-face/03.webp
     alt: "\"The Legend of Scary Face Pancakes\" activity book: cover and coloring and maze pages"
-    caption: "Activity book"
+    caption: "Activity Book"
   - src: images/work/ihop-scary-face/04.webp
     alt: "Pumpkin cutout activity book with IHOP pumpkin-carving stencils"
-    caption: "Pumpkin cutout activity book"
+    caption: "Pumpkin Cutout Activity Book"
   - src: images/work/ihop-scary-face/05.webp
     alt: "Snapchat filter on a phone: skeleton hands and scary-face pancakes around a smiling girl"
-    caption: "Snapchat filter on phone"
+    caption: "Snapchat Filter on Phone"
 seoDescription: "IHOP Scary Face Pancakes: October homepage redesign, event hub, printable activity books, in-restaurant Snapchat filters and Waze ads to drive family visits."
-slugVerified: false
+keywords: ["Seasonal Campaign Strategy", "Digital Ecosystems", "Family Engagement", "Drive-to-Store Activation", "Snapchat Filters", "Waze Ads"]
+slugVerified: true
 ---
-
-## IHOP Scary Face Pancakes Campaign
 
 **Role:** Creative Direction & Digital Strategy Lead<br>
 **Core Domain:** Seasonal Campaign Strategy, Digital Ecosystems, Family Engagement, Drive-to-Store Activation<br>
 **User Journey Scope:** Full Funnel (Awareness → Engagement → Drive-to-Store & In-Restaurant Activation)
 
-## 1. Executive Summary
-
+## Executive Summary
 I directed the digital creative strategy and end-to-end execution for IHOP's annual October signature event, **Scary Face Pancakes**—a seasonal tradition inviting kids 12 and under to decorate their own pancakes in-restaurant. The strategic objective was to build massive nationwide awareness, drive urgency throughout the month, and convert digital engagement into physical restaurant visits and family dining traffic.
 
 By executing a complete web homepage redesign, developing a dedicated event hub, deploying dynamic urgency messaging, crafting downloadable activity assets, and executing location-gated social filters and rich media publisher placements, the campaign built high-value engagement for families while directly motivating visits to local IHOP locations.
 
-## 2. Core Entity & Skill Matrix
-
+## Technical & Professional Scope
 | Categorization | Details & Competencies |
 | --- | --- |
 | **Role & Focus** | Creative Direction & Digital Strategy (Digital & Social Campaigns, Family-Centric Engagement) |
 | **Domain Scope** | Seasonal Events, Web Ecosystem Overhauls, Social Activation, Drive-to-Store Navigation |
 | **Cross-Functional Stakeholders** | Marketing Strategy, Web Development, Paid Media, Social Content Teams |
-| **UX/UI & Creative Workflow** | Discovery, Concept Development, Web Redesign & Event Page Strategy, Video & Asset Production |
+| **UX/UI & Production Workflow** | Discovery, Concept Development, Web Redesign & Event Page Strategy, Video & Asset Production |
 | **Optimization & Mechanics** | Dynamic Month-Long Urgency Messaging, In-Restaurant Geo-Gating, Downloadable Engagement Assets, Upsell Strategy |
 | **Lifecycle Stages** | **Awareness** (Rich Media, Facebook Video, Email) → **Engagement** (Hub Page, Activity Downloads) → **Conversion** (In-Store Visits & Geo-Filters) |
 
-## 3. Key Initiatives & Strategic Impact
-
+## Key Initiatives & Strategic Impact
 ### A. Digital Hub & Dynamic Web Ecosystem
 
 - **Complete Homepage Redesign & Upsell Focus:** Redesigned the entire homepage experience for October to anchor the Scary Face Pancake event, using dynamic messaging that built increasing urgency as Halloween approached. The redesign was strategically structured to showcase and drive sales for secondary Limited Time Offer (LTO) food items alongside the core pancake event.
@@ -78,8 +74,7 @@ By executing a complete web homepage redesign, developing a dedicated event hub,
 - **Rich Media Ad Campaign:** Deployed high-impact rich media banner ads across high-profile digital publishers to capture broad audience attention and direct parents to the event landing page.
 - **Waze Location-Based Ads:** Partnered with **Waze** to display targeted navigation ads to nearby drivers, capturing mealtime intent and guiding families directly to their nearest IHOP restaurant.
 
-## 4. Workflows & Cross-Functional Governance
-
+## Workflows & Governance
 - **Strategic Campaign Alignment:** Translated annual promotional goals into a cohesive digital creative strategy designed to engage parents and children alike while driving secondary menu item sales.
 - **Web Ecosystem Development:** Led the visual design and UX structure for the complete homepage redesign and event hub, ensuring smooth integration with the core store locator tool.
 - **Asset & Content Production:** Oversaw production across multi-platform creative formats—including video, social GIFs, downloadable printables (coloring books/cutouts), and rich media banners.

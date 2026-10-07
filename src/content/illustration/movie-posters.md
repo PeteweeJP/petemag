@@ -3,7 +3,6 @@ title: "Movie Posters"
 client: "Personal"
 tile:
   label: "Illustration"
-  logo: images/illustration/movie-posters/logo.png
   subtitle: "Movie Posters"
   image: images/illustration/movie-posters/tile.jpg
 order: 3
@@ -17,5 +16,8 @@ media:
   - src: images/illustration/movie-posters/03.webp
     caption: "Major League"
     alt: "Major League minimalist poster: a Cleveland cap and Ricky Vaughn's glasses"
-slugVerified: false
+seoDescription: "Minimalist movie poster illustrations by Peter Magulak for Bill & Ted's Excellent Adventure, The Good, the Bad and the Ugly, and Major League."
+keywords: ["Illustration", "Minimalist Poster Design", "Vector Illustration"]
+slugVerified: true
 ---
+

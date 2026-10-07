@@ -1,12 +1,12 @@
 ---
 title: "American Heart Association Digital Redesign"
 client: "American Heart Association"
+headline: "Go Red for Women Digital Redesign & Brand Ecosystem"
 tile:
   label: "American Heart Association"
   subtitle: "Digital Redesign"
-  logo: images/work/american-heart-association/logo.png
   image: images/work/american-heart-association/tile.jpg
-role: "Art Director & Solo Lead Designer (UX/UI, Visual Design, Branding)"
+role: "Art Director & Solo Lead Designer"
 order: 23
 media:
   - src: images/work/american-heart-association/01.webp
@@ -20,25 +20,21 @@ media:
     alt: "Choose to Move program page: a 12-week physical activity program with sponsors and a sign-up call to action"
 seoDescription: "Art director and solo designer for the American Heart Association's Go Red for Women, Choose to Move and Start sites, brand guidelines and UI libraries."
 keywords: ["UX/UI Design", "Visual Design", "Brand Guidelines", "Component Libraries", "Healthcare", "Nonprofit", "Art Direction"]
-slugVerified: false
+slugVerified: true
 ---
 
-## American Heart Association — Go Red for Women Digital Redesign & Brand Ecosystem
-
-**Role:** Art Director & Solo Lead Designer (UX/UI, Visual Design, Branding)<br>
+**Role:** Art Director & Solo Lead Designer<br>
 **Core Domain:** Healthcare Digital Transformation, Multi-Channel Brand System, Photoshop Component Libraries & Campaign Ecosystems<br>
 **User Journey Scope:** Full Funnel (Awareness & Education → Digital Engagement & Storytelling → Advocacy & Cause Conversion)
 
-## 1. Executive Summary
-
+## Executive Summary
 As Art Director at Edelman for the American Heart Association (AHA) over a three-year tenure, I served as the sole lead designer responsible for the end-to-end UX architecture, visual design, and brand system across major national initiatives: **Go Red for Women**, **Choose to Move**, and **Start**.
 
 Cardiovascular disease is the single greatest health threat to women, claiming more lives than the next three most common causes of death combined—including all forms of cancer. Go Red for Women was created to launch a national health movement leveraging the energy, passion, and collective power of women to eradicate heart disease.
 
 Working as the hands-on designer across all digital touchpoints, I architected and designed narrative-first digital hubs and landing pages that put real women's stories at the forefront. These platforms supported national media efforts, including NBC documentaries and motivational online short films, driving actionable heart-healthy commitments. To maintain brand consistency across separate program websites, I authored comprehensive brand guidelines in InDesign and created structured Photoshop component libraries accompanied by redline spec documentation and detailed requirements for development execution.
 
-## 2. Core Entity & Skill Matrix
-
+## Technical & Professional Scope
 | Categorization | Details & Competencies |
 | --- | --- |
 | **Role & Focus** | Art Director & Lead Designer (100% Hands-On UX/UI, Visual Design, Branding, Spec Documentation) |
@@ -48,8 +44,7 @@ Working as the hands-on designer across all digital touchpoints, I architected a
 | **Impact & Reach** | **+20% Increase in National Awareness** (34% → 54%), **1.4M+ Active Cause Sign-ups**, **$100M+ Raised** for Life-Saving Research |
 | **Lifecycle Stages** | **Awareness** (National Broadcast & Digital Film Hubs) → **Education** (Real Women's Stories & Health Tools) → **Conversion** (Pledges & Program Sign-ups) → **Advocacy** (Community Action) |
 
-## 3. Key Initiatives & Strategic Impact
-
+## Key Initiatives & Strategic Impact
 ### A. Narrative-First Digital Hubs & Landing Page Architecture
 
 - **Storytelling Digital Hubs:** Hands-on designer for the primary digital destinations centering authentic women's heart health journeys, transforming narrative content into engaging digital experiences.
@@ -62,8 +57,7 @@ Working as the hands-on designer across all digital touchpoints, I architected a
 - **Modular Photoshop UI Libraries & Redlines:** Built organized UI component libraries directly in Photoshop and delivered developer-ready redline specifications and requirement documentation to ensure pixel-perfect engineering across all web builds.
 - **Multi-Program Portfolio Management:** Maintained visual distinction and brand coherence across three standalone program properties as the single designer leading all digital assets.
 
-## 4. Workflows & Production Standards
-
+## Workflows & Governance
 - **100% Solo Design Execution:** Handled all UX, visual design, layout creation, and brand specification independently without additional design staff or team management duties.
 - **Developer Hand-Off & Redline Specifications:** Authored clear requirement documentation and redline measurements to translate Photoshop comps into functional, high-performing websites.
 - **Cross-Channel Campaign Support:** Designed web destinations that mirrored offline, broadcast, and community-level awareness efforts across the three-year tenure.

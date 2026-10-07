@@ -39,7 +39,7 @@ export async function llmsFull(base: URL) {
     out.push(`## ${sections[s].title}`, '');
     for (const e of await getSection(s)) {
       const d = e.data;
-      out.push(`### ${d.title}`, '', `URL: ${abs(base, e.id)}`, `Client: ${d.client}`);
+      out.push(`### ${d.title}`, '', ...(d.headline ? [d.headline, ''] : []), `URL: ${abs(base, e.id)}`, `Client: ${d.client}`);
       if (d.role) out.push(`Role: ${d.role}`);
       if (d.keywords.length) out.push(`Skills: ${d.keywords.join(', ')}`);
       out.push('', ...plainParagraphs(e.body).flatMap((p) => [p, '']));

@@ -33,7 +33,7 @@ interface Props {
 }
 
 const { entry, section, entries, prev, next } = Astro.props;
-const { title, client, role, media, tile, keywords } = entry.data;
+const { title, client, headline, role, media, tile, keywords } = entry.data;
 const links = entry.data.links.filter((l) => l.url); // skip links whose URL is still a TODO
 const isCaseStudy = section !== 'illustration';
 const description = describe(entry);
@@ -70,13 +70,14 @@ const schema = [
       <a href={url(next.id)} rel="next" aria-label={`Next: ${next.data.title}`}>›</a>
     </nav>
     <div class="detail__text">
-      {/* Case studies mirror their tile: eyebrow = tile subtitle (e.g. ENTERPRISE, PARADISE PANCAKES),
-          big title = tile name (e.g. Comcast Business, IHOP). The full project title stays in the
-          browser tab, search results and structured data. Role appears in the copy ("Role: …").
+      {/* Case studies: eyebrow = the client (e.g. COMCAST BUSINESS, IHOP), big title = the headline
+          (what the project was, e.g. "Public Sector Web Redesign & Lead Generation Funnel Strategy"),
+          so every page has a unique, descriptive h1. The project title stays in the browser tab,
+          search results and structured data. Role appears in the copy ("Role: …").
           Illustration galleries keep their own title. hgroup ties eyebrow and title together. */}
       <hgroup class="detail__title">
-        {isCaseStudy && tile.subtitle && <p class="detail__eyebrow">{tile.subtitle}</p>}
-        <h1>{isCaseStudy ? tile.label : title}</h1>
+        {isCaseStudy && <p class="detail__eyebrow">{client}</p>}
+        <h1>{isCaseStudy ? (headline ?? title) : title}</h1>
       </hgroup>
       <div class="detail__body"><Content /></div>
       {links.length > 0 && (

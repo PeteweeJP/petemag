@@ -1,10 +1,10 @@
 ---
 title: "Comcast Business Public Sector"
 client: "Comcast Business"
+headline: "Public Sector Web Redesign & Lead Generation Funnel Strategy"
 tile:
   label: "Comcast Business"
   subtitle: "Public Sector"
-  logo: images/work/comcast-business-public-sector/logo.png
   image: images/work/comcast-business-public-sector/tile.jpg
 role: "Creative Director"
 order: 3
@@ -14,7 +14,7 @@ media:
     caption: "Design Discovery"
     alt: "Design discovery board: grey-box wireframes for the main, federal, education and state pages next to early high-fidelity page designs"
   - src: images/work/comcast-business-public-sector/02.jpg
-    caption: "Public Sector homepage"
+    caption: "Public Sector Homepage"
     alt: "Public Sector homepage: network transformation hero, Federal, State and Local, and Education entry cards, insights articles, digital equity partners and a consultation form"
     zoom: true
   - src: images/work/comcast-business-public-sector/03.jpg
@@ -39,47 +39,42 @@ media:
     zoom: true
 seoDescription: "Creative direction and UX/UI strategy for Comcast Business Public Sector: lead generation, global design systems, campaign integration and product storytelling."
 keywords: ["UX Strategy", "UI Design", "Lead Generation Funnels", "Global Design Systems", "B2B Product Storytelling", "Public Sector Web Redesign"]
-slugVerified: false
+slugVerified: true
 ---
-
-## Public Sector Web Redesign & Lead Generation Funnel Strategy
 
 **Role:** Creative Director<br>
 **Core Domain:** UX Strategy, UI Design, Content Storytelling, Global Design Systems, Lead Generation Funnels<br>
 **User Journey Scope:** Prospect to Lead Gen
 
 ## Executive Summary
-
 Led creative direction, UX strategy, and UI design teams to execute a comprehensive site redesign for Comcast Business Public Sector. Orchestrated cross-functional alignment across product, marketing, engineering, copywriting, research, and content build teams to pivot the public sector web experience toward high-converting lead generation, richer product storytelling, scalable design systems, and targeted marketing campaign integration.
 
 ## Technical & Professional Scope
-
 | Categorization | Details & Competencies |
 | --- | --- |
-| **Role & Expertise** | Creative Direction, UX/UI Design Leadership, Lead Generation Strategy, Experience Architecture |
-| **Cross-Functional Partners** | Product Management, Marketing, Copywriting, Web Engineering, UX Research, Content Build Teams |
-| **Target Audience & Segment** | Public Sector Organizations, Government Accounts, B2B Decision Makers |
-| **Core Delivery Lifecycle** | Discovery → Content Strategy & Storytelling → UX/UI Redesign → Component Build → Gating Strategy → Production & Launch |
+| **Role & Focus** | Creative Direction, UX/UI Design Leadership, Lead Generation Strategy, Experience Architecture |
+| **Cross-Functional Stakeholders** | Product Management, Marketing, Copywriting, Web Engineering, UX Research, Content Build Teams |
+| **Target Audience** | Public Sector Organizations, Government Accounts, B2B Decision Makers |
+| **Lifecycle Stages** | Discovery → Content Strategy & Storytelling → UX/UI Redesign → Component Build → Gating Strategy → Production & Launch |
 | **Specialized Initiatives** | Public Sector Segment Pages, Global Design Systems, Campaign Landing Experiences (PGA Sponsorships, Cybersecurity Month), Gated Content Architecture |
 
-## Strategic Responsibilities & Execution
-
-### 1. Public Sector Product Storytelling & Content Redesign
+## Key Initiatives & Strategic Impact
+### A. Public Sector Product Storytelling & Content Redesign
 
 - Re-architected page narrative structures across the public sector site to clearly articulate complex B2B products, managed services, and industry solutions.
 - Collaborated with UX research and copywriting teams to transform technical product specifications into benefit-driven, digestible user journeys that guide prospective public sector buyers.
 
-### 2. Cross-Functional Execution, Design Systems & Component Build
+### B. Cross-Functional Execution, Design Systems & Component Build
 
 - Directed multidisciplinary teams (UX/UI designers, researchers, copywriters, developers, and content build specialists) within an agile deployment model.
 - Led global design system initiatives, overseeing the conceptualization, design, and technical build of scalable UI components to streamline site updates and maintain public sector brand consistency.
 
-### 3. Public Sector & Campaign Ecosystem Integration
+### C. Public Sector & Campaign Ecosystem Integration
 
 - Built tailored web experiences dedicated to the Public Sector segment, addressing regulatory and specialized organizational requirements.
 - Led creative design for major integrated marketing campaigns, including PGA Golf sponsorship integrations and thematic initiatives such as Cybersecurity Awareness Month.
 
-### 4. Lead Generation & Gated Content Strategy
+### D. Lead Generation & Gated Content Strategy
 
 - Designed high-converting lead generation funnels across public sector product lines, balancing friction-free discovery with strategic content gating.
 - Partnered with marketing and research teams to define gated asset placement (e.g., whitepapers, solution briefs, case studies) to capture high-intent B2B sales leads.

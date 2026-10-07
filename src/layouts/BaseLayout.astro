@@ -68,12 +68,9 @@ const jsonLd = toJsonLd([
     <link rel="icon" href={url('favicon-192.png')} type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href={url('apple-touch-icon.png')} />
     <link rel="sitemap" href={url('sitemap-index.xml')} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap"
-    />
+    <!-- Fonts are served from this site (see @font-face in global.css); preloading starts them early -->
+    <link rel="preload" href={url('fonts/inter-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={url('fonts/archivo-black-400-latin.woff2')} as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json" is:inline set:html={jsonLd} />
   </head>
   <body class:list={{ 'has-sticky-header': header }}>

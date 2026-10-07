@@ -2,6 +2,29 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-10-05
+- Comcast Business Public Sector: tile photo from Pete's U.S. Capitol cover image. Every tile now has a photo.
+- IHOP Fresh Market: tile photo from Pete's strawberry cover image.
+- Expo TV tile label now "Expo TV" (matches the page eyebrow). IHOP Cheesecake Stuffed French Toast: tile photo from Pete's new cover image.
+- Case-study headings: the eyebrow is now the client (e.g. COMCAST BUSINESS) and the big title is the project headline (e.g. "Public Sector Web Redesign & Lead Generation Funnel Strategy"), so every page has a unique, descriptive h1. Headlines approved by Pete (client name dropped, ~60 characters max; new AR headlines so IHOP and Ben & Jerry's don't share one); moved from the copy to a new `headline` field. Expo's client is now "Expo TV". Title size 22–30px. Template, drafts, publish-drafts skill, CLAUDE.md, content README and decisions updated.
+- The Landing Page screenshot moved from Comcast Business Mobile to Comcast Business (Small Business), right under SB Homepage; both pages' images renumbered.
+- 404 links: fixed a stray underline under the orange hover bar (the links weren't picking up the nav's no-underline rule).
+- 404 page redesigned: case-study-style "Page Not Found" heading with a short explanation, the main sections as large links (orange hover bar like the nav) and the Work tiles below. Squarespace's /landing and /prints-flatiron pages were not moved over and now land here.
+- Names aligned: Contest title "IHOP Eat Up Every Moment Contest" (was "My IHOP Moment Contest Campaign"); tile lines "Menu Photography" (was "Menu Photoshoot") and "UX & E-Commerce" for Xfinity Mobile (was "Product Launches").
+- Speed: images now come in phone/tablet sizes (640/960/1200px WebP copies made at build; desktop and zoom still get the originals); the first image on each case study loads immediately; videos are click-to-play stills (the ~1 MB player loads only when pressed); fonts are served from the site instead of Google (CSP tightened). Holiday's square Pancakes video gets a square frame.
+- Cleanup: removed 8 empty "Website" links, 26 references to logo files that don't exist (tiles keep their text names), and an unused style. All page addresses marked verified.
+- Image labels: all 230 in Title Case; short labels added to the Ben & Jerry's AR and Facebook Canvas videos. Search descriptions: three brought into the 140–160 range; added for the four illustration galleries. Skills added for Fresh Market, Scary Face and the illustration galleries (from each page's own Core Domain).
+- 18 Squarespace case-study addresses (e.g. /ddft, /euem, /aha) now forward to the new descriptive addresses, so old links and search results keep working after the domain switch. Listed in docs/seo.md.
+- Comcast Business Global Design System: tile photo cropped from the primary-button-on-gradient spec.
+- Comcast Business (Small Business): "SB Homepage" (Internet for Small Business page) added as the first image; the other three move down one.
+- Comcast Business (Small Business): three screens replace the five empty slots: Wireless Connect desktop, Wireless Connect mobile (a 10,000px-tall phone screenshot split into four side-by-side columns) and Dedicated Internet. Enterprise: Business Internet (06), Unified Communications (07) and Sports & Entertainment (09) replaced with Pete's updated screens. Originals and replaced files in MySite-originals/2026-10-05-images.
+- Tiles: the screen-reader link name no longer repeats the client when the title already includes it (was "IHOP Ecommerce Redesign (IHOP)").
+- Page titles made consistent: every IHOP case study now starts with "IHOP" (e.g. "IHOP Paradise Pancakes Campaign"), "Scary Face Pancake" → "Pancakes" to match its copy, Cheesecake Stuffed French Toast drops "Campaign" to stay within 60 characters, and "Comcast Business" → "Comcast Business Small Business" to match its siblings. URLs unchanged.
+- Case-study copy made consistent across all 30 pages: section headings unnumbered and identical (Executive Summary, Technical & Professional Scope, Key Initiatives & Strategic Impact, Workflows & Governance); initiatives lettered A/B/C; table row labels unified; "IHOP —"-style dashes dropped from headlines; curly apostrophes made straight; "UI/UX" → "UX/UI", "Twitter/X" → "Twitter". Template, CLAUDE.md and content README updated.
+- Roles trimmed to their short form on 11 case studies (the parenthetical skill lists stay in each page's Role & Focus table row).
+- Pete's case-study copy on the last seven pages with audit placeholders: Expo TV, Latte Lover's, Paradise, IHOP Contest (Eat Up Every Moment), Menu Photography, Ben & Jerry's and Xfinity Mobile (first copy and role). Roles updated to match; search descriptions and skills added; drafts marked published.
+- Illustration: tile photos for Lebowski, Marvel, Misc and Movie Posters, each a side-by-side strip of that gallery's posters.
+
 ## 2026-10-04
 - ExpoTV: nine images (homepage, three promo banners, P&G ad, logo construction and three color variants). IHOP Contest: the three contest phases (enter, voting closed, winners).
 - Ben & Jerry's: four games (Flipped Out, Pint Defenders, board designer, Perfect Mooove). Latte Lover's: homepage, landing page, mobile, banner ads and a hearts social-ad loop; "combo module" and "email" placeholders removed (no files). Paradise: 10 images (mockups, homepage, landing page, three heroes, Breakfastarian page, two Snapchat filters) and two GIF loops. Originals in MySite-originals/2026-10-04-images.

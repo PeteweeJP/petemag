@@ -3,7 +3,6 @@ title: "The Big Lebowski"
 client: "Personal"
 tile:
   label: "Illustration"
-  logo: images/illustration/lebowski/logo.png
   subtitle: "Lebowski"
   image: images/illustration/lebowski/tile.jpg
 order: 2
@@ -20,5 +19,8 @@ media:
   - src: images/illustration/lebowski/04.webp
     caption: "Jesus"
     alt: "Jesus in purple, licking a bowling ball, in an ornate bowling-themed frame"
-slugVerified: false
+seoDescription: "Illustrated character posters from The Big Lebowski by Peter Magulak: The Dude, Walter, Donny and Jesus, each in an ornate bowling-alley frame."
+keywords: ["Illustration", "Character Design", "Poster Design", "Vector Illustration"]
+slugVerified: true
 ---
+

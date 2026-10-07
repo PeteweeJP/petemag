@@ -3,7 +3,6 @@ title: "Misc. Work"
 client: "Personal"
 tile:
   label: "Illustration"
-  logo: images/illustration/misc/logo.png
   subtitle: "Misc."
   image: images/illustration/misc/tile.jpg
 order: 4
@@ -17,5 +16,8 @@ media:
   - src: images/illustration/misc/03.webp
     caption: "William Murderface"
     alt: "William Murderface from Metalocalypse in a dark forest"
-slugVerified: false
+seoDescription: "Illustrations by Peter Magulak: a Chuck comic-book cover parody, a black-and-white Johnny Cash poster, and William Murderface from Metalocalypse."
+keywords: ["Illustration", "Poster Design", "Comic Art", "Vector Illustration"]
+slugVerified: true
 ---
+

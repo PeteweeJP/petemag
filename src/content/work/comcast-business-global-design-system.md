@@ -1,10 +1,10 @@
 ---
 title: "Comcast Business Global Design System"
 client: "Comcast Business"
+headline: "Global Design System (GDS)"
 tile:
   label: "Comcast Business"
   subtitle: "Global Design System"
-  logo: images/work/comcast-business-global-design-system/logo.png
   image: images/work/comcast-business-global-design-system/tile.jpg
 role: "Creative Director"
 order: 5
@@ -57,34 +57,29 @@ media:
     zoom: true
 seoDescription: "Creative direction and governance for the Comcast Business Global Design System: token architecture, atomic components and agentic AI workflow research."
 keywords: ["Design Systems", "Design Tokens", "Figma", "Atomic Design", "Agentic AI Workflows", "Design Governance", "Creative Direction"]
-slugVerified: false
+slugVerified: true
 ---
-
-## Comcast Business Global Design System (GDS)
 
 **Role:** Creative Director<br>
 **Core Domain:** Global Design Systems, Agentic AI Workflows, Enterprise Governance, Multi-Channel Cohesion<br>
 **User Journey Scope:** Full Funnel (Learn → Buy → Get across all Dotcom & Digital Touchpoints)
 
-## 1. Executive Summary
-
+## Executive Summary
 As Creative Director, I lead the strategy, architecture, and cross-functional governance of the Comcast Business Global Design System (GDS)—the single source of truth across the enterprise digital ecosystem. Built natively in Figma and deployed across the dotcom space, the GDS establishes strict design, interaction, and technical standards to ensure visual cohesion across rapid campaign rollouts and major product launches.
 
 To solve enterprise-scale design and code drift across local, cross-functional, and offshore teams, I spearheaded research into evolving AI agentic workflows. By exploring how Figma, design token architecture, and code connectors integrate within a broader agentic process, this research aims to streamline token propagation—spanning semantic layers, color palettes, typography, and atomic/component design builds—while establishing unified governance across UX, UI, Copy, Development, Engineering, Brand, Sales, Merchandising, and third-party marketing vendors.
 
-## 2. Core Entity & Skill Matrix
-
+## Technical & Professional Scope
 | Categorization | Details & Competencies |
 | --- | --- |
 | **Role & Focus** | Creative Director (Global Design Systems, Digital Strategy, Agentic AI Research & Governance) |
 | **Domain Scope** | Enterprise Web Ecosystem, Multi-Team Operations, Token Architecture, Component Engineering |
 | **Cross-Functional Stakeholders** | In-House UX/UI Team, Engineering, Web Dev, Copy, Brand, Sales, Merchandising, Outside Marketing Vendors |
-| **UX/UI & Systems Workflow** | Figma Token Management, Semantic Layering, Atomic Design, AI Agentic Research, Design QA |
+| **UX/UI & Production Workflow** | Figma Token Management, Semantic Layering, Atomic Design, AI Agentic Research, Design QA |
 | **Optimization & Mechanics** | Single Source of Truth, Figma-to-Code Token Sync Research, Drift Reduction, Multi-Team Adoption |
 | **Lifecycle Stages** | **Learn** (Marketing & Campaigns) → **Buy** (E-Commerce & Digital Sales) → **Get** (Onboarding & Account Experience) |
 
-## 3. Key Initiatives & Strategic Impact
-
+## Key Initiatives & Strategic Impact
 ### A. AI Agentic Workflow Research & Drift Reduction Focus
 
 - **Figma-to-Code Token Research:** Spearheaded research into automated Figma and code connectors within a broader agentic process workflow, evaluating programmatic synchronization of design tokens across design and production environments.
@@ -97,8 +92,7 @@ To solve enterprise-scale design and code drift across local, cross-functional, 
 - **Atomic Design Methodology:** Governed component architecture from base atomic elements to complex, responsive UI assemblies, supporting both quick-turn marketing initiatives and core platform features.
 - **Dotcom Brand Cohesion:** Standardized UI patterns across the full user journey to guarantee consistent brand identity across all Comcast Business digital properties.
 
-## 4. Workflows & Cross-Functional Governance
-
+## Workflows & Governance
 - **System Strategy & Architecture:** Defined token models, semantic rules, and component structures in Figma to serve as the single enterprise source of truth.
 - **In-House UX/UI & Engineering Alignment:** Partnered closely with internal product design and engineering leads to validate component mechanics, technical feasibility, and token deployment.
 - **Agentic Process Exploration:** Led forward-looking research into AI agents and connectors bridging design files, code repositories, and documentation.
