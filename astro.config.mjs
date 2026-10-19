@@ -41,18 +41,19 @@ export default defineConfig({
     csp: {
       directives: [
         "default-src 'self'",
-        "img-src 'self' data:",
+        // Google Analytics: the tag (googletagmanager.com) and its hit beacons (google-analytics.com).
+        "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com",
         "font-src 'self'",
         // hCaptcha (contact form) needs its own domains; don't pin subdomains (per hCaptcha docs).
         'frame-src https://player.vimeo.com https://www.youtube-nocookie.com https://hcaptcha.com https://*.hcaptcha.com',
-        "connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com",
+        "connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
         "object-src 'none'",
         "base-uri 'self'",
         "form-action 'self' https://api.web3forms.com",
         'upgrade-insecure-requests',
       ],
       styleDirective: { resources: ["'self'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'] },
-      scriptDirective: { resources: ["'self'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'] },
+      scriptDirective: { resources: ["'self'", 'https://hcaptcha.com', 'https://*.hcaptcha.com', 'https://www.googletagmanager.com'] },
     },
   },
 });

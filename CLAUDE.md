@@ -21,7 +21,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 | Editing a case study's text, role, links or image list | `src/content/<work\|apps\|illustration>/<slug>.md` |
 | Content fields (frontmatter schema) | `src/content.config.ts`, explained in `src/content/README.md` |
 | Adding image files | `public/images/<section>/<slug>/` (see `public/images/README.md`) |
-| Name, tagline, nav, email, LinkedIn, indexing on/off | `src/data/site.ts` |
+| Name, tagline, nav, email, LinkedIn, indexing on/off, Google Analytics ID | `src/data/site.ts` (analytics loader: `src/components/Analytics.astro`; its domains are in the CSP) |
 | Home page (switchable designs) | `src/components/home/` (see its README); pick one in `src/data/site.ts` → `home` |
 | Home background video (files, player, pause button) | `public/images/home/home-loop.*`, `src/components/home/HomeSplit.astro` |
 | Pete's photo (About Me page, structured data) | `public/images/about/portrait.jpg`, `site.portrait` in `src/data/site.ts` |

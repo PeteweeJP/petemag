@@ -1,0 +1,25 @@
+---
+// Google Analytics 4 (measurement ID in src/data/site.ts → analytics). Loaded as a bundled
+// script so the site's security policy (CSP) allows it; Google's domains are listed in
+// astro.config.mjs. Runs only on the published site, so local previews don't count as visits.
+---
+<script>
+  import { site } from '../data/site';
+
+  const id = site.analytics.gaMeasurementId;
+  if (import.meta.env.PROD && id) {
+    const w = window as unknown as { dataLayer: unknown[]; gtag: (...args: unknown[]) => void };
+    w.dataLayer = w.dataLayer || [];
+    // gtag must push the `arguments` object itself, not an array copy (that's how Google's snippet works).
+    w.gtag = function () {
+      // eslint-disable-next-line prefer-rest-params
+      w.dataLayer.push(arguments);
+    };
+    w.gtag('js', new Date());
+    w.gtag('config', id);
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+    document.head.append(tag);
+  }
+</script>

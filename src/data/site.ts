@@ -13,6 +13,8 @@ export const site = {
   portrait: 'images/about/portrait.jpg',
   portraitAlt: 'Peter Magulak, smiling, in a grey knit beanie and a denim jacket',
   email: 'pete@petemag.com',
+  // Google Analytics 4. The measurement ID is public (it's in every page). Empty = no analytics.
+  analytics: { gaMeasurementId: 'G-ZDERRGQGG4' },
   // Contact form (Web3Forms). The access key comes from web3forms.com (sign up with pete@petemag.com);
   // it's designed to be public. Leave it empty to hide the form. The hCaptcha key is Web3Forms'
   // free-plan key (docs.web3forms.com → hCaptcha).

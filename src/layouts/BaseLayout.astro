@@ -2,6 +2,7 @@
 import '../styles/tokens.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
+import Analytics from '../components/Analytics.astro';
 import { site } from '../data/site';
 import { url, pagePath } from '../lib/url';
 import { hasAsset } from '../lib/content';
@@ -72,6 +73,7 @@ const jsonLd = toJsonLd([
     <link rel="preload" href={url('fonts/inter-latin.woff2')} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={url('fonts/archivo-black-400-latin.woff2')} as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json" is:inline set:html={jsonLd} />
+    <Analytics />
   </head>
   <body class:list={{ 'has-sticky-header': header }}>
     <a class="skip-link" href="#main">Skip to content</a>
