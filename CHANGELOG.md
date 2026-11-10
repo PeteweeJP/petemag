@@ -2,6 +2,9 @@
 
 Plain-language log of meaningful changes. Newest first. Git has the details; this says *what* and *why*.
 
+## 2026-11-10
+- GitHub is back (account restored). Its workflow now only checks each push (type check, build, audit) and no longer publishes to GitHub Pages; Cloudflare is the only host. GitHub keeps the code as a backup again.
+
 ## 2026-10-19
 - Google Analytics 4 (G-ZDERRGQGG4) on every page, live site only. Loaded as a bundled script so the security policy allows it; Google's tag and beacon domains added to the CSP.
 

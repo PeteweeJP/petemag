@@ -1,6 +1,6 @@
 # petemag.com rebuild
 
-Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site hosted on **Cloudflare** (Workers static assets, free plan), live at **https://petemag.com** since 2026-10-07 (DNS on Cloudflare; domain still registered at Squarespace Domains; backup address https://petemag.petemag.workers.dev). The code's GitHub home is `github.com/PeteweeJP/petemag`, but GitHub flagged the account on 2026-10-05 (repo and old GitHub Pages site hidden), so commits stay local until it's restored.
+Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuilding the Squarespace site at petemag.com as a static **Astro** site hosted on **Cloudflare** (Workers static assets, free plan), live at **https://petemag.com** since 2026-10-07 (DNS on Cloudflare; domain still registered at Squarespace Domains; backup address https://petemag.petemag.workers.dev). The code's GitHub home is `github.com/PeteweeJP/petemag` (backup; account restored 2026-11-10). Its workflow only checks pushes; it doesn't publish.
 
 **Status:** scaffold stage. The current site is migrated as-is; the visual design direction isn't chosen yet. See `docs/decisions.md` for what's settled and `CHANGELOG.md` for what changed.
 
@@ -10,7 +10,7 @@ Portfolio site for Peter Magulak (Creative Director, Experience Design). Rebuild
 |---|---|
 | Routines: publish drafts, add images, release | Skills in `.claude/skills/` (`/publish-drafts`, `/add-images`, `/release`). Follow them. |
 | Independent pre-release review | `.claude/agents/petemag-reviewer.md` (read-only) |
-| Quality checks on the built site | `npm run audit` → `scripts/audit.mjs` (also runs in CI) |
+| Quality checks on the built site | `npm run audit` → `scripts/audit.mjs` (also runs on every push via `.github/workflows/deploy.yml`, now named Check) |
 | How Pete edits images, copy, fonts and publishes (his reference guide) | `docs/how-to-edit.md`. Keep it current when workflows change |
 | What the old site looked like / what's on each page | `docs/reference/petemag-site-overview.md` (source of truth for migrated content) |
 | Why something was decided | `docs/decisions.md` |
@@ -78,4 +78,4 @@ Running `npm run build` while the dev server is up can leave the preview serving
 
 Don't delete `.astro/` while the dev server is running: it holds the content cache and the server's status file, so pages 404 and `astro dev status` loses track. If you must, restart the server afterwards (`kill` its pid, then `npm run dev`).
 
-Publishing = `npm run build && npm run audit && npm run deploy` (the `/release` skill). The GitHub Actions workflow is kept for if/when the GitHub account is restored.
+Publishing = `npm run build && npm run audit && npm run deploy` (the `/release` skill), then `git push` as a backup (GitHub's workflow re-runs the checks).

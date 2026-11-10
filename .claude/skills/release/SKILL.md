@@ -41,7 +41,7 @@ MSG
 
 Commits are signed as Peter Magulak with the GitHub noreply address (repo-local git config). Don't change it.
 
-**GitHub backup:** as of 2026-10-05 GitHub has flagged Pete's account (profile, repo and old Pages site return 404 publicly). Check `curl -s -o /dev/null -w "%{http_code}" https://github.com/PeteweeJP/petemag`; only if it's `200`, also run `GIT_TERMINAL_PROMPT=0 git push` as a backup. If the push fails on authentication, don't retry: point Pete to `docs/how-to-edit.md` → "Renewing the token".
+**GitHub backup:** after deploying (step 4), run `GIT_TERMINAL_PROMPT=0 git push`. GitHub's Check workflow re-runs the type check, build and audit; it doesn't publish. If the push fails on authentication, don't retry: point Pete to `docs/how-to-edit.md` → "Renewing the token". If github.com/PeteweeJP returns 404 again, the account has been flagged; skip the push and tell Pete.
 
 ## 4. Deploy to Cloudflare
 

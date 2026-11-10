@@ -184,7 +184,7 @@ The site is hosted on **Cloudflare** (free plan) and updates within seconds at h
 **Cloudflare login expired, or "not logged in"?** Run `npx wrangler login` in `~/Desktop/MySite`, click **Allow** on the Cloudflare page that opens, then publish again. To remove this Mac's access: Cloudflare dashboard → My Profile → API Tokens.
 
 ### GitHub (backup copy of the code)
-Until 2026-10-05 the site was hosted on GitHub Pages. GitHub flagged the account, so the repository and the old preview (peteweejp.github.io/petemag) are hidden. Commits are saved on this Mac; once GitHub restores the account, `git push` copies them back up as a backup. The rest of this section only matters for pushing to GitHub.
+The site used to be hosted on GitHub Pages. Now GitHub just keeps a backup of the code: after each publish, `git push` copies the commits up, and GitHub's **Check** workflow re-runs the site checks (it doesn't publish anything). The rest of this section only matters for pushing to GitHub.
 
 **Push problems**
 | Symptom | Fix |
@@ -217,7 +217,7 @@ The token is a fine-grained token that can only touch the `petemag` repo. Your M
 ### What's backed up where
 | What | Backed up by |
 |---|---|
-| Site content, code, `CLAUDE.md`, this guide | Your Mac (commits); GitHub again once the account is restored (`git push`) |
+| Site content, code, `CLAUDE.md`, this guide | Your Mac (commits) and GitHub (every push) |
 | Copy drafts (`drafts/`) and planning docs: `docs/reference/`, `docs/design/`, `decisions.md`, `brand-voice.md`, `seo.md` | **Only your Mac.** Keep a zip copy somewhere else. |
 | Images in `public/images/` | Same as above. The live copy on Cloudflare isn't a backup |
 
